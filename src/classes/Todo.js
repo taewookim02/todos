@@ -17,5 +17,9 @@ class Todo {
     this.isComplete = isComplete;
   }
 
+  AddCheckList() {
+    // should be able to add a checklist
+  }
+
   // should be able to create
 }
