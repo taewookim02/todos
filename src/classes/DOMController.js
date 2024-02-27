@@ -1,4 +1,8 @@
 export class DOMController {
+  // static variables
+  static overlayModal = null;
+  static projectModal = null;
+
   // render page structure
   static renderPage() {
     const content = document.querySelector("#content");
@@ -26,18 +30,34 @@ export class DOMController {
     });
 
     DOMController.renderModal(container);
+
+    projectBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      DOMController.toggleModal();
+    });
+
+    DOMController.overlayModal.addEventListener(
+      "click",
+      DOMController.toggleModal
+    );
+    DOMController.projectModal
+      .querySelector(".project__close")
+      .addEventListener("click", (e) => {
+        e.preventDefault();
+        DOMController.toggleModal();
+      });
   }
 
   static renderModal(container) {
     // modal overlay
-    const overlayModal = document.createElement("div");
-    overlayModal.classList.add("modal__overlay");
-    container.appendChild(overlayModal);
+    DOMController.overlayModal = document.createElement("div");
+    DOMController.overlayModal.classList.add("modal__overlay");
+    container.appendChild(DOMController.overlayModal);
 
     // project modal
-    const projectModal = document.createElement("div");
-    projectModal.classList.add("project__modal");
-    projectModal.innerHTML = `
+    DOMController.projectModal = document.createElement("div");
+    DOMController.projectModal.classList.add("project__modal");
+    DOMController.projectModal.innerHTML = `
   <form class="project__form">
     <h2>Add Project</h2>
     <button class="project__close">X</button>
@@ -45,7 +65,18 @@ export class DOMController {
     <button class="project__submit">Submit</button>
   </form>
 `;
-    container.appendChild(projectModal);
+
+    // initially hidden
+    DOMController.overlayModal.style.display = "none";
+    DOMController.projectModal.style.display = "none";
+
+    container.appendChild(DOMController.projectModal);
+  }
+
+  static toggleModal() {
+    const isHidden = DOMController.projectModal.style.display === "none";
+    DOMController.projectModal.style.display = isHidden ? "block" : "none";
+    DOMController.overlayModal.style.display = isHidden ? "block" : "none";
   }
 
   // render all projects
