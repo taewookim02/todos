@@ -1,24 +1,13 @@
-class Todo {
-  constructor(
-    title,
-    description,
-    dueDate,
-    priority,
-    notes,
-    checkList,
-    isComplete
-  ) {
+export class Todo {
+  constructor(id, title, description, dueDate, priority, notes, isComplete) {
+    this.id = id;
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
     this.notes = notes;
-    this.checkList = checkList;
     this.isComplete = isComplete;
-  }
-
-  AddCheckList() {
-    // should be able to add a checklist
+    this.checkList = [];
   }
 
   // should be able to create
