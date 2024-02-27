@@ -3,6 +3,7 @@ export class Project {
     this.id = id;
     this.name = name;
     this.todos = [];
+    // setting a date for the project
   }
 
   addTodo(todo) {
@@ -20,4 +21,6 @@ export class Project {
   removeTodoById(id) {
     this.todos = this.todos.filter((todo) => todo.id !== id);
   }
+
+  // todo completion percentage (%)
 }
