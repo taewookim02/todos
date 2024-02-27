@@ -3,6 +3,7 @@ import { Project } from "./classes/Project";
 import { Todo } from "./classes/Todo";
 import { DOMController } from "./classes/DOMController";
 import uniqid from "uniqid";
+import css from "./styles.css";
 
 const projects = new Projects();
 const project1 = new Project(uniqid(), "Project 1");
@@ -19,3 +20,4 @@ const todo1 = new Todo(
 DOMController.renderPage();
 projects.addProject(project1);
 project1.addTodo(todo1);
+DOMController.renderProjects(projects.getProjects());
