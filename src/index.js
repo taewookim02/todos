@@ -21,3 +21,11 @@ DOMController.renderPage();
 projects.addProject(project1);
 project1.addTodo(todo1);
 DOMController.renderProjects(projects.getProjects());
+// read projects
+// projects = SELECT * FROM projects;
+
+// projects.forEach(project => {
+//   render project
+//   DOMController.renderProject(project);
+// })
+// add project to projects
