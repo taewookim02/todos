@@ -42,3 +42,16 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
+
+.project__form {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  grid-template-rows: min-content min-content;
+  align-items: center;
+}
+
+.project__close {
+  width: min-content;
+  height: min-content;
+  justify-self: end;
+}
