@@ -108,7 +108,4 @@ export class DOMController {
       projectsContainer.appendChild(projectDiv);
     });
   }
-
-  // add project
-  static addProject() {}
 }
