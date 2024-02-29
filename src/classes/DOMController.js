@@ -29,6 +29,15 @@ export class DOMController {
       e.preventDefault();
     });
 
+    // add todo button
+    const todoBtn = document.createElement("button");
+    todoBtn.classList.add("todo__btn");
+    todoBtn.textContent = "+";
+    content.appendChild(todoBtn);
+    todoBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+
     DOMController.renderModal(container);
 
     projectBtn.addEventListener("click", (e) => {
@@ -48,6 +57,26 @@ export class DOMController {
       });
   }
 
+  static addButton() {
+    // add project button
+    const projectBtn = document.createElement("button");
+    projectBtn.classList.add("project__btn");
+    projectBtn.textContent = "+";
+    header.appendChild(projectBtn);
+    projectBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+
+    // add todo button
+    const todoBtn = document.createElement("button");
+    todoBtn.classList.add("todo__btn");
+    todoBtn.textContent = "+";
+    content.appendChild(todoBtn);
+    todoBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+  }
+
   static renderModal(container) {
     // modal overlay
     DOMController.overlayModal = document.createElement("div");
@@ -60,7 +89,7 @@ export class DOMController {
     DOMController.projectModal.innerHTML = `
     <form class="project__form">
       <h2>Add Project</h2>
-      <button class="project__close">X</button>
+      <a class="project__close">&times;</a>
       <input type="text" id="project__name" name ="project__name" class="project__name" placeHolder="Project Name:" />
       <button class="project__submit">Submit</button>
     </form>
@@ -73,12 +102,23 @@ export class DOMController {
     container.appendChild(DOMController.projectModal);
   }
 
-  static acceptForm(callback) {
-    const projectForm =
-      DOMController.projectModal.querySelector(".project__form");
-    projectForm.addEventListener("submit", (e) => {
+  // static acceptForm(callback) {
+  //   const projectForm =
+  //     DOMController.projectModal.querySelector(".project__form");
+  //   projectForm.addEventListener("submit", (e) => {
+  //     e.preventDefault();
+  //     const projectName = projectForm.querySelector(".project__name").value;
+  //     if (projectName) {
+  //       callback(projectName);
+  //       DOMController.toggleModal();
+  //     }
+  //   });
+  // }
+  static acceptForm(callback, formClass, inputClass) {
+    const form = document.querySelector(formClass);
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const projectName = projectForm.querySelector(".project__name").value;
+      const projectName = form.querySelector(inputClass).value;
       if (projectName) {
         callback(projectName);
         DOMController.toggleModal();
@@ -87,6 +127,7 @@ export class DOMController {
   }
 
   static toggleModal() {
+    //TODO: refactor this to accept modal name
     const isHidden = DOMController.projectModal.style.display === "none";
     DOMController.projectModal.style.display = isHidden ? "block" : "none";
     DOMController.overlayModal.style.display = isHidden ? "block" : "none";

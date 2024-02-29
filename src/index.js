@@ -32,9 +32,16 @@ DOMController.renderPage();
 DOMController.renderProjects(projects.getProjects());
 
 // add project
-DOMController.acceptForm((projectName) => {
-  const newProject = new Project(uniqid(), projectName);
-  projects.addProject(newProject);
-  DOMController.renderProjects(projects.getProjects());
-  console.log(newProject);
-});
+DOMController.acceptForm(
+  (projectName) => {
+    const newProject = new Project(uniqid(), projectName);
+    projects.addProject(newProject);
+    DOMController.renderProjects(projects.getProjects());
+    console.log(newProject);
+  },
+  ".project__form",
+  ".project__name"
+);
+
+// TODO: accept todo form
+// DOMController.acceptForm();
