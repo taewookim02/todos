@@ -58,12 +58,12 @@ export class DOMController {
     DOMController.projectModal = document.createElement("div");
     DOMController.projectModal.classList.add("project__modal");
     DOMController.projectModal.innerHTML = `
-  <form class="project__form">
-    <h2>Add Project</h2>
-    <button class="project__close">X</button>
-    <input type="text" class="project__name" placeHolder="Project Name:" />
-    <button class="project__submit">Submit</button>
-  </form>
+    <form class="project__form">
+      <h2>Add Project</h2>
+      <button class="project__close">X</button>
+      <input type="text" id="project__name" name ="project__name" class="project__name" placeHolder="Project Name:" />
+      <button class="project__submit">Submit</button>
+    </form>
 `;
 
     // initially hidden
@@ -73,10 +73,28 @@ export class DOMController {
     container.appendChild(DOMController.projectModal);
   }
 
+  static acceptForm(callback) {
+    const projectForm =
+      DOMController.projectModal.querySelector(".project__form");
+    projectForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const projectName = projectForm.querySelector(".project__name").value;
+      if (projectName) {
+        callback(projectName);
+        DOMController.toggleModal();
+      }
+    });
+  }
+
   static toggleModal() {
     const isHidden = DOMController.projectModal.style.display === "none";
     DOMController.projectModal.style.display = isHidden ? "block" : "none";
     DOMController.overlayModal.style.display = isHidden ? "block" : "none";
+
+    // reset form
+    const projectForm =
+      DOMController.projectModal.querySelector(".project__form");
+    projectForm.reset();
   }
 
   // render all projects
@@ -91,5 +109,6 @@ export class DOMController {
     });
   }
 
-  // TODO: Add
+  // add project
+  static addProject() {}
 }

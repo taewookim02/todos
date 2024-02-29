@@ -5,9 +5,11 @@ import { DOMController } from "./classes/DOMController";
 import uniqid from "uniqid";
 import css from "./styles.css";
 
+// defining projects
 const projects = new Projects();
 const project1 = new Project(uniqid(), "Project 1");
-console.log(project1);
+
+// example todo
 const todo1 = new Todo(
   uniqid(),
   "Todo 1",
@@ -17,15 +19,19 @@ const todo1 = new Todo(
   "Notes... 1",
   false
 );
-DOMController.renderPage();
+
+// adding todo/project to project/projects
 projects.addProject(project1);
 project1.addTodo(todo1);
-DOMController.renderProjects(projects.getProjects());
-// read projects
-// projects = SELECT * FROM projects;
 
-// projects.forEach(project => {
-//   render project
-//   DOMController.renderProject(project);
-// })
-// add project to projects
+// render page
+DOMController.renderPage();
+DOMController.renderProjects(projects.getProjects());
+
+// add project
+DOMController.acceptForm((projectName) => {
+  console.log(projectName);
+  const newProject = new Project(uniqid(), projectName);
+  projects.addProject(newProject);
+  DOMController.renderProjects(projects.getProjects());
+});
