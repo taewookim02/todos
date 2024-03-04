@@ -7,7 +7,7 @@ export class Todo {
     this.priority = priority; // orderby priority
     this.notes = notes;
     this.isComplete = isComplete;
-    this.checkList = [];
+    // this.checkList = [];
   }
 
   // edit title

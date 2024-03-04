@@ -71,6 +71,11 @@ export class DOMController {
           <h2>Add Todo</h2>
           <a class="todo__close">&times;</a>
           <input type="text" id="todo__name" name ="todo__name" class="todo__name" placeHolder="Todo Name:" />
+          <input type="text" id="todo__description" name ="todo__description" class="todo__description" placeHolder="Description:" />
+          <input type="date" id="todo__dueDate" name ="todo__dueDate" class="todo__dueDate" placeHolder="Due Date:" />
+          <input type="number" id="todo__priority" name ="todo__priority" class="todo__priority" placeHolder="Priority:" />
+          <input type="text" id="todo__notes" name ="todo__notes" class="todo__notes" placeHolder="Notes:" />
+          
           <button class="todo__submit">Submit</button>
         </form>
         `,
@@ -161,14 +166,19 @@ export class DOMController {
     });
   }
 
-  static acceptForm(callback, formClass, inputClass) {
-    const form = document.querySelector(formClass);
+  static acceptForm(callback, formSelector, modal) {
+    const form = document.querySelector(formSelector);
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const projectName = form.querySelector(inputClass).value;
-      if (projectName) {
-        callback(projectName);
-        DOMController.toggleModal(form.querySelector(formClass));
+
+      const formData = {};
+      new FormData(form).forEach((value, key) => {
+        formData[key] = value;
+      });
+
+      if (Object.keys(formData).length > 0) {
+        callback(formData);
+        DOMController.toggleModal(modal);
       }
     });
   }
