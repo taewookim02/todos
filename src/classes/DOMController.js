@@ -2,31 +2,43 @@ export class DOMController {
   // static variables
   static overlayModal = null;
   static projectModal = null;
+  static todoModal = null;
+  static content = document.querySelector("#content");
+  static nav = document.querySelector(".nav");
+  static header = document.querySelector(".header");
+  static container = document.querySelector(".container");
+  static activeModal = null;
 
   // render page structure
   static renderPage() {
-    const content = document.querySelector("#content");
-    const nav = document.querySelector(".nav");
-    const header = document.querySelector(".header");
-    const container = document.querySelector(".container");
-
     // reset content
-    nav.innerHTML = `
+    DOMController.nav.innerHTML = `
       <h2>Projects</h2>
       <div class="nav__projects"></div>
     `;
-    content.innerHTML = `
+    DOMController.content.innerHTML = `
       <h2>Todos</h2>
       <div class="todos__container"></div>
     `;
 
+    DOMController.renderModal(DOMController.container, "project"); // this creates the project modal
+    DOMController.renderModal(DOMController.container, "todo"); // this creates the project modal
+
+    DOMController.addButtons();
+
+    // add event listeners
+    DOMController.initEventListeners();
+  }
+
+  static addButtons() {
     // add project button
     const projectBtn = document.createElement("button");
     projectBtn.classList.add("project__btn");
     projectBtn.textContent = "+";
-    header.appendChild(projectBtn);
+    DOMController.header.appendChild(projectBtn);
     projectBtn.addEventListener("click", (e) => {
       e.preventDefault();
+      console.log("clicked project button");
     });
 
     // add todo button
@@ -37,24 +49,34 @@ export class DOMController {
     todoBtn.addEventListener("click", (e) => {
       e.preventDefault();
     });
+  }
 
-    DOMController.renderModal(container);
-
-    projectBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      DOMController.toggleModal();
-    });
-
-    DOMController.overlayModal.addEventListener(
-      "click",
-      DOMController.toggleModal
-    );
-    DOMController.projectModal
-      .querySelector(".project__close")
-      .addEventListener("click", (e) => {
-        e.preventDefault();
-        DOMController.toggleModal();
-      });
+  static createModalConfig(modalName) {
+    const modalConfigs = {
+      project: {
+        class: "project__modal",
+        content: `
+        <form class="project__form">
+          <h2>Add Project</h2>
+          <a class="project__close">&times;</a>
+          <input type="text" id="project__name" name ="project__name" class="project__name" placeHolder="Project Name:" />
+          <button class="project__submit">Submit</button>
+        </form>
+        `,
+      },
+      todo: {
+        class: "todo__modal",
+        content: `
+        <form class="todo__form">
+          <h2>Add Todo</h2>
+          <a class="todo__close">&times;</a>
+          <input type="text" id="todo__name" name ="todo__name" class="todo__name" placeHolder="Todo Name:" />
+          <button class="todo__submit">Submit</button>
+        </form>
+        `,
+      },
+    };
+    return modalConfigs[modalName];
   }
 
   static addButton() {
@@ -63,57 +85,82 @@ export class DOMController {
     projectBtn.classList.add("project__btn");
     projectBtn.textContent = "+";
     header.appendChild(projectBtn);
-    projectBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-    });
 
     // add todo button
     const todoBtn = document.createElement("button");
     todoBtn.classList.add("todo__btn");
     todoBtn.textContent = "+";
     content.appendChild(todoBtn);
+  }
+
+  static renderModal(container, modalName) {
+    const { class: modalClass, content } =
+      DOMController.createModalConfig(modalName);
+
+    // modal overlay
+    if (!DOMController.overlayModal) {
+      DOMController.overlayModal = document.createElement("div");
+      DOMController.overlayModal.classList.add("modal__overlay");
+      container.appendChild(DOMController.overlayModal);
+      DOMController.overlayModal.style.display = "none"; // Ensure it is initially hidden
+    }
+
+    const modal = document.createElement("div");
+    modal.classList.add(modalClass);
+    modal.innerHTML = content;
+
+    container.appendChild(modal);
+    modal.style.display = "none";
+
+    if (modalName === "project") {
+      DOMController.projectModal = modal;
+    } else if (modalName === "todo") {
+      DOMController.todoModal = modal;
+    }
+  }
+
+  static toggleModal(targetModal) {
+    // Check if the targetModal is being shown or hidden
+    const isShowing = targetModal && targetModal.style.display === "block";
+
+    // toggle overlay first
+    this.overlayModal.style.display = isShowing ? "none" : "block";
+
+    // toggle target modal
+    if (targetModal) {
+      targetModal.style.display = isShowing ? "none" : "block";
+
+      // update activeModal ref
+      this.activeModal = isShowing ? null : targetModal;
+    }
+  }
+
+  static initEventListeners() {
+    // button event listeners
+    const projectBtn = document.querySelector(".project__btn");
+    projectBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.toggleModal(DOMController.projectModal);
+      // toggle project modal
+    });
+
+    const todoBtn = document.querySelector(".todo__btn");
     todoBtn.addEventListener("click", (e) => {
       e.preventDefault();
+      this.toggleModal(DOMController.todoModal);
+    });
+
+    // overlay modal event listener
+    DOMController.overlayModal.addEventListener("click", (e) => {
+      if (
+        e.target.classList.contains("modal__overlay") &&
+        DOMController.activeModal
+      ) {
+        DOMController.toggleModal(DOMController.activeModal);
+      }
     });
   }
 
-  static renderModal(container) {
-    // modal overlay
-    DOMController.overlayModal = document.createElement("div");
-    DOMController.overlayModal.classList.add("modal__overlay");
-    container.appendChild(DOMController.overlayModal);
-
-    // project modal
-    DOMController.projectModal = document.createElement("div");
-    DOMController.projectModal.classList.add("project__modal");
-    DOMController.projectModal.innerHTML = `
-    <form class="project__form">
-      <h2>Add Project</h2>
-      <a class="project__close">&times;</a>
-      <input type="text" id="project__name" name ="project__name" class="project__name" placeHolder="Project Name:" />
-      <button class="project__submit">Submit</button>
-    </form>
-`;
-
-    // initially hidden
-    DOMController.overlayModal.style.display = "none";
-    DOMController.projectModal.style.display = "none";
-
-    container.appendChild(DOMController.projectModal);
-  }
-
-  // static acceptForm(callback) {
-  //   const projectForm =
-  //     DOMController.projectModal.querySelector(".project__form");
-  //   projectForm.addEventListener("submit", (e) => {
-  //     e.preventDefault();
-  //     const projectName = projectForm.querySelector(".project__name").value;
-  //     if (projectName) {
-  //       callback(projectName);
-  //       DOMController.toggleModal();
-  //     }
-  //   });
-  // }
   static acceptForm(callback, formClass, inputClass) {
     const form = document.querySelector(formClass);
     form.addEventListener("submit", (e) => {
@@ -121,21 +168,9 @@ export class DOMController {
       const projectName = form.querySelector(inputClass).value;
       if (projectName) {
         callback(projectName);
-        DOMController.toggleModal();
+        DOMController.toggleModal(form.querySelector(formClass));
       }
     });
-  }
-
-  static toggleModal() {
-    //TODO: refactor this to accept modal name
-    const isHidden = DOMController.projectModal.style.display === "none";
-    DOMController.projectModal.style.display = isHidden ? "block" : "none";
-    DOMController.overlayModal.style.display = isHidden ? "block" : "none";
-
-    // reset form
-    const projectForm =
-      DOMController.projectModal.querySelector(".project__form");
-    projectForm.reset();
   }
 
   // render all projects

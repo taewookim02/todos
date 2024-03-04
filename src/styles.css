@@ -20,7 +20,8 @@
 }
 
 /* Project Modal */
-.project__modal {
+.project__modal,
+.todo__modal {
   /* display: none; */
   position: fixed;
   top: 45%; /* init: 50% */
