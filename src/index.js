@@ -38,7 +38,6 @@ DOMController.acceptForm(
     const newProject = new Project(uniqid(), formData.project__name);
     projects.addProject(newProject);
     DOMController.renderProjects(projects.getProjects());
-    console.log(newProject);
   },
   ".project__form",
   DOMController.projectModal
@@ -49,6 +48,7 @@ DOMController.acceptForm(
     const newTodo = new Todo(
       uniqid(),
       formData.todo__name,
+      selectedProjectId, // TODO: get selected project id
       formData.todo__description,
       formData.todo__dueDate,
       formData.todo__priority,
@@ -58,26 +58,19 @@ DOMController.acceptForm(
     // TODO: add todo to project
     // TODO: render todos
 
-    project.addTodo(newTodo);
+    project.addTodo(newTodo); // project is not defined
     console.log(newTodo);
   },
   ".todo__form",
   DOMController.todoModal
 );
 
-// DOMController.acceptForm(
-//   (todoName) => {
-//     // Assuming you have similar functionality for todos
-//     const newTodo = new Todo(uniqid(), todoName);
-//     console.log(newTodo);
-//     // todos.addTodo(newTodo);
-//     // DOMController.renderTodos(todos.getTodos());
-//     // console.log(newTodo);
-//   },
-//   ".todo__form",
-//   ".todo__name",
-//   DOMController.todoModal // Specify which modal to toggle
-// );
-
 // TODO: accept todo form
-// DOMController.acceptForm();
+// DOMController.acceptForm(formData => {
+//   const targetProject = projects.findProjectById(formData.project__id);
+//   if (targetProject) {
+//     const
+//   }
+// });
+
+// TODO: clicking on the dropdown should save the project id

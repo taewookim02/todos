@@ -7,7 +7,15 @@ export class Project {
   }
 
   addTodo(todo) {
-    this.todos.push(todo);
+    if (todo instanceof Todo) {
+      this.todos.push(todo);
+    } else {
+      console.log("Not a valid todo");
+    }
+  }
+
+  removeTodoById(id) {
+    this.todos = this.todos.filter((todo) => todo.id !== id);
   }
 
   getTodos() {
@@ -16,10 +24,6 @@ export class Project {
 
   getTodoById(id) {
     return this.todos.find((todo) => todo.id === id);
-  }
-
-  removeTodoById(id) {
-    this.todos = this.todos.filter((todo) => todo.id !== id);
   }
 
   // todo completion percentage (%)

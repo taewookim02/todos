@@ -18,7 +18,7 @@ export class Projects {
     // return this.projects;
   }
 
-  getProject(id) {
+  findProjectById(id) {
     return this.projects.find((project) => project.id === id);
   }
 
