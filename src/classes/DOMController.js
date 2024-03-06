@@ -143,13 +143,14 @@ export class DOMController {
   static initEventListeners() {
     // button event listeners
     const projectBtn = document.querySelector(".project__btn");
+    // toggle project modal
     projectBtn.addEventListener("click", (e) => {
       e.preventDefault();
       this.toggleModal(DOMController.projectModal);
-      // toggle project modal
     });
 
     const todoBtn = document.querySelector(".todo__btn");
+    // toggle todo modal
     todoBtn.addEventListener("click", (e) => {
       e.preventDefault();
       this.toggleModal(DOMController.todoModal);
@@ -186,12 +187,41 @@ export class DOMController {
   // render all projects
   static renderProjects(projects) {
     const projectsContainer = document.querySelector(".nav__projects");
-    projectsContainer.innerHTML = "";
+    projectsContainer.innerHTML = ""; // reset projects list
+
     projects.forEach((project) => {
       const projectDiv = document.createElement("div");
       projectDiv.classList.add("project");
       projectDiv.innerHTML = `<h3>${project.name}</h3>`;
+      projectDiv.addEventListener("click", (e) => {
+        e.preventDefault();
+        DOMController.renderTodosForProject(project.id);
+      });
       projectsContainer.appendChild(projectDiv);
     });
   }
+
+  static renderTodosForProject(projectId) {
+    const selectedProject = projects.findProjectById(projectId);
+    const todosContainer = document.querySelector(".todos__container");
+    todosContainer.innerHTML = ""; // reset todos list
+
+    if (selectedProject) {
+      selectedProject.todos.forEach((todo) => {
+        const todoElement = document.createElement("div");
+        todoElement.classList.add("todo");
+        todoElement.innerHTML = `
+          <h4>${todo.title}</h4>
+          <p>${todo.description}</p>
+          <p>Due: ${todo.dueDate}</p>
+          <p>Priority: ${todo.priority}</p>
+          <!-- add more -->
+        `;
+        todosContainer.appendChild(todoElement);
+      });
+    }
+  }
 }
+
+// Step 3: Add Todo Form Handling
+// Step 4: Adjust the Todo Form Submission Logic
