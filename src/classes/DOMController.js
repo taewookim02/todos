@@ -190,6 +190,7 @@ export class DOMController {
     projectsContainer.innerHTML = ""; // reset projects list
 
     projects.forEach((project) => {
+      // FIXME: Uncaught ReferenceError: projects is not defined
       const projectDiv = document.createElement("div");
       projectDiv.classList.add("project");
       projectDiv.innerHTML = `<h3>${project.name}</h3>`;

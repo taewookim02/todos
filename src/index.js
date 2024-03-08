@@ -43,34 +43,29 @@ DOMController.acceptForm(
   DOMController.projectModal
 );
 
+// TODO: accept todo form
 DOMController.acceptForm(
   (formData) => {
+    // if (!DOMController.selectedProjectId) {
+    //   console.log("No project selected");
+    //   return;
+    // }
     const newTodo = new Todo(
       uniqid(),
       formData.todo__name,
-      selectedProjectId, // TODO: get selected project id
       formData.todo__description,
       formData.todo__dueDate,
       formData.todo__priority,
       formData.todo__notes,
       false
     );
-    // TODO: add todo to project
-    // TODO: render todos
 
-    project.addTodo(newTodo); // project is not defined
-    console.log(newTodo);
+    const project = projects.findProjectById(DOMController.selectedProjectId);
+    project.addTodo(newTodo);
+    DOMController.renderTodosForProject(DOMController.selectedProjectId);
   },
   ".todo__form",
   DOMController.todoModal
 );
 
-// TODO: accept todo form
-// DOMController.acceptForm(formData => {
-//   const targetProject = projects.findProjectById(formData.project__id);
-//   if (targetProject) {
-//     const
-//   }
-// });
-
-// TODO: clicking on the dropdown should save the project id
+// TODO: clicking on the dropdown should save the project id somewhere
