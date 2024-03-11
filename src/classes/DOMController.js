@@ -183,6 +183,7 @@ export class DOMController {
         callback(formData);
         DOMController.toggleModal(modal);
       }
+      form.reset();
     });
   }
 
