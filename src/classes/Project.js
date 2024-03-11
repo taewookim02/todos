@@ -11,10 +11,13 @@ export class Project {
   addTodo(todo) {
     if (todo instanceof Todo) {
       this.todos.push(todo);
+      // save to local storage;
     } else {
       console.log("Not a valid todo");
     }
   }
+
+  // save to local storage;
 
   removeTodoById(id) {
     this.todos = this.todos.filter((todo) => todo.id !== id);

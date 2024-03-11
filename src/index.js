@@ -43,7 +43,7 @@ DOMController.acceptForm(
   DOMController.projectModal
 );
 
-// TODO: accept todo form
+// add todo
 DOMController.acceptForm(
   (formData) => {
     // if (!DOMController.selectedProjectId) {
@@ -78,4 +78,15 @@ DOMController.acceptForm(
   DOMController.todoModal
 );
 
-// TODO: clicking on the dropdown should save the project id somewhere
+// TODO: remove project
+
+// TODO: remove todo
+
+// TODO: styling
+
+// TODO: Currently I can only add Todos when a project is clicked on..
+// if I don't click on the project beforehand, it doesn't work
+// to fix this, when I add new project, the project should be selected
+// and the todos should be rendered for that project
+
+// Upon first load, the page should render the projects and the first project's todos.
