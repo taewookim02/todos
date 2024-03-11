@@ -30,14 +30,14 @@ if (projects.getProjects().length === 0) {
 
 // render page
 DOMController.renderPage();
-DOMController.renderProjects(projects.getProjects());
+DOMController.renderProjects(projects);
 
 // add project
 DOMController.acceptForm(
   (formData) => {
     const newProject = new Project(uniqid(), formData.project__name);
     projects.addProject(newProject);
-    DOMController.renderProjects(projects.getProjects());
+    DOMController.renderProjects(projects);
   },
   ".project__form",
   DOMController.projectModal

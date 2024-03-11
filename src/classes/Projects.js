@@ -8,14 +8,11 @@ export class Projects {
   // should addProject be here?
   addProject(project) {
     this.projects.push(project);
-    // localStorage.setItem("projects", JSON.stringify(this.projects));
     this.saveToLocalStorage();
   }
 
   getProjects() {
-    // Util.getFromLocalStorage("projects");
     return this.projects;
-    // return this.projects;
   }
 
   findProjectById(id) {

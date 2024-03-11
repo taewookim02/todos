@@ -1,4 +1,5 @@
 export class DOMController {
+  // static projects = new Projects();
   // static variables
   static overlayModal = null;
   static projectModal = null;
@@ -185,25 +186,25 @@ export class DOMController {
   }
 
   // render all projects
-  static renderProjects(projects) {
+  static renderProjects(projectsInstance) {
     const projectsContainer = document.querySelector(".nav__projects");
     projectsContainer.innerHTML = ""; // reset projects list
 
-    projects.forEach((project) => {
-      // FIXME: Uncaught ReferenceError: projects is not defined
+    const projectsArr = projectsInstance.getProjects();
+    projectsArr.forEach((project) => {
       const projectDiv = document.createElement("div");
       projectDiv.classList.add("project");
       projectDiv.innerHTML = `<h3>${project.name}</h3>`;
       projectDiv.addEventListener("click", (e) => {
         e.preventDefault();
-        DOMController.renderTodosForProject(project.id);
+        DOMController.renderTodosForProject(project.id, projectsInstance);
       });
       projectsContainer.appendChild(projectDiv);
     });
   }
 
-  static renderTodosForProject(projectId) {
-    const selectedProject = projects.findProjectById(projectId);
+  static renderTodosForProject(selectedProjectId, projectsInstance) {
+    const selectedProject = projectsInstance.findProjectById(selectedProjectId);
     const todosContainer = document.querySelector(".todos__container");
     todosContainer.innerHTML = ""; // reset todos list
 
