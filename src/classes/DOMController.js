@@ -9,6 +9,7 @@ export class DOMController {
   static header = document.querySelector(".header");
   static container = document.querySelector(".container");
   static activeModal = null;
+  static selectedProjectId = null;
 
   // render page structure
   static renderPage() {
@@ -197,6 +198,8 @@ export class DOMController {
       projectDiv.innerHTML = `<h3>${project.name}</h3>`;
       projectDiv.addEventListener("click", (e) => {
         e.preventDefault();
+        // console.log(project.id);
+        DOMController.selectedProjectId = project.id;
         DOMController.renderTodosForProject(project.id, projectsInstance);
       });
       projectsContainer.appendChild(projectDiv);
@@ -204,6 +207,7 @@ export class DOMController {
   }
 
   static renderTodosForProject(selectedProjectId, projectsInstance) {
+    console.log(selectedProjectId);
     const selectedProject = projectsInstance.findProjectById(selectedProjectId);
     const todosContainer = document.querySelector(".todos__container");
     todosContainer.innerHTML = ""; // reset todos list

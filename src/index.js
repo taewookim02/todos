@@ -60,9 +60,19 @@ DOMController.acceptForm(
       false
     );
 
-    const project = projects.findProjectById(DOMController.selectedProjectId);
+    const projectData = projects.findProjectById(
+      DOMController.selectedProjectId
+    );
+    const project = new Project(projectData.id, projectData.name);
+    project.todos = projectData.todos;
+
+    console.log(project);
+    console.log(project instanceof Project);
     project.addTodo(newTodo);
-    DOMController.renderTodosForProject(DOMController.selectedProjectId);
+    DOMController.renderTodosForProject(
+      DOMController.selectedProjectId,
+      projects
+    );
   },
   ".todo__form",
   DOMController.todoModal
