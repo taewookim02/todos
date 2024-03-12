@@ -4,7 +4,7 @@ export class Project {
   constructor(id, name) {
     this.id = id;
     this.name = name;
-    this.todos = this.loadProjectsFromLocalStorage() || []; // is loadProjectsFromLocalStorage necessary?
+    this.todos = [];
   }
 
   addTodo(todo) {
@@ -48,9 +48,5 @@ export class Project {
 
   getTodoById(id) {
     return this.todos.find((todo) => todo.id === id);
-  }
-
-  static loadProjectsFromLocalStorage() {
-    return JSON.parse(localStorage.getItem("projects")) || [];
   }
 }

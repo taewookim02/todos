@@ -196,7 +196,8 @@ export class DOMController {
     projectsArr.forEach((project) => {
       const projectDiv = document.createElement("div");
       projectDiv.classList.add("project");
-      projectDiv.innerHTML = `<h3>${project.name}</h3>`;
+      projectDiv.innerHTML = `<h3>${project.name}</h3>
+      <a class="todo__close">&times;</a>`;
       projectDiv.addEventListener("click", (e) => {
         e.preventDefault();
         // console.log(project.id);

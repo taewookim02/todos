@@ -44,6 +44,23 @@
   z-index: 999;
 }
 
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border: 1px solid #333;
+}
+
+.project:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+.project:active {
+  background-color: orange;
+}
+
 .project__form {
   display: grid;
   grid-template-columns: min-content min-content;

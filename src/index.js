@@ -82,11 +82,11 @@ DOMController.acceptForm(
   DOMController.todoModal
 );
 
-// TODO: remove project
+// TODO:1.  styling
 
-// TODO: remove todo
+// TODO:2. remove project
 
-// TODO: styling
+// TODO:3. remove todo
 
 // TODO: Currently I can only add Todos when a project is clicked on..
 // if I don't click on the project beforehand, it doesn't work
