@@ -32,6 +32,10 @@ if (projects.getProjects().length === 0) {
 DOMController.renderPage();
 DOMController.renderProjects(projects);
 
+// render todos for default project
+let defaultProjectId = projects.getProjects()[0].id;
+DOMController.renderTodosForProject(defaultProjectId, projects);
+
 // add project
 DOMController.acceptForm(
   (formData) => {
@@ -89,4 +93,5 @@ DOMController.acceptForm(
 // to fix this, when I add new project, the project should be selected
 // and the todos should be rendered for that project
 
+// TODO:
 // Upon first load, the page should render the projects and the first project's todos.
