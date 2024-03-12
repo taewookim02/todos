@@ -30,6 +30,7 @@ export class Projects {
 
   loadFromLocalStorage() {
     const data = localStorage.getItem("projects");
+
     if (data) {
       return JSON.parse(data);
     }
