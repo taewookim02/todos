@@ -64,9 +64,10 @@ DOMController.acceptForm(
       false
     );
 
-    const projectData = projects.findProjectById(
-      DOMController.selectedProjectId
-    );
+    let projectData = projects.findProjectById(DOMController.selectedProjectId);
+    if (!projectData) {
+      projectData = projects.getProjects()[0];
+    }
     const project = new Project(projectData.id, projectData.name);
     project.todos = projectData.todos;
 
@@ -74,7 +75,7 @@ DOMController.acceptForm(
     console.log(project instanceof Project);
     project.addTodo(newTodo);
     DOMController.renderTodosForProject(
-      DOMController.selectedProjectId,
+      DOMController.selectedProjectId ?? projects.getProjects()[0].id,
       projects
     );
   },
