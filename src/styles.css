@@ -160,6 +160,12 @@ button:active,
   color: #050517;
 }
 
+.project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* Additional Elements Styling */
 /* Scrollbar Styling for Webkit Browsers */
 ::-webkit-scrollbar {

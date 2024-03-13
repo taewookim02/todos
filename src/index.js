@@ -83,6 +83,8 @@ DOMController.acceptForm(
   DOMController.todoModal
 );
 
+// TODO: 1. when I add a project, the project should be selected and the todos should be rendered
+
 // TODO:2. remove project
 
 // TODO:3. remove todo
