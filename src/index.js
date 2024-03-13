@@ -11,7 +11,7 @@ const projects = new Projects();
 
 if (projects.getProjects().length === 0) {
   const project1 = new Project(uniqid(), "Project 1");
-  console.log(projects);
+
   // example todo
   const todo1 = new Todo(
     uniqid(),

@@ -200,12 +200,36 @@ export class DOMController {
       <a class="todo__close">&times;</a>`;
       projectDiv.addEventListener("click", (e) => {
         e.preventDefault();
-        // console.log(project.id);
+
+        // TODO: DELETE BUTTON FOR PROJECT
+        if (e.target.classList.contains("todo__close")) {
+          e.stopPropagation;
+          console.log("helelohehelelohehelelohehelelohe"); // this is the delete button
+        }
+
+        // Update selected project ID and render its todos
         DOMController.selectedProjectId = project.id;
         DOMController.renderTodosForProject(project.id, projectsInstance);
+
+        // add active class to selected project
+        document.querySelectorAll(".project").forEach((project) => {
+          project.classList.remove("project__selected");
+        });
+        projectDiv.classList.add("project__selected");
       });
       projectsContainer.appendChild(projectDiv);
     });
+
+    if (projectsArr.length > 0) {
+      // default to first project
+      const firstProjectDiv = projectsContainer.firstChild;
+      firstProjectDiv.classList.add("project__selected");
+      DOMController.selectedProjectId = projectsArr[0].id;
+      DOMController.renderTodosForProject(
+        DOMController.selectedProjectId,
+        projectsInstance
+      );
+    }
   }
 
   static renderTodosForProject(selectedProjectId, projectsInstance) {
