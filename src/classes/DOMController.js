@@ -59,8 +59,10 @@ export class DOMController {
         class: "project__modal",
         content: `
         <form class="project__form">
-          <h2>Add Project</h2>
-          <a class="project__close">&times;</a>
+          <div class="project__modal--header">
+            <h2>Add Project</h2>
+            <a class="project__close">&times;</a>
+          </div>
           <input type="text" id="project__name" name ="project__name" class="project__name" placeHolder="Project Name:" />
           <button class="project__submit">Submit</button>
         </form>
@@ -69,17 +71,20 @@ export class DOMController {
       todo: {
         class: "todo__modal",
         content: `
-        <form class="todo__form">
-          <h2>Add Todo</h2>
-          <a class="todo__close">&times;</a>
-          <input type="text" id="todo__name" name ="todo__name" class="todo__name" placeHolder="Todo Name:" />
-          <input type="text" id="todo__description" name ="todo__description" class="todo__description" placeHolder="Description:" />
-          <input type="date" id="todo__dueDate" name ="todo__dueDate" class="todo__dueDate" placeHolder="Due Date:" />
-          <input type="number" id="todo__priority" name ="todo__priority" class="todo__priority" placeHolder="Priority:" />
-          <input type="text" id="todo__notes" name ="todo__notes" class="todo__notes" placeHolder="Notes:" />
-          
-          <button class="todo__submit">Submit</button>
-        </form>
+          <form class="todo__form">
+            <div class="todo__modal--header">
+              <h2>Add Todo</h2>
+              <a class="todo__close">&times;</a>
+            </div>
+            <div class="todo__modal--body">
+              <input type="text" id="todo__name" name="todo__name" class="todo__input" placeholder="Todo Name:" />
+              <input type="text" id="todo__description" name="todo__description" class="todo__input" placeholder="Description:" />
+              <input type="date" id="todo__dueDate" name="todo__dueDate" class="todo__input" placeholder="Due Date:" />
+              <input type="number" id="todo__priority" name="todo__priority" class="todo__input" placeholder="Priority:" />
+              <input type="text" id="todo__notes" name="todo__notes" class="todo__input" placeholder="Notes:" />
+            </div>
+            <button class="todo__submit">Submit</button>
+          </form>
         `,
       },
     };
