@@ -19,7 +19,7 @@ export class DOMController {
       <div class="nav__projects"></div>
     `;
     DOMController.content.innerHTML = `
-      <h2>Todos</h2>
+      <h2 class="todos__project--name">Todos</h2>
       <div class="todos__container"></div>
     `;
 
@@ -241,6 +241,8 @@ export class DOMController {
     console.log(selectedProjectId);
     const selectedProject = projectsInstance.findProjectById(selectedProjectId);
     const todosContainer = document.querySelector(".todos__container");
+    const todosProjectName = document.querySelector(".todos__project--name");
+    todosProjectName.textContent = selectedProject.name ?? "Todos";
     todosContainer.innerHTML = ""; // reset todos list
 
     if (selectedProject) {

@@ -83,8 +83,6 @@ DOMController.acceptForm(
   DOMController.todoModal
 );
 
-// TODO:1.  styling
-
 // TODO:2. remove project
 
 // TODO:3. remove todo
