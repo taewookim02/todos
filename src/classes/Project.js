@@ -40,6 +40,9 @@ export class Project {
 
   removeTodoById(id) {
     this.todos = this.todos.filter((todo) => todo.id !== id);
+
+    // save to local storage;
+    Project.saveProjectsToLocalStorage(this);
   }
 
   getTodos() {

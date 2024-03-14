@@ -160,11 +160,18 @@ button:active,
   color: #050517;
 }
 
-.project {
+.project,
+.todo__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+/* .todo__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: ;
+} */
 
 /* Additional Elements Styling */
 /* Scrollbar Styling for Webkit Browsers */
@@ -183,26 +190,3 @@ button:active,
 ::-webkit-scrollbar-thumb:hover {
   background: #efc88b;
 }
-
-/*
-Primary Background: A light and neutral background to keep the interface clean and uncluttered.
-
-Light Gray: #F5F7FA - This provides a calm and neutral backdrop that's easy on the eyes.
-Primary Color: A color that stands out without being overwhelming, used for buttons, links, and key features.
-
-Soft Blue: #4B89DC - This color is pleasant and promotes productivity, perfect for your primary action items like adding a new task.
-Accent Colors: Used sparingly to highlight important elements (like notifications or priority tasks).
-
-Teal: #30A9DE - A slightly brighter shade that draws attention without being too bold.
-Coral: #F76C5E - Provides a warm contrast to the cooler tones, great for alerts or priority tags.
-Text Color: Ensuring good readability is crucial, especially for text-heavy interfaces.
-
-Dark Gray: #363B48 - A softer alternative to black that's easier on the eyes for reading.
-Secondary Background (for cards or input fields): A slightly different shade from the primary background to create depth.
-
-Off-White: #FEFEFE - This subtle contrast against the primary background helps delineate different sections or elements without harsh lines.
-Border and Line Color: To define boundaries subtly without drawing too much attention.
-
-Lighter Gray: #E0E6ED - This is for borders, dividers, and outlines, providing a soft separation between elements.
-
-*/
