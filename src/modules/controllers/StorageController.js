@@ -1,4 +1,4 @@
-export default class StorageController {
+export class StorageController {
   constructor() {
     this.storage = window.localStorage;
   }
