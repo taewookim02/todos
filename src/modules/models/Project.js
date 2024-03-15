@@ -7,15 +7,16 @@ export class Project {
     this.todos = []; // hmm,,
   }
 
-  getId() {
-    return this.id;
-  }
+  // TODO: encapsulate name, id, todos (?)
+  // getId() {
+  //   return this.id;
+  // }
 
-  getName() {
-    return this.name;
-  }
+  // getName() {
+  //   return this.name;
+  // }
 
-  setName(name) {
-    return (this.name = name);
-  }
+  // setName(name) {
+  //   return (this.name = name);
+  // }
 }
