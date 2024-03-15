@@ -5,7 +5,7 @@ import { Project } from "../models/Project";
 export class AppController {
   constructor() {
     this.StorageController = new StorageController();
-    this.projectController = new ProjectController();
+    this.ProjectController = new ProjectController();
     // this.projects = JSON.parse(this.StorageController.get("projects")) || []; // this is from localStorage
   }
 
@@ -16,12 +16,21 @@ export class AppController {
     let mySampleProj = new Project("Hello");
     let mySampleProj1 = new Project("Hello1");
 
-    this.projectController.getProjects();
+    let currentExistingProjects = this.ProjectController.getProjects();
 
-    // save sample project
-    this.projectController.addProject(mySampleProj);
-    this.projectController.addProject(mySampleProj1);
-    this.projectController.addProject(mySampleProj1);
+    if (currentExistingProjects.length > 0) {
+      // do nothing
+    } else {
+      // save sample project
+      this.ProjectController.addProject(mySampleProj);
+      this.ProjectController.addProject(mySampleProj1);
+    }
+
+    // delete sample project
+    // this.ProjectController.deleteProject(currentExistingProjects[1].id);
+
+    // edit sample project (ltshu1yz, "Hello")
+    this.ProjectController.editProject("ltshu1yz", "HAHAHA");
 
     // console.log(this.StorageController.get("projects"));
 

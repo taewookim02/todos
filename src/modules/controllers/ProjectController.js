@@ -10,9 +10,10 @@ export class ProjectController {
     // let projects = [];
     const projectsJSON = this.StorageController.get("projects");
     if (!projectsJSON) {
-      return []; // return empty arr if no data
+      return []; // return empty arr if no data in localStorage
     }
     try {
+      // try because error might occur in parse
       const parsedProjects = JSON.parse(projectsJSON);
 
       // the below assures that it is an array
@@ -22,13 +23,39 @@ export class ProjectController {
         ? [parsedProjects]
         : [];
     } catch (e) {}
+    // if error, return an array
     return [];
   }
 
   addProject(projectObj) {
     let projectsArr = this.getProjects();
-    projectsArr.push(projectObj);
+    projectsArr.push(projectObj); // push received argument to projectsArr
 
+    this.StorageController.set("projects", JSON.stringify(projectsArr)); // overwrite projects with updatedArr in localStorage
+  }
+
+  editProject(projectId, name) {
+    let projectsArr = this.getProjects();
+    for (let i = 0; i < projectsArr.length; i++) {
+      if (projectsArr[i].id === projectId) {
+        projectsArr[i].name = name;
+      }
+    }
+
+    this.saveCurrentProjectsToLocalStorage(projectsArr);
+  }
+
+  deleteProject(projectId) {
+    let projectsArr = this.getProjects();
+    for (let i = 0; i < projectsArr.length; i++) {
+      if (projectId === projectsArr[i].id) {
+        projectsArr.splice(i, 1);
+      }
+    }
+    this.saveCurrentProjectsToLocalStorage(projectsArr);
+  }
+
+  saveCurrentProjectsToLocalStorage(projectsArr) {
     this.StorageController.set("projects", JSON.stringify(projectsArr));
   }
 }

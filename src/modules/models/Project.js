@@ -4,6 +4,18 @@ export class Project {
   constructor(name) {
     this.name = name;
     this.id = uniqid();
-    this.todos = [];
+    this.todos = []; // hmm,,
+  }
+
+  getId() {
+    return this.id;
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  setName(name) {
+    return (this.name = name);
   }
 }
