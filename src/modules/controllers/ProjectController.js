@@ -7,7 +7,6 @@ export class ProjectController {
   }
 
   getProjects() {
-    // let projects = [];
     const projectsJSON = this.StorageController.get("projects");
     if (!projectsJSON) {
       return []; // return empty arr if no data in localStorage
@@ -22,9 +21,10 @@ export class ProjectController {
         : parsedProjects
         ? [parsedProjects]
         : [];
-    } catch (e) {}
-    // if error, return an array
-    return [];
+    } catch (e) {
+      // if error, return an array
+      return [];
+    }
   }
 
   getProject(projectId) {

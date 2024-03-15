@@ -9,7 +9,6 @@ export class AppController {
     this.StorageController = new StorageController();
     this.ProjectController = new ProjectController();
     this.TodoController = new TodoController();
-    // this.projects = JSON.parse(this.StorageController.get("projects")) || []; // this is from localStorage
   }
 
   init() {
@@ -40,7 +39,36 @@ export class AppController {
 
     ///////////////////////////////////////////
     // init new todo item
-    const mySampleTodo = new Todo("Hey");
+    const mySampleTodo = new Todo("Hey", "ltswrehu");
+    const mySampleTodo2 = new Todo("todo213", "ltswrehv");
+    const mySampleTodo3 = new Todo("todo213", "ltswrehv");
+    const mySampleTodo4 = new Todo("todo213", "ltswrehu");
+
+    ///////////////////////////////////////////
+    // Get All Todos (SEPARATE LOCAL STORAGE)
+    // console.log(this.TodoController.getTodos());
+
+    ///////////////////////////////////////////
+    // Add Todo (SEPARATE LOCAL STORAGE)
+    // this.TodoController.addTodo(mySampleTodo);
+
+    // this.TodoController.addTodo(mySampleTodo);
+    // this.TodoController.addTodo(mySampleTodo2);
+    // this.TodoController.addTodo(mySampleTodo3);
+    // this.TodoController.addTodo(mySampleTodo4);
+    ///////////////////////////////////////////
+    // Get single todo
+    // console.log(this.TodoController.getSingleTodo("ltswy9gs"));
+
+    ///////////////////////////////////////////
+    // delete(ltswx8it)
+    // this.TodoController.removeTodoById("ltsxdltq");
+
+    ///////////////////////////////////////////
+    // update
+    this.TodoController.editTodoName("ltsxdltt", "this is EDITED");
+
+    /* SEPARATOR */
 
     ///////////////////////////////////////////
     // Add Todo obj
@@ -48,18 +76,18 @@ export class AppController {
 
     ///////////////////////////////////////////
     // edit todo name
-    this.TodoController.editTodoName("THIS IS NEW! ", "ltshu1yz", "ltsj76av"); // newName, projectId, todoId
+    // this.TodoController.editTodoName("THIS IS NEW! ", "ltshu1yz", "ltsj76av"); // newName, projectId, todoId
 
     ///////////////////////////////////////////
     // get todos with certain projectId
-    this.TodoController.getTodosFromProject("ltshu1yz"); // projectId
+    // this.TodoController.getTodosFromProject("ltshu1yz"); // projectId
 
     ///////////////////////////////////////////
     // get single todo ("ltsj76av")
-    this.TodoController.getSingleTodoFromProject("ltshu1yz", "ltsj76av"); // projectId, todoId
+    // this.TodoController.getSingleTodoFromProject("ltshu1yz", "ltsj76av"); // projectId, todoId
 
     ///////////////////////////////////////////
     // delete todo from project
-    this.TodoController.deleteTodoFromProject("ltshu1yz", "ltsj76av");
+    // this.TodoController.deleteTodoFromProject("ltshu1yz", "ltsj76av");
   }
 }

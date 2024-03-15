@@ -4,7 +4,7 @@ export class Project {
   constructor(name) {
     this.name = name;
     this.id = uniqid();
-    this.todos = []; // hmm,,
+    // this.todos = []; // hmm,,
   }
 
   // TODO: encapsulate name, id, todos (?)
