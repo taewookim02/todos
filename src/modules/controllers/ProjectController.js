@@ -27,6 +27,15 @@ export class ProjectController {
     return [];
   }
 
+  getProject(projectId) {
+    let projectArr = this.getProjects();
+    for (let i = 0; i < projectArr.length; i++) {
+      if (projectArr[i].id === projectId) {
+        return projectArr[i];
+      }
+    }
+  }
+
   addProject(projectObj) {
     let projectsArr = this.getProjects();
     projectsArr.push(projectObj); // push received argument to projectsArr
