@@ -40,7 +40,10 @@ export class ProjectController {
     let projectsArr = this.getProjects();
     projectsArr.push(projectObj); // push received argument to projectsArr
 
-    this.StorageController.set("projects", JSON.stringify(projectsArr)); // overwrite projects with updatedArr in localStorage
+    this.StorageController.saveCurrentArrayToLocalStorage(
+      "projects",
+      projectsArr
+    ); // overwrite projects with updatedArr in localStorage
   }
 
   editProject(projectId, name) {
@@ -51,7 +54,10 @@ export class ProjectController {
       }
     }
 
-    this.saveCurrentProjectsToLocalStorage(projectsArr);
+    this.StorageController.saveCurrentArrayToLocalStorage(
+      "projects",
+      projectsArr
+    );
   }
 
   deleteProject(projectId) {
@@ -61,10 +67,9 @@ export class ProjectController {
         projectsArr.splice(i, 1);
       }
     }
-    this.saveCurrentProjectsToLocalStorage(projectsArr);
-  }
-
-  saveCurrentProjectsToLocalStorage(projectsArr) {
-    this.StorageController.set("projects", JSON.stringify(projectsArr));
+    this.StorageController.saveCurrentArrayToLocalStorage(
+      "projects",
+      projectsArr
+    );
   }
 }

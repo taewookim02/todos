@@ -10,4 +10,8 @@ export class StorageController {
   set(key, value) {
     return this.storage.setItem(key, value);
   }
+
+  saveCurrentArrayToLocalStorage(key, arrayToSave) {
+    this.set(key, JSON.stringify(arrayToSave));
+  }
 }

@@ -1,11 +1,10 @@
 import { ProjectController } from "./ProjectController";
 import { StorageController } from "./StorageController";
-import { Helper } from "../utils/Helper";
 export class TodoController {
   constructor() {
     this.ProjectController = new ProjectController();
     this.StorageController = new StorageController();
-    this.Helper = new Helper();
+    // this.StorageController = new StorageController();
   }
 
   getTodos() {
@@ -41,7 +40,7 @@ export class TodoController {
     let todosArr = this.getTodos();
     todosArr.push(todoObj);
 
-    this.Helper.saveCurrentArrayToLocalStorage("todos", todosArr);
+    this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
   }
 
   removeTodoById(todoId) {
@@ -52,7 +51,7 @@ export class TodoController {
         todosArr.splice(i, 1);
       }
     }
-    this.Helper.saveCurrentArrayToLocalStorage("todos", todosArr);
+    this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
   }
 
   editTodoName(todoId, name) {
@@ -63,7 +62,7 @@ export class TodoController {
         todosArr[i].name = name;
       }
     }
-    this.Helper.saveCurrentArrayToLocalStorage("todos", todosArr);
+    this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
   }
   /*
   addTodoToProject(todoObj, projectId) {

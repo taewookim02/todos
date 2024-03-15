@@ -40,9 +40,9 @@ export class AppController {
     ///////////////////////////////////////////
     // init new todo item
     const mySampleTodo = new Todo("Hey", "ltswrehu");
-    const mySampleTodo2 = new Todo("todo213", "ltswrehv");
-    const mySampleTodo3 = new Todo("todo213", "ltswrehv");
-    const mySampleTodo4 = new Todo("todo213", "ltswrehu");
+    const mySampleTodo2 = new Todo("todo1", "ltswrehv");
+    const mySampleTodo3 = new Todo("to123do213", "ltswrehv");
+    const mySampleTodo4 = new Todo("to8949do213", "ltswrehu");
 
     ///////////////////////////////////////////
     // Get All Todos (SEPARATE LOCAL STORAGE)
@@ -66,7 +66,7 @@ export class AppController {
 
     ///////////////////////////////////////////
     // update
-    this.TodoController.editTodoName("ltsxdltt", "this is EDITED");
+    // this.TodoController.editTodoName("ltsxdltt", "this is EDITED");
 
     /* SEPARATOR */
 
