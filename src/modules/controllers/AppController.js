@@ -1,24 +1,32 @@
 import { StorageController } from "./StorageController";
+import { ProjectController } from "./ProjectController";
 import { Project } from "../models/Project";
 
 export class AppController {
   constructor() {
     this.StorageController = new StorageController();
-    this.projects = JSON.parse(this.StorageController.get("projects")) || [];
+    this.projectController = new ProjectController();
+    // this.projects = JSON.parse(this.StorageController.get("projects")) || []; // this is from localStorage
   }
 
   init() {
     console.log("AppController init() called");
-    console.log(new Project("Hello"));
-    // this.addProject("project 1");
-    console.log(this.projects);
-  }
 
-  addProject(name) {
-    let project = new Project(name);
-    console.log(project);
-    this.projects.push(project);
+    // init new sample project
+    let mySampleProj = new Project("Hello");
+    let mySampleProj1 = new Project("Hello1");
 
-    this.StorageController.set("projects", JSON.stringify(this.projects));
+    this.projectController.getProjects();
+
+    // save sample project
+    this.projectController.addProject(mySampleProj);
+    this.projectController.addProject(mySampleProj1);
+    this.projectController.addProject(mySampleProj1);
+
+    // console.log(this.StorageController.get("projects"));
+
+    // init new todo item
+
+    // save new todo item to corresponding project
   }
 }
