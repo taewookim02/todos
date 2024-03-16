@@ -3,12 +3,15 @@ import { ProjectController } from "./ProjectController";
 import { TodoController } from "./TodoController";
 import { Project } from "../models/Project";
 import { Todo } from "../models/Todo";
+////////////////////////////////////////////
+import { UIController } from "../views/UIController";
 
 export class AppController {
   constructor() {
     this.StorageController = new StorageController();
     this.ProjectController = new ProjectController();
     this.TodoController = new TodoController();
+    this.UIController = new UIController();
   }
 
   init() {
@@ -89,5 +92,14 @@ export class AppController {
     ///////////////////////////////////////////
     // delete todo from project
     // this.TodoController.deleteTodoFromProject("ltshu1yz", "ltsj76av");
+
+    //https://chat.openai.com/c/d3b38d3d-66a3-4f04-8bcd-ceeb6ef0d054
+
+    ////////////////////////////////////////////
+    ////////////////////////////////////////////
+    ////////////////////////////////////////////
+    // UI
+
+    this.UIController.init(currentExistingProjects);
   }
 }
