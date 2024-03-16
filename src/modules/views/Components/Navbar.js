@@ -1,9 +1,10 @@
 import { Button } from "./Button";
 import { Component } from "./Component";
+import { ProjectController } from "../../controllers/ProjectController";
 export class Navbar extends Component {
   constructor() {
     super();
-    this.Button = new Button();
+    this.ProjectController = new ProjectController();
   }
 
   renderComponent(projectsArr) {
@@ -14,8 +15,12 @@ export class Navbar extends Component {
       projectNavDiv.classList.add("nav__project");
       projectNavDiv.setAttribute("data-id", project.id);
       const projectText = document.createElement("h3");
-      const projectCloseButton = new Button("x").renderComponent();
-      this.attachEvent(projectCloseButton);
+      const projectCloseButton = new Button(
+        "x",
+        () => this.handleProjectCloseClick(project.id),
+        project.id
+      ).renderComponent();
+      // this.attachEvent(projectCloseButton);
 
       projectNavDiv.appendChild(projectText);
       projectNavDiv.appendChild(projectCloseButton);
@@ -25,5 +30,18 @@ export class Navbar extends Component {
 
       navEl.appendChild(projectNavDiv);
     });
+  }
+
+  handleProjectCloseClick(projectId) {
+    // TODO: add modal to confirm
+
+    // delete project
+    try {
+      this.ProjectController.deleteProject(projectId);
+      // remove from ui
+      document.querySelector(`[data-id="${projectId}"]`).remove();
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
