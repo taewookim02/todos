@@ -1,20 +1,29 @@
+import { Button } from "./Button";
 import { Component } from "./Component";
 export class Navbar extends Component {
   constructor() {
     super();
+    this.Button = new Button();
   }
 
   renderComponent(projectsArr) {
     const navEl = document.querySelector(".nav");
 
     projectsArr.forEach((project) => {
-      const projectsNavDiv = document.createElement("div");
-      projectsNavDiv.classList.add("nav__project");
-      projectsNavDiv.textContent = project.name;
+      const projectNavDiv = document.createElement("div");
+      projectNavDiv.classList.add("nav__project");
+      projectNavDiv.setAttribute("data-id", project.id);
+      const projectText = document.createElement("h3");
+      const projectCloseButton = new Button("x").renderComponent();
+      this.attachEvent(projectCloseButton);
 
-      projectsNavDiv.setAttribute("data-id", project.id);
+      projectNavDiv.appendChild(projectText);
+      projectNavDiv.appendChild(projectCloseButton);
+      projectText.textContent = project.name;
 
-      navEl.appendChild(projectsNavDiv);
+      this.attachEvent(projectNavDiv); // this is from Component class, you could define one later too..
+
+      navEl.appendChild(projectNavDiv);
     });
   }
 }
