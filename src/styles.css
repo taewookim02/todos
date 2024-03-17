@@ -10,3 +10,12 @@
   align-items: center;
   padding: 8px;
 }
+
+.nav__project:hover {
+  background-color: bisque;
+  cursor: pointer;
+}
+
+.nav__project:active {
+  background-color: rgb(212, 188, 159);
+}

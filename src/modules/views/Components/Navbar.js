@@ -30,6 +30,15 @@ export class Navbar extends Component {
 
       navEl.appendChild(projectNavDiv);
     });
+    const addProjectButton = new Button(
+      "+",
+      this.handleProjectAddClick
+    ).renderComponent();
+    navEl.appendChild(addProjectButton);
+  }
+
+  handleProjectAddClick() {
+    console.log("Add project!");
   }
 
   handleProjectCloseClick(projectId) {
