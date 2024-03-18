@@ -65,7 +65,8 @@ export class Navbar extends Component {
   handleProjectDivClick(e) {
     // render all todos with the data-id
     const projectId = e.target.getAttribute("data-id");
-    console.log(projectId);
+    const hiddentTodoInput = document.querySelector("#todo-projectId");
+    hiddentTodoInput.value = projectId;
     const myTodosArr = this.TodoController.getTodosWithProjectId(projectId);
 
     this.Todo.renderComponent(myTodosArr);

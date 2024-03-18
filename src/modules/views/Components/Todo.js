@@ -1,10 +1,14 @@
 import { Component } from "./Component";
 import { Button } from "./Button";
 import { Modal } from "./Modal";
+import { TodoModal } from "./TodoModal";
+import { TodoController } from "../../controllers/TodoController";
 export class Todo extends Component {
   constructor() {
     super();
     this.Modal = new Modal();
+    this.TodoModal = new TodoModal();
+    this.TodoController = new TodoController();
   }
 
   renderComponent(todosArr) {
@@ -18,6 +22,7 @@ export class Todo extends Component {
       const todoContainer = document.createElement("div");
       todoContainer.classList.add("todo-container");
       todoContainer.setAttribute("data-id", todo.id);
+      todoContainer.setAttribute("data-projectId", todo.projectId);
       const todoName = document.createElement("p");
 
       const todoEditButton = new Button(
@@ -49,8 +54,13 @@ export class Todo extends Component {
   handleTodoEditClick(e) {
     const todoId = e.target.getAttribute("data-id");
 
-    // open modal
-    // TODO: edit Modal.js to accept todo
+    const hiddenInput = document.querySelector("#todoId"); //
+    const formInput = document.querySelector("#todoName");
+    hiddenInput.value = todoId;
+    const selectedTodoName = this.TodoController.getSingleTodo(todoId).name;
+    formInput.value = selectedTodoName;
+    this.TodoModal.showModal();
+    formInput.focus();
   }
 
   handleTodoCloseClick(e) {

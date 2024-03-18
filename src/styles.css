@@ -32,3 +32,8 @@
 .todos-container {
   margin-top: 2rem;
 }
+
+/* BTNS */
+.btn {
+  cursor: pointer;
+}
