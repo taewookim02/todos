@@ -47,18 +47,24 @@ export class Navbar extends Component {
     navEl.appendChild(addProjectButton);
   }
 
-  handleProjectDivClick(e) {
+  handleProjectDivClick = async (e) => {
     const projectId = e.target.getAttribute("data-id");
 
     const hiddenInput = document.querySelector("#projectId");
     const formInput = document.querySelector("#projectName");
-    hiddenInput.value = projectId;
-    const selectedProjectName =
-      this.ProjectController.getProject(projectId).name; // undefined
-    formInput.value = selectedProjectName;
-    // open modal here
-    this.Modal.showModal();
-  }
+    try {
+      const project = await this.ProjectController.getProject(projectId);
+      if (project) {
+        hiddenInput.value = projectId;
+        formInput.value = project.name;
+        this.Modal.showModal();
+      } else {
+        console.log("Project not found");
+      }
+    } catch (error) {
+      console.log("Error fetching project:", error);
+    }
+  };
 
   handleProjectAddClick() {
     // TODO: reset modal
