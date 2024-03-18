@@ -26,6 +26,18 @@ export class TodoController {
     }
   }
 
+  getTodosWithProjectId(projectId) {
+    const todosArr = this.getTodos();
+    let matchingArr = [];
+    for (let i = 0; i < todosArr.length; i++) {
+      if (todosArr[i].projectId === projectId) {
+        matchingArr.push(todosArr[i]);
+      }
+    }
+
+    return matchingArr;
+  }
+
   getSingleTodo(todoId) {
     const todosArr = this.getTodos();
     for (let i = 0; i < todosArr.length; i++) {

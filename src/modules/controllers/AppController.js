@@ -44,7 +44,7 @@ export class AppController {
     // init new todo item
     const mySampleTodo = new Todo("Hey", "ltw6p5j1");
     const mySampleTodo2 = new Todo("todo1", "ltw6p5j1");
-    const mySampleTodo3 = new Todo("to123do213", "ltw6p5j0");
+    const mySampleTodo3 = new Todo("to123do213", "ltw9kuc8");
     const mySampleTodo4 = new Todo("to8949do213", "ltw6p5j0");
 
     ///////////////////////////////////////////
