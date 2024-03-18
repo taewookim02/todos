@@ -42,7 +42,6 @@ export class TodoController {
     const todosArr = this.getTodos();
     for (let i = 0; i < todosArr.length; i++) {
       if (todosArr[i].id === todoId) {
-        console.log(todosArr);
         return todosArr[i];
       }
     }

@@ -102,3 +102,5 @@ export class AppController {
     this.UIController.init(currentExistingProjects);
   }
 }
+
+// TODO: data tightly coupled with ui in UIController

@@ -55,7 +55,6 @@ export class UIController {
 
         // rerender todos
         const newTodoArr = this.TodoController.getTodosWithProjectId(projectId);
-        console.log(newTodoArr);
         this.TodoComponent.renderComponent(newTodoArr);
       }
     });

@@ -48,7 +48,6 @@ export class TodoModal extends Component {
 
   handleCloseButtonClick(e) {
     e.preventDefault();
-    console.log("close in todo button clicked!");
     this.closeModal();
   }
 
