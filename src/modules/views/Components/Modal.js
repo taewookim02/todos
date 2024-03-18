@@ -1,9 +1,9 @@
 import { Component } from "./Component";
 
 export class Modal extends Component {
-  constructor(editProjectCallback) {
+  constructor(projectCallback) {
     super();
-    // this.editProjectCallback = editProjectCallback;
+    this.projectCallback = projectCallback;
   }
 
   renderComponent(projectId) {
@@ -14,7 +14,7 @@ export class Modal extends Component {
           <label for="projectName">Project Name:</label>
           <input type="text" id="projectName" name="projectName" required>
           <input type="hidden" id="projectId" name="projectId" ${
-            projectId ? `[data-id]=${projectId}` : ""
+            projectId ? `data-id="${projectId}"` : ""
           }>
           <button type="submit">${projectId ? "Save changes" : "Add"}</button>
         </form>
@@ -24,7 +24,7 @@ export class Modal extends Component {
     document.body.appendChild(projectModal);
     document
       .querySelector("#editProjectForm")
-      .addEventListener("submit", this.handleSubmit);
+      .addEventListener("submit", (e) => this.handleSubmit(e));
   }
 
   handleSubmit(e) {
@@ -32,8 +32,6 @@ export class Modal extends Component {
     const formData = new FormData(e.target);
     const projectName = formData.get("projectName");
     const projectId = formData.get("projectId");
-
-    // this.editProjectCallback(projectId, projectName);
-    console.log(projectId, projectName);
+    this.projectCallback(projectId, projectName);
   }
 }
