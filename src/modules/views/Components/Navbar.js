@@ -3,7 +3,7 @@ import { Component } from "./Component";
 import { ProjectController } from "../../controllers/ProjectController";
 import { Modal } from "./Modal";
 import { TodoController } from "../../controllers/TodoController";
-import { Todo } from "./Todo";
+import { TodoComponent } from "./Todo";
 
 export class Navbar extends Component {
   constructor() {
@@ -11,7 +11,7 @@ export class Navbar extends Component {
     this.ProjectController = new ProjectController();
     this.Modal = new Modal();
     this.TodoController = new TodoController();
-    this.Todo = new Todo();
+    this.TodoComponent = new TodoComponent();
 
     // to counter this.Modal == undefined
     this.handleProjectAddClick = this.handleProjectAddClick.bind(this);
@@ -69,7 +69,7 @@ export class Navbar extends Component {
     hiddentTodoInput.value = projectId;
     const myTodosArr = this.TodoController.getTodosWithProjectId(projectId);
 
-    this.Todo.renderComponent(myTodosArr);
+    this.TodoComponent.renderComponent(myTodosArr);
   }
 
   handleProjectEditClick(e) {
@@ -98,8 +98,8 @@ export class Navbar extends Component {
       this.ProjectController.deleteProject(projectId);
       // remove from ui
       document.querySelector(`[data-id="${projectId}"]`).remove();
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
     }
   }
 }

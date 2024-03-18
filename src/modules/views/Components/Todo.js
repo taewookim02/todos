@@ -3,7 +3,7 @@ import { Button } from "./Button";
 import { Modal } from "./Modal";
 import { TodoModal } from "./TodoModal";
 import { TodoController } from "../../controllers/TodoController";
-export class Todo extends Component {
+export class TodoComponent extends Component {
   constructor() {
     super();
     this.Modal = new Modal();
@@ -49,6 +49,15 @@ export class Todo extends Component {
     });
 
     content.appendChild(todosContainer);
+
+    const addTodoButton = new Button("+", (e) =>
+      this.handleTodoAddClick(e)
+    ).renderComponent();
+    content.appendChild(addTodoButton);
+  }
+
+  handleTodoAddClick(e) {
+    this.TodoModal.showModal();
   }
 
   handleTodoEditClick(e) {
@@ -63,7 +72,12 @@ export class Todo extends Component {
     formInput.focus();
   }
 
-  handleTodoCloseClick(e) {
-    console.log("closeClicked!");
+  handleTodoCloseClick(todoId) {
+    try {
+      this.TodoController.removeTodoById(todoId);
+      document.querySelector(`[data-id="${todoId}"]`).remove();
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
