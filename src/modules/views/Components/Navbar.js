@@ -3,12 +3,15 @@ import { Component } from "./Component";
 import { ProjectController } from "../../controllers/ProjectController";
 import { Modal } from "./Modal";
 import { TodoController } from "../../controllers/TodoController";
+import { Todo } from "./Todo";
+
 export class Navbar extends Component {
   constructor() {
     super();
     this.ProjectController = new ProjectController();
     this.Modal = new Modal();
     this.TodoController = new TodoController();
+    this.Todo = new Todo();
 
     // to counter this.Modal == undefined
     this.handleProjectAddClick = this.handleProjectAddClick.bind(this);
@@ -64,14 +67,11 @@ export class Navbar extends Component {
     const projectId = e.target.getAttribute("data-id");
     console.log(projectId);
     const myTodosArr = this.TodoController.getTodosWithProjectId(projectId);
-    console.log(myTodosArr);
 
-    // console.log(myTodosArr);
+    this.Todo.renderComponent(myTodosArr);
   }
 
   handleProjectEditClick(e) {
-    // TODO: THIS SHOULD ACTUALLY RENDER THE TODOS WITH ITS PROJECTID
-    // THE CURRENT CODE SHOULD BE H
     const projectId = e.target.getAttribute("data-id");
 
     const hiddenInput = document.querySelector("#projectId");

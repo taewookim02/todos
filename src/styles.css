@@ -4,23 +4,31 @@
   box-sizing: border-box;
 }
 
-.nav__project {
+.nav__project,
+.todo-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px;
 }
 
-.nav__project:hover {
+.nav__project:hover,
+.todo-container:hover {
   background-color: bisque;
   cursor: pointer;
 }
 
-.nav__project:active {
+.nav__project:active,
+.todo-container:active {
   background-color: rgb(212, 188, 159);
 }
 
 /* MODAL */
 .modal-hidden {
   display: none;
+}
+
+/* TODOS */
+.todos-container {
+  margin-top: 2rem;
 }
