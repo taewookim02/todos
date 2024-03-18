@@ -35,3 +35,6 @@ export class Modal extends Component {
     this.projectCallback(projectId, projectName);
   }
 }
+
+// TODO: 1. edit project
+// TODO: 2. re render project

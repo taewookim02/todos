@@ -9,7 +9,7 @@ export class Navbar extends Component {
 
   renderComponent(projectsArr) {
     const navEl = document.querySelector(".nav");
-
+    navEl.innerHTML = "";
     projectsArr.forEach((project) => {
       const projectNavDiv = document.createElement("div");
       projectNavDiv.classList.add("nav__project");

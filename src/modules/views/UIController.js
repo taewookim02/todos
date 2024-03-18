@@ -18,8 +18,13 @@ export class UIController {
       if (projectId === "") {
         const newProject = new Project(projectName);
         this.ProjectController.addProject(newProject);
+
+        // rerender navbar
+        const newProjectsArr = this.ProjectController.getProjects();
+        this.Navbar.renderComponent(newProjectsArr);
       } else {
         this.ProjectController.editProject(projectId, projectName);
+        // rerender navbar
       }
     });
 
