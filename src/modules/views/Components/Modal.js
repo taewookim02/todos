@@ -1,5 +1,5 @@
 import { Component } from "./Component";
-
+import { Button } from "./Button";
 export class Modal extends Component {
   constructor(projectCallback) {
     super();
@@ -19,7 +19,13 @@ export class Modal extends Component {
           <button type="submit">${projectId ? "Save changes" : "Add"}</button>
         </form>
       </div>
-    `;
+      `;
+
+    projectModal.classList.add("modal-hidden");
+    const closeButton = new Button("x", (e) =>
+      this.handleCloseButtonClick(e)
+    ).renderComponent();
+    projectModal.querySelector(".modal-content").appendChild(closeButton);
 
     document.body.appendChild(projectModal);
     document
@@ -33,8 +39,25 @@ export class Modal extends Component {
     const projectName = formData.get("projectName");
     const projectId = formData.get("projectId");
     this.projectCallback(projectId, projectName);
+    this.closeModal();
+  }
+
+  handleCloseButtonClick(e) {
+    // close modal
+    this.closeModal();
+  }
+
+  closeModal() {
+    const projectModal = document.querySelector(".modal-content").parentNode;
+    const modalInput = document.querySelector("#projectName");
+    modalInput.value = "";
+    const modalHiddenProjectId = document.querySelector("#projectId");
+    modalHiddenProjectId.value = "";
+    projectModal.classList.add("modal-hidden");
+  }
+
+  showModal() {
+    const projectModal = document.querySelector(".modal-content").parentNode;
+    projectModal.classList.remove("modal-hidden");
   }
 }
-
-// TODO: 1. edit project
-// TODO: 2. re render project

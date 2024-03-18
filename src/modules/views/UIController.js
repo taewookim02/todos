@@ -24,7 +24,10 @@ export class UIController {
         this.Navbar.renderComponent(newProjectsArr);
       } else {
         this.ProjectController.editProject(projectId, projectName);
+
         // rerender navbar
+        const newProjectsArr = this.ProjectController.getProjects();
+        this.Navbar.renderComponent(newProjectsArr);
       }
     });
 

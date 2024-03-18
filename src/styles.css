@@ -19,3 +19,8 @@
 .nav__project:active {
   background-color: rgb(212, 188, 159);
 }
+
+/* MODAL */
+.modal-hidden {
+  display: none;
+}
