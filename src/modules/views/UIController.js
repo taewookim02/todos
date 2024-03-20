@@ -19,7 +19,12 @@ export class UIController {
 
   init(projectsArr) {
     this.Navbar.renderComponent(projectsArr);
+    this.initProjectModal();
+    this.initTodoModal();
+    this.initFirstDivClick();
+  }
 
+  initProjectModal() {
     // render modal
     const modal = new Modal((projectId, projectName) => {
       if (projectId === "") {
@@ -39,7 +44,9 @@ export class UIController {
     });
 
     modal.renderComponent();
+  }
 
+  initTodoModal() {
     // render todoModal
     const todoModal = new TodoModal((todoId, todoName) => {
       const projectId = document.querySelector("#todo-projectId").value;
@@ -60,5 +67,14 @@ export class UIController {
     });
 
     todoModal.renderComponent();
+  }
+
+  initFirstDivClick() {
+    document.addEventListener("DOMContentLoaded", (e) => {
+      const myFirstNavDiv = document.querySelector(".nav__project");
+      if (myFirstNavDiv) {
+        myFirstNavDiv.click();
+      }
+    });
   }
 }

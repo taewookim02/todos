@@ -23,6 +23,13 @@
   background-color: rgb(212, 188, 159);
 }
 
+/* STRUCTURE */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 16px;
+}
+
 /* MODAL */
 .modal-hidden {
   display: none;
