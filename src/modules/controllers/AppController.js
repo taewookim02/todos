@@ -104,4 +104,3 @@ export class AppController {
 }
 
 // TODO: data tightly coupled with ui in UIController
-// TODO: Default todo loading
