@@ -13,17 +13,29 @@ export class TodoComponent extends Component {
 
   renderComponent(todosArr) {
     const content = document.querySelector("#content");
-    content.innerHTML = "";
+    // content.innerHTML = "";
 
-    const todosContainer = document.createElement("div");
-    todosContainer.classList.add("todos-container");
+    let todosContainer = document.querySelector("#todos-container");
+
+    if (!todosContainer) {
+      todosContainer = document.createElement("div");
+      todosContainer.id = "todos-container";
+      todosContainer.classList.add("todos-container");
+      content.appendChild(todosContainer);
+    } else {
+      todosContainer.innerHTML = "";
+    }
+
+    // todosContainer.classList.add("todos-container");
 
     todosArr.forEach((todo) => {
       const todoContainer = document.createElement("div");
       todoContainer.classList.add("todo-container");
       todoContainer.setAttribute("data-id", todo.id);
       todoContainer.setAttribute("data-projectId", todo.projectId);
+
       const todoName = document.createElement("p");
+      todoName.textContent = todo.name;
 
       const todoEditButton = new Button(
         "edit",
@@ -42,18 +54,18 @@ export class TodoComponent extends Component {
       todoButtonsDiv.appendChild(todoEditButton);
       todoButtonsDiv.appendChild(todoCloseButton);
 
-      todoName.textContent = todo.name;
       todoContainer.appendChild(todoName);
       todoContainer.appendChild(todoButtonsDiv);
       todosContainer.appendChild(todoContainer);
     });
 
-    content.appendChild(todosContainer);
-
-    const addTodoButton = new Button("+", (e) =>
-      this.handleTodoAddClick(e)
-    ).renderComponent();
-    content.appendChild(addTodoButton);
+    if (!document.querySelector("#add-todo-btn")) {
+      const addTodoButton = new Button("+", (e) =>
+        this.handleTodoAddClick(e)
+      ).renderComponent();
+      addTodoButton.id = "add-todo-btn";
+      content.appendChild(addTodoButton);
+    }
   }
 
   handleTodoAddClick(e) {

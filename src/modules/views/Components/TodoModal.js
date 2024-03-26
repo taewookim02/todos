@@ -32,8 +32,9 @@ export class TodoModal extends Component {
     todoModal.querySelector(".todoModal-content").appendChild(closeButton);
 
     // TODO: ADD TODO MODAL TO CONTENT SO THAT THE UX IS BETTER
-    document.body.appendChild(todoModal);
-    // document.querySelector("#content").appendChild(todoModal);
+    // console.log(document.querySelector("#content"));
+    // document.body.appendChild(todoModal);
+    document.querySelector("#content").appendChild(todoModal);
     // console.log(document.querySelector("#content"));
     document
       .querySelector("#editTodoForm")

@@ -28,6 +28,7 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
   gap: 16px;
+  min-height: 100vh;
 }
 
 /* MODAL */
