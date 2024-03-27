@@ -1,192 +1,58 @@
-/* Universal Base and Body */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-  background-color: #050517;
-  color: #d3d5d7;
+.nav__project,
+.todo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
 }
 
-a,
-.project__close,
-.todo__close {
-  color: #cf5c36;
+.nav__project:hover,
+.todo-container:hover {
+  background-color: bisque;
   cursor: pointer;
-  text-decoration: none;
 }
 
-/* Container and Content Area */
+.nav__project:active,
+.todo-container:active {
+  background-color: rgb(212, 188, 159);
+}
+
+/* STRUCTURE */
 .container {
   display: grid;
-  grid-template-columns: 0.3fr 1fr;
+  grid-template-columns: 1fr 4fr;
+  gap: 16px;
   min-height: 100vh;
 }
 
-.content,
-.header {
-  background-color: #050517;
-  padding: 16px;
+/* MODAL */
+.modal-hidden {
+  display: none;
 }
 
-.header {
-  border-right: 2px solid #333;
-}
-
-.todos__container,
-.header,
-.nav__projects,
-.nav,
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* Modals General */
-.project__modal,
-.todo__modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  background-color: #050517;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  border: 1px solid #cf5c36;
-}
-
-.modal__overlay {
+/* .modal-overlay {
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 999;
-}
-
-/* Modal Headers */
-.project__modal--header,
-.todo__modal--header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-/* Modal Forms General Styles */
-.project__form,
-.todo__form {
-  display: grid;
-  gap: 10px;
-}
-
-/* Input Fields Shared Styles */
-input,
-select,
-textarea,
-.todo__input {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 8px;
-  border: 1px solid #cf5c36;
-  background-color: #333;
-  color: #d3d5d7;
-  border-radius: 8px;
-}
-
-input::placeholder,
-select::placeholder,
-textarea::placeholder {
-  color: #bbb;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: #efc88b;
-}
-
-/* Button Shared Styles */
-button,
-.todo__submit {
-  width: 100%;
-  padding: 10px 0;
-  background-color: #cf5c36;
-  color: #050517;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover,
-.todo__submit:hover {
-  background-color: #efc88b;
-}
-
-button:active,
-.todo__submit:active {
-  background-color: #f4e3b2;
-}
-
-/* Projects List and Todos Styling */
-.project,
-.todo {
-  border: 1px solid #cf5c36;
-  background-color: #050517;
-  padding: 8px;
-  border-radius: 8px;
-}
-
-.project:hover,
-.todo:hover {
-  background-color: #f4e3b2;
-  color: #050517;
-  cursor: pointer;
-}
-
-.project:active,
-.project__selected,
-.todo:active {
-  background-color: #efc88b;
-  color: #050517;
-}
-
-.project,
-.todo__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* .todo__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: ;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 } */
 
-/* Additional Elements Styling */
-/* Scrollbar Styling for Webkit Browsers */
-::-webkit-scrollbar {
-  width: 8px;
+/* TODOS */
+.todos-container {
+  margin-top: 2rem;
 }
 
-::-webkit-scrollbar-track {
-  background: #333;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cf5c36;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #efc88b;
+/* BTNS */
+.btn {
+  cursor: pointer;
 }
