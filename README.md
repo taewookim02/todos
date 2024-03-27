@@ -11,9 +11,8 @@
 
 ## Todos:
 
-1. Generate class files for projects
-2. Generate class files for todos
-3.
+1. render todo not working properly
+2. todoModal to be appended at the end of todos-container
 
 ## Use case scenarios
 
