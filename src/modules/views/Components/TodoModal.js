@@ -31,7 +31,7 @@ export class TodoModal extends Component {
     ).renderComponent();
     todoModal.querySelector(".todoModal-content").appendChild(closeButton);
 
-    // TODO: ADD TODO MODAL TO CONTENT SO THAT THE UX IS BETTER
+    // TODO: FIX TODO MODAL POSITION SO THAT THE UX IS BETTER
     // console.log(document.querySelector("#content"));
     // document.body.appendChild(todoModal);
     document.querySelector("#content").appendChild(todoModal);
@@ -69,5 +69,8 @@ export class TodoModal extends Component {
     const todoModal = document.querySelector(".todoModal-content").parentNode;
     todoModal.classList.add("modal-overlay");
     todoModal.classList.remove("modal-hidden");
+
+    const todosContainer = document.querySelector("#todos-container");
+    todosContainer.appendChild(todoModal);
   }
 }
