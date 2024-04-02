@@ -59,5 +59,8 @@ export class Modal extends Component {
   showModal() {
     const projectModal = document.querySelector(".modal-content").parentNode;
     projectModal.classList.remove("modal-hidden");
+
+    const navElement = document.querySelector(".nav");
+    navElement.appendChild(projectModal);
   }
 }

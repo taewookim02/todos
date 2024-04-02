@@ -56,7 +56,7 @@ export class TodoModal extends Component {
   }
 
   closeModal() {
-    const todoModal = document.querySelector(".todoModal-content").parentNode;
+    const todoModal = document.querySelector(".todoModal-content").parentNode; //
     const modalInput = document.querySelector("#todoName");
     modalInput.value = "";
     const modalHiddenTodoId = document.querySelector("#todoId");
