@@ -11,8 +11,7 @@
 
 ## Todos:
 
-1. render todo not working properly
-2. todoModal to be appended at the end of todos-container
+1. todoModal to be appended at the end of todos-container
 
 ## Use case scenarios
 

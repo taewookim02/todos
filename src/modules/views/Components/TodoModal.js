@@ -20,7 +20,7 @@ export class TodoModal extends Component {
             projectId ? `value="${projectId}"` : ""
           }>
           <button type="submit">${todoId ? "Save changes" : "Add"}</button>
-
+          
         </form>
       </div>
     `;
