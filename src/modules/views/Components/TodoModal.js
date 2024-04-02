@@ -24,6 +24,7 @@ export class TodoModal extends Component {
         </form>
       </div>
     `;
+    todoModal.classList.add("todo-form-container");
 
     todoModal.classList.add("modal-hidden");
     const closeButton = new Button("x", (e) =>
@@ -56,17 +57,28 @@ export class TodoModal extends Component {
   }
 
   closeModal() {
-    const todoModal = document.querySelector(".todoModal-content").parentNode; //
+    const todoModal = document.querySelector(".todo-form-container"); //
     const modalInput = document.querySelector("#todoName");
-    modalInput.value = "";
+    if (modalInput) {
+      modalInput.value = "";
+    }
     const modalHiddenTodoId = document.querySelector("#todoId");
-    modalHiddenTodoId.value = "";
-    todoModal.classList.add("modal-hidden");
-    todoModal.classList.remove("modal-overlay");
+    if (modalHiddenTodoId) {
+      modalHiddenTodoId.value = "";
+    }
+    if (todoModal) {
+      todoModal.classList.add("modal-hidden");
+      todoModal.classList.remove("modal-overlay");
+    }
   }
 
   showModal() {
-    const todoModal = document.querySelector(".todoModal-content").parentNode;
+    let todoModal = document.querySelector(".todo-form-container");
+
+    if (!todoModal) {
+      // FIXME: fix modal not being functional after 1 submit
+    }
+
     todoModal.classList.add("modal-overlay");
     todoModal.classList.remove("modal-hidden");
 

@@ -11,7 +11,7 @@
 
 ## Todos:
 
-1. after adding forms to the nav and todosContainer, it works on the first go. When I submit, it does submit. But when I click the add button again or just by submitting, I get the following error:
+1. // FIXME: fix modal not being functional after 1 submit // TODOMODAL.js
 
 -
 
