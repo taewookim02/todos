@@ -88,10 +88,12 @@ export class UIController {
 
   showTodoModal() {
     this.TodoModal.showModal();
+    this.Modal.closeModal();
   }
 
   showProjectModal() {
     this.Modal.showModal();
+    this.TodoModal.closeModal();
   }
   initTodoModal() {
     // render todoModal

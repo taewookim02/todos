@@ -11,8 +11,7 @@
 
 ## Todos:
 
-1. content div click should be like clicking on add button
-2. header div click should be like clicking on add button
+1.
 
 ## Use case scenarios
 

@@ -80,6 +80,12 @@ export class Modal extends Component {
     projectModal.classList.remove("modal-hidden");
 
     UIController.isProjectModalOpen = true;
+
+    // focus input
+    const inputEl = document.querySelector("#projectName");
+    inputEl.focus;
+    console.log(inputEl);
+
     // const navElement = document.querySelector(".nav");
     // navElement.appendChild(projectModal);
   }
