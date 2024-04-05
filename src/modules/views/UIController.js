@@ -46,25 +46,29 @@ export class UIController {
     modal.renderComponent();
   }
 
+  todoModalCallback(todoId, todoName) {
+    const projectId = document.querySelector("#todo-projectId").value;
+    if (todoId === "") {
+      const newTodo = new Todo(todoName, projectId);
+      this.TodoController.addTodo(newTodo);
+
+      // rerender todos
+      const newTodoArr = this.TodoController.getTodosWithProjectId(projectId);
+      this.TodoComponent.renderComponent(newTodoArr);
+    } else {
+      this.TodoController.editTodoName(todoId, todoName);
+
+      // rerender todos
+      const newTodoArr = this.TodoController.getTodosWithProjectId(projectId);
+      this.TodoComponent.renderComponent(newTodoArr);
+    }
+  }
+
   initTodoModal() {
+    console.log("Initializing TodoModal with callback");
+
     // render todoModal
-    const todoModal = new TodoModal((todoId, todoName) => {
-      const projectId = document.querySelector("#todo-projectId").value;
-      if (todoId === "") {
-        const newTodo = new Todo(todoName, projectId);
-        this.TodoController.addTodo(newTodo);
-
-        // rerender todos
-        const newTodoArr = this.TodoController.getTodosWithProjectId(projectId);
-        this.TodoComponent.renderComponent(newTodoArr);
-      } else {
-        this.TodoController.editTodoName(todoId, todoName);
-
-        // rerender todos
-        const newTodoArr = this.TodoController.getTodosWithProjectId(projectId);
-        this.TodoComponent.renderComponent(newTodoArr);
-      }
-    });
+    const todoModal = new TodoModal(this.todoModalCallback.bind(this));
 
     todoModal.renderComponent();
   }

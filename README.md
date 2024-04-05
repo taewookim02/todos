@@ -12,6 +12,7 @@
 ## Todos:
 
 1. // FIXME: fix modal not being functional after 1 submit // TODOMODAL.js
+   - I gotta know why the modal disappears upon submission
 
 -
 
