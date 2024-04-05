@@ -1,5 +1,6 @@
 import { Component } from "./Component";
 import { Button } from "./Button";
+import { UIController } from "../UIController";
 export class TodoModal extends Component {
   constructor(todoCallback) {
     super();
@@ -73,6 +74,8 @@ export class TodoModal extends Component {
       todoModal.classList.add("modal-hidden");
       todoModal.classList.remove("modal-overlay");
     }
+
+    UIController.isTodoModalOpen = false;
   }
 
   showModal() {
@@ -85,6 +88,8 @@ export class TodoModal extends Component {
 
     todoModal.classList.add("modal-overlay");
     todoModal.classList.remove("modal-hidden");
+
+    UIController.isTodoModalOpen = true;
 
     // rearranging like this causes error
     // const todosContainer = document.querySelector("#todos-container");
