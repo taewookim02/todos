@@ -26,24 +26,42 @@ export class UIController {
 
   initProjectModal() {
     // render modal
-    const modal = new Modal((projectId, projectName) => {
-      if (projectId === "") {
-        const newProject = new Project(projectName);
-        this.ProjectController.addProject(newProject);
-
-        // rerender navbar
-        const newProjectsArr = this.ProjectController.getProjects();
-        this.Navbar.renderComponent(newProjectsArr);
-      } else {
-        this.ProjectController.editProject(projectId, projectName);
-
-        // rerender navbar
-        const newProjectsArr = this.ProjectController.getProjects();
-        this.Navbar.renderComponent(newProjectsArr);
-      }
-    });
+    const modal = new Modal(this.projectModalCallback.bind(this));
 
     modal.renderComponent();
+  }
+
+  initTodoModal() {
+    // render todoModal
+    const todoModal = new TodoModal(this.todoModalCallback.bind(this));
+
+    todoModal.renderComponent();
+  }
+
+  initFirstDivClick() {
+    document.addEventListener("DOMContentLoaded", (e) => {
+      const myFirstNavDiv = document.querySelector(".nav__project");
+      if (myFirstNavDiv) {
+        myFirstNavDiv.click();
+      }
+    });
+  }
+
+  projectModalCallback(projectId, projectName) {
+    if (projectId === "") {
+      const newProject = new Project(projectName);
+      this.ProjectController.addProject(newProject);
+
+      // rerender navbar
+      const newProjectsArr = this.ProjectController.getProjects();
+      this.Navbar.renderComponent(newProjectsArr);
+    } else {
+      this.ProjectController.editProject(projectId, projectName);
+
+      // rerender navbar
+      const newProjectsArr = this.ProjectController.getProjects();
+      this.Navbar.renderComponent(newProjectsArr);
+    }
   }
 
   todoModalCallback(todoId, todoName) {
@@ -62,23 +80,5 @@ export class UIController {
       const newTodoArr = this.TodoController.getTodosWithProjectId(projectId);
       this.TodoComponent.renderComponent(newTodoArr);
     }
-  }
-
-  initTodoModal() {
-    console.log("Initializing TodoModal with callback");
-
-    // render todoModal
-    const todoModal = new TodoModal(this.todoModalCallback.bind(this));
-
-    todoModal.renderComponent();
-  }
-
-  initFirstDivClick() {
-    document.addEventListener("DOMContentLoaded", (e) => {
-      const myFirstNavDiv = document.querySelector(".nav__project");
-      if (myFirstNavDiv) {
-        myFirstNavDiv.click();
-      }
-    });
   }
 }

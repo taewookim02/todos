@@ -64,7 +64,9 @@ export class TodoComponent extends Component {
         this.handleTodoAddClick(e)
       ).renderComponent();
       addTodoButton.id = "add-todo-btn";
-      content.appendChild(addTodoButton);
+      // content.appendChild(addTodoButton);
+      let todoContainerElement = document.querySelector(".todo-form-container");
+      content.insertBefore(addTodoButton, todoContainerElement);
     }
   }
 

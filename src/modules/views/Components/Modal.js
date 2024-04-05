@@ -21,16 +21,20 @@ export class Modal extends Component {
       </div>
       `;
 
+    projectModal.classList.add("project-form-container");
     projectModal.classList.add("modal-hidden");
     const closeButton = new Button("x", (e) =>
       this.handleCloseButtonClick(e)
     ).renderComponent();
     projectModal.querySelector(".modal-content").appendChild(closeButton);
 
-    document.body.appendChild(projectModal);
+    let headerElement = document.querySelector(".header");
+
+    headerElement.appendChild(projectModal);
+
     document
       .querySelector("#editProjectForm")
-      .addEventListener("submit", (e) => this.handleSubmit(e));
+      .addEventListener("submit", (e) => this.handleSubmit(e)); // FIXME:
   }
 
   handleSubmit(e) {
@@ -38,7 +42,7 @@ export class Modal extends Component {
     const formData = new FormData(e.target);
     const projectName = formData.get("projectName");
     const projectId = formData.get("projectId");
-    this.projectCallback(projectId, projectName);
+    this.projectCallback(projectId, projectName); // FIXME:
     this.closeModal();
   }
 
@@ -48,16 +52,28 @@ export class Modal extends Component {
   }
 
   closeModal() {
-    const projectModal = document.querySelector(".modal-content").parentNode;
+    const projectModal = document.querySelector(".project-form-container");
     const modalInput = document.querySelector("#projectName");
-    modalInput.value = "";
+    if (modalInput) {
+      modalInput.value = "";
+    }
     const modalHiddenProjectId = document.querySelector("#projectId");
-    modalHiddenProjectId.value = "";
-    projectModal.classList.add("modal-hidden");
+    if (modalHiddenProjectId) {
+      modalHiddenProjectId.value = "";
+    }
+    if (projectModal) {
+      projectModal.classList.add("modal-hidden");
+    }
   }
 
   showModal() {
-    const projectModal = document.querySelector(".modal-content").parentNode;
+    let projectModal = document.querySelector(".project-form-container");
+
+    if (!projectModal) {
+      this.renderComponent();
+      projectModal = document.querySelector(".project-form-container");
+    }
+    projectModal.classList.add("modal-overlay");
     projectModal.classList.remove("modal-hidden");
 
     // const navElement = document.querySelector(".nav");

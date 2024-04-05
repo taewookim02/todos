@@ -34,11 +34,9 @@ export class TodoModal extends Component {
 
     todoModal.querySelector(".todoModal-content").appendChild(closeButton);
 
-    // document.querySelector("#content").appendChild(todoModal);
-    // document.querySelector(".todos-container").appendChild(todoModal); <-- doing this instead of #content causes the content to be completely blank. Why?
     let contentElement = document.querySelector("#content");
-    let addButton = document.querySelector("#add-todo-btn");
-    contentElement.insertBefore(todoModal, addButton);
+    // let addButton = document.querySelector("#add-todo-btn");
+    contentElement.appendChild(todoModal);
 
     document
       .querySelector("#editTodoForm")
@@ -51,7 +49,7 @@ export class TodoModal extends Component {
     const formData = new FormData(e.target);
     const todoName = formData.get("todoName");
     const todoId = formData.get("todoId");
-    this.todoCallback(todoId, todoName); // this line throws error if todoCallback is not a function
+    this.todoCallback(todoId, todoName);
     this.closeModal();
   }
 
@@ -70,7 +68,7 @@ export class TodoModal extends Component {
     if (modalHiddenTodoId) {
       modalHiddenTodoId.value = "";
     }
-    console.log(todoModal);
+
     if (todoModal) {
       todoModal.classList.add("modal-hidden");
       todoModal.classList.remove("modal-overlay");
@@ -81,8 +79,6 @@ export class TodoModal extends Component {
     let todoModal = document.querySelector(".todo-form-container");
 
     if (!todoModal) {
-      // FIXME: fix modal not being functional after 1 submit
-      // https://chat.openai.com/c/86ba84f9-e1c9-4da3-b801-4c56755907e9
       this.renderComponent();
       todoModal = document.querySelector(".todo-form-container");
     }
@@ -90,6 +86,7 @@ export class TodoModal extends Component {
     todoModal.classList.add("modal-overlay");
     todoModal.classList.remove("modal-hidden");
 
+    // rearranging like this causes error
     // const todosContainer = document.querySelector("#todos-container");
     // todosContainer.appendChild(todoModal);
   }
