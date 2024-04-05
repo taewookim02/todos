@@ -36,7 +36,6 @@ export class TodoModal extends Component {
     todoModal.querySelector(".todoModal-content").appendChild(closeButton);
 
     let contentElement = document.querySelector("#content");
-    // let addButton = document.querySelector("#add-todo-btn");
     contentElement.appendChild(todoModal);
 
     document
