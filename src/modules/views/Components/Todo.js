@@ -21,7 +21,7 @@ export class TodoComponent extends Component {
       todosContainer = document.createElement("div");
       todosContainer.id = "todos-container";
       todosContainer.classList.add("todos-container");
-      content.appendChild(todosContainer);
+      content.insertBefore(todosContainer, content.firstChild);
     } else {
       todosContainer.innerHTML = "";
     }
