@@ -89,9 +89,5 @@ export class TodoModal extends Component {
     todoModal.classList.remove("modal-hidden");
 
     UIController.isTodoModalOpen = true;
-
-    // rearranging like this causes error
-    // const todosContainer = document.querySelector("#todos-container");
-    // todosContainer.appendChild(todoModal);
   }
 }

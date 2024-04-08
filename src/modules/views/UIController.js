@@ -53,6 +53,8 @@ export class UIController {
       ) {
         if (!UIController.isProjectModalOpen) {
           this.showProjectModal();
+          const projectNameElement = document.querySelector("#projectName");
+          projectNameElement.focus();
         } else {
           this.closeProjectModal();
         }
@@ -72,6 +74,8 @@ export class UIController {
       ) {
         if (!UIController.isTodoModalOpen) {
           this.showTodoModal();
+          const todoNameElement = document.querySelector("#todoName");
+          todoNameElement.focus();
         } else {
           this.closeTodoModal();
         }
