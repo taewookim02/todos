@@ -3,17 +3,21 @@ import { Modal } from "./Components/Modal";
 // import projectController here?
 import { ProjectController } from "../controllers/ProjectController";
 import { Project } from "../models/Project";
-import { TodoModal } from "./Components/TodoModal";
 import { TodoController } from "../controllers/TodoController";
 import { Todo } from "../models/Todo";
+import { TodoModal } from "./Components/TodoModal";
 import { TodoComponent } from "./Components/Todo";
 export class UIController {
+  static isTodoModalOpen = false;
+  static isProjectModalOpen = false;
+
   constructor() {
     this.Navbar = new Navbar();
-    // this.Modal = new Modal();
+    this.Modal = new Modal();
     this.ProjectController = new ProjectController();
     this.TodoController = new TodoController();
     this.Todo = new Todo();
+    this.TodoModal = new TodoModal();
     this.TodoComponent = new TodoComponent();
   }
 
@@ -22,6 +26,10 @@ export class UIController {
     this.initProjectModal();
     this.initTodoModal();
     this.initFirstDivClick();
+    document.addEventListener("DOMContentLoaded", (e) => {
+      this.initContentClickBehavior();
+      this.initHeaderClickBehavior();
+    });
   }
 
   initProjectModal() {
@@ -31,6 +39,66 @@ export class UIController {
     modal.renderComponent();
   }
 
+  initHeaderClickBehavior() {
+    const headerElement = document.querySelector(".header");
+    const navContainer = document.querySelector(".nav");
+    const projectFormContainer = document.querySelector(
+      ".project-form-container"
+    );
+
+    headerElement.addEventListener("click", (e) => {
+      if (
+        !navContainer.contains(e.target) &&
+        !projectFormContainer.contains(e.target)
+      ) {
+        if (!UIController.isProjectModalOpen) {
+          this.showProjectModal();
+          const projectNameElement = document.querySelector("#projectName");
+          projectNameElement.focus();
+        } else {
+          this.closeProjectModal();
+        }
+      }
+    });
+  }
+
+  initContentClickBehavior() {
+    const contentElement = document.querySelector("#content");
+    const todosContainer = document.querySelector(".todos-container");
+    const todoFormContainer = document.querySelector(".todo-form-container");
+
+    contentElement.addEventListener("click", (e) => {
+      if (
+        !todosContainer.contains(e.target) &&
+        !todoFormContainer.contains(e.target)
+      ) {
+        if (!UIController.isTodoModalOpen) {
+          this.showTodoModal();
+          const todoNameElement = document.querySelector("#todoName");
+          todoNameElement.focus();
+        } else {
+          this.closeTodoModal();
+        }
+      }
+    });
+  }
+
+  closeTodoModal() {
+    this.TodoModal.closeModal();
+  }
+  closeProjectModal() {
+    this.Modal.closeModal();
+  }
+
+  showTodoModal() {
+    this.TodoModal.showModal();
+    this.Modal.closeModal();
+  }
+
+  showProjectModal() {
+    this.Modal.showModal();
+    this.TodoModal.closeModal();
+  }
   initTodoModal() {
     // render todoModal
     const todoModal = new TodoModal(this.todoModalCallback.bind(this));

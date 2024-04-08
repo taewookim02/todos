@@ -1,5 +1,6 @@
 import { Component } from "./Component";
 import { Button } from "./Button";
+import { UIController } from "../UIController";
 export class Modal extends Component {
   constructor(projectCallback) {
     super();
@@ -64,6 +65,8 @@ export class Modal extends Component {
     if (projectModal) {
       projectModal.classList.add("modal-hidden");
     }
+
+    UIController.isProjectModalOpen = false;
   }
 
   showModal() {
@@ -75,6 +78,13 @@ export class Modal extends Component {
     }
     projectModal.classList.add("modal-overlay");
     projectModal.classList.remove("modal-hidden");
+
+    UIController.isProjectModalOpen = true;
+
+    // focus input
+    const inputEl = document.querySelector("#projectName");
+    inputEl.focus;
+    console.log(inputEl);
 
     // const navElement = document.querySelector(".nav");
     // navElement.appendChild(projectModal);
