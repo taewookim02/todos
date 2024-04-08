@@ -11,7 +11,14 @@
 
 ## Todos:
 
-1.
+![alt text](image.png)
+
+1. Add button for todo
+2. Add button for project
+3. Add Todo details
+   - date
+   - priority
+   - ...
 
 ## Use case scenarios
 
