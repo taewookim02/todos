@@ -29,9 +29,9 @@ export class Modal extends Component {
     ).renderComponent();
     projectModal.querySelector(".modal-content").appendChild(closeButton);
 
-    let headerElement = document.querySelector(".header");
+    let navElement = document.querySelector(".nav");
 
-    headerElement.appendChild(projectModal);
+    navElement.appendChild(projectModal);
 
     document
       .querySelector("#editProjectForm")

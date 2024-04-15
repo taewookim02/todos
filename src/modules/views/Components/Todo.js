@@ -59,15 +59,15 @@ export class TodoComponent extends Component {
       todosContainer.appendChild(todoContainer);
     });
 
-    // if (!document.querySelector("#add-todo-btn")) {
-    //   const addTodoButton = new Button("+", (e) =>
-    //     this.handleTodoAddClick(e)
-    //   ).renderComponent();
-    //   addTodoButton.id = "add-todo-btn";
-    //   // content.appendChild(addTodoButton);
-    //   let todoContainerElement = document.querySelector(".todo-form-container");
-    //   content.insertBefore(addTodoButton, todoContainerElement);
-    // }
+    if (!document.querySelector("#add-todo-btn")) {
+      const addTodoButton = new Button("New Todo +", (e) =>
+        this.handleTodoAddClick(e)
+      ).renderComponent();
+      addTodoButton.id = "add-todo-btn";
+      // content.appendChild(addTodoButton);
+      let todoContainerElement = document.querySelector(".todo-form-container");
+      content.insertBefore(addTodoButton, todoContainerElement);
+    }
   }
 
   handleTodoAddClick(e) {

@@ -23,6 +23,17 @@
   background-color: rgb(212, 188, 159);
 }
 
+.nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
 /* STRUCTURE */
 .container {
   display: grid;
@@ -33,6 +44,8 @@
 
 .content {
   background-color: green;
+  display: flex;
+  flex-direction: column;
 }
 
 /* MODAL */
@@ -59,4 +72,14 @@
 /* BTNS */
 .btn {
   cursor: pointer;
+}
+
+#add-todo-btn {
+  order: 1;
+  margin-top: auto;
+}
+
+.add-project-btn {
+  order: 1;
+  margin-top: auto;
 }

@@ -55,11 +55,12 @@ export class Navbar extends Component {
 
       navEl.appendChild(projectNavDiv);
     });
-    // const addProjectButton = new Button(
-    //   "+",
-    //   this.handleProjectAddClick
-    // ).renderComponent();
-    // navEl.appendChild(addProjectButton);
+    const addProjectButton = new Button(
+      "New Project+",
+      this.handleProjectAddClick
+    ).renderComponent();
+    addProjectButton.classList.add("add-project-btn");
+    navEl.appendChild(addProjectButton);
   }
 
   handleProjectDivClick(e) {
