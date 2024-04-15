@@ -77,6 +77,20 @@ export class TodoComponent extends Component {
   }
 
   handleTodoElementClick(e) {
+    // TODO: doing this part atm
+    const todoId = e.target.getAttribute("data-id");
+
+    const todoFromStorage = this.TodoController.getSingleTodo(todoId);
+    console.log(todoFromStorage);
+
+    const nameInput = document.querySelector("#todoDetailName");
+    nameInput.value = todoFromStorage.name;
+    const idInput = document.querySelector("#todoDetailId");
+    idInput.value = todoFromStorage.id;
+
+    const dueDateInput = document.querySelector("#todoDetailDueDate");
+    const descriptionInput = document.querySelector("#todoDetailDesc");
+
     this.TodoDetailModal.showModal();
   }
 
@@ -91,6 +105,7 @@ export class TodoComponent extends Component {
     const formInput = document.querySelector("#todoName");
     hiddenInput.value = todoId;
     const selectedTodoName = this.TodoController.getSingleTodo(todoId).name;
+
     formInput.value = selectedTodoName;
     this.TodoModal.showModal();
     formInput.focus();
