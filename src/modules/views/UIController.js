@@ -42,13 +42,19 @@ export class UIController {
   initHeaderClickBehavior() {
     const headerElement = document.querySelector(".header");
     // const navContainer = document.querySelector(".nav");
+    const navItemElements = document.querySelectorAll(".nav__project");
+
     const projectFormContainer = document.querySelector(
       ".project-form-container"
     );
 
     headerElement.addEventListener("click", (e) => {
+      let isClickInsideNavItem = Array.from(navItemElements).some((element) =>
+        element.contains(e.target)
+      );
       if (
-        // !navContainer.contains(e.target) &&
+        // !navItemElement.contains(e.target) &&
+        !isClickInsideNavItem &&
         !projectFormContainer.contains(e.target)
       ) {
         if (!UIController.isProjectModalOpen) {
