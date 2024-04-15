@@ -16,6 +16,8 @@
    - priority
    - ...
 2. Clicking on todo item should open a modal
+3. Add modal overlay
+4. Populate values of modal
 
 ## Use case scenarios
 

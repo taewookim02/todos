@@ -4,8 +4,8 @@ export class TodoDetailModal extends Component {
   renderComponent(todoId) {
     const detailedModal = document.createElement("div");
     detailedModal.innerHTML = `
-      <div class="overlay">
-        <div>
+        <div class="detail-todo-content">
+        <span class="close">&times;</span>
           <form id="detailTodoForm">
             <div class="detail-todo-container">
               <label for="todoDetailName">Todo Name:</label>
@@ -36,12 +36,28 @@ export class TodoDetailModal extends Component {
             </div>
           </form>
         </div>
-      </div>
-    
-    
     `;
 
-    const contentElement = document.querySelector("#content");
-    contentElement.appendChild(detailedModal);
+    // TODO: only attaches once
+    detailedModal.classList.add("overlay");
+    detailedModal.addEventListener("click", this.attachEvent);
+
+    const bodyElement = document.querySelector("body");
+    bodyElement.appendChild(detailedModal);
+  }
+
+  attachEvent(e) {
+    // TODO: only attaches once
+    // overlay
+    const overlay = document.querySelector(".overlay");
+
+    // close button
+    const closeBtn = document.querySelector(".close");
+
+    window.onclick = function (e) {
+      if (e.target == overlay) {
+        overlay.style.display = "none";
+      }
+    };
   }
 }
