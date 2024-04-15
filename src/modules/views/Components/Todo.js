@@ -3,12 +3,14 @@ import { Button } from "./Button";
 import { Modal } from "./Modal";
 import { TodoModal } from "./TodoModal";
 import { TodoController } from "../../controllers/TodoController";
+import { TodoDetailModal } from "./TodoDetailModal";
 export class TodoComponent extends Component {
   constructor() {
     super();
     this.Modal = new Modal();
     this.TodoModal = new TodoModal();
     this.TodoController = new TodoController();
+    this.TodoDetailModal = new TodoDetailModal();
   }
 
   renderComponent(todosArr) {
@@ -57,6 +59,10 @@ export class TodoComponent extends Component {
       todoContainer.appendChild(todoName);
       todoContainer.appendChild(todoButtonsDiv);
       todosContainer.appendChild(todoContainer);
+
+      todoContainer.addEventListener("click", (e) => {
+        this.handleTodoElementClick(e);
+      });
     });
 
     if (!document.querySelector("#add-todo-btn")) {
@@ -68,6 +74,10 @@ export class TodoComponent extends Component {
       let todoContainerElement = document.querySelector(".todo-form-container");
       content.insertBefore(addTodoButton, todoContainerElement);
     }
+  }
+
+  handleTodoElementClick(e) {
+    this.TodoDetailModal.renderComponent();
   }
 
   handleTodoAddClick(e) {

@@ -83,3 +83,9 @@
   order: 1;
   margin-top: auto;
 }
+
+/* DETAIL MODAL */
+.detail-todo-container {
+  display: flex;
+  flex-direction: column;
+}
