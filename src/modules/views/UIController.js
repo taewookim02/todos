@@ -7,6 +7,7 @@ import { TodoController } from "../controllers/TodoController";
 import { Todo } from "../models/Todo";
 import { TodoModal } from "./Components/TodoModal";
 import { TodoComponent } from "./Components/Todo";
+import { TodoDetailModal } from "./Components/TodoDetailModal";
 export class UIController {
   static isTodoModalOpen = false;
   static isProjectModalOpen = false;
@@ -18,6 +19,7 @@ export class UIController {
     this.TodoController = new TodoController();
     this.Todo = new Todo();
     this.TodoModal = new TodoModal();
+    this.TodoDetailModal = new TodoDetailModal();
     this.TodoComponent = new TodoComponent();
   }
 
@@ -26,10 +28,17 @@ export class UIController {
     this.initProjectModal();
     this.initTodoModal();
     this.initFirstDivClick();
+    this.initTodoDetailModal();
     document.addEventListener("DOMContentLoaded", (e) => {
       this.initContentClickBehavior();
       this.initHeaderClickBehavior();
+      this.initOverlayClickBehavior();
     });
+  }
+
+  initTodoDetailModal() {
+    const todoDetailModal = new TodoDetailModal();
+    todoDetailModal.renderComponent();
   }
 
   initProjectModal() {
@@ -37,6 +46,24 @@ export class UIController {
     const modal = new Modal(this.projectModalCallback.bind(this));
 
     modal.renderComponent();
+  }
+
+  initOverlayClickBehavior() {
+    const overlay = document.querySelector(".overlay");
+    const detailModalContent = document.querySelector(".detail-todo-content");
+    const closeBtn = document.querySelector(".close");
+    overlay.addEventListener("click", (e) => {
+      if (
+        !detailModalContent.contains(e.target) ||
+        closeBtn.contains(e.target)
+      ) {
+        this.closeTodoDetailModal();
+      }
+    });
+  }
+
+  closeTodoDetailModal() {
+    this.TodoDetailModal.closeModal();
   }
 
   initHeaderClickBehavior() {

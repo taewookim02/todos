@@ -1,6 +1,10 @@
 import { Component } from "./Component";
 
 export class TodoDetailModal extends Component {
+  constructor() {
+    super();
+  }
+
   renderComponent(todoId) {
     const detailedModal = document.createElement("div");
     detailedModal.innerHTML = `
@@ -40,24 +44,23 @@ export class TodoDetailModal extends Component {
 
     // TODO: only attaches once
     detailedModal.classList.add("overlay");
-    detailedModal.addEventListener("click", this.attachEvent);
+    detailedModal.classList.add("modal-hidden");
 
+    // const closeModal = document.querySelector(".close");
+    // closeModal.addEventListener("click", (e) => {
+    //   this.closeModal();
+    // });
     const bodyElement = document.querySelector("body");
     bodyElement.appendChild(detailedModal);
   }
 
-  attachEvent(e) {
-    // TODO: only attaches once
-    // overlay
+  closeModal() {
     const overlay = document.querySelector(".overlay");
+    overlay.classList.toggle("modal-hidden");
+  }
 
-    // close button
-    const closeBtn = document.querySelector(".close");
-
-    window.onclick = function (e) {
-      if (e.target == overlay) {
-        overlay.style.display = "none";
-      }
-    };
+  showModal() {
+    const overlay = document.querySelector(".overlay");
+    overlay.classList.toggle("modal-hidden");
   }
 }

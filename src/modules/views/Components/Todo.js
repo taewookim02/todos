@@ -77,7 +77,7 @@ export class TodoComponent extends Component {
   }
 
   handleTodoElementClick(e) {
-    this.TodoDetailModal.renderComponent();
+    this.TodoDetailModal.showModal();
   }
 
   handleTodoAddClick(e) {
