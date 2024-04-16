@@ -47,6 +47,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  height: 600px;
   position: relative;
 }
 
@@ -59,6 +60,7 @@
 /* TODOS */
 .todos-container {
   padding-top: 1rem;
+  position: relative;
 }
 
 .todo-header {
@@ -71,15 +73,22 @@
   cursor: pointer;
 }
 
-#add-todo-btn {
-  order: 1;
-  margin-top: auto;
+#add-todo-btn,
+.add-project-btn {
+  /* order: 1; */
+  /* margin-top: 0; */
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  /* width: 100%;  */
+  /* this should be todos-containers width but it seems to be larger*/
+  /* TODO: add scrollTo bottom on click */
 }
 
-.add-project-btn {
+/* .add-project-btn {
   order: 1;
   margin-top: auto;
-}
+} */
 
 /* DETAIL MODAL */
 .detail-todo-container {
@@ -127,4 +136,21 @@
 
 .close:active {
   color: #ff5454;
+}
+
+/* completed todos */
+.completed-container {
+  padding: 8px;
+  /* display: flex; using display flex makes it visible
+  justify-content: space-between; */
+}
+
+.completed-container span {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.completed-header {
+  display: flex;
+  justify-content: space-between;
 }

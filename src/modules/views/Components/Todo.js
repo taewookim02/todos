@@ -31,21 +31,29 @@ export class TodoComponent extends Component {
       todosContainer.innerHTML = "";
     }
 
-    // add nav item
-    const completedContainer = document.createElement("div");
-    const completedNavSpan = document.createElement("span");
-    completedNavSpan.textContent = "Completed Todos";
-    completedContainer.appendChild(completedNavSpan);
-    completedContainer.classList.add("completed-container");
-    completedContainer.classList.add("hidden");
-    todosContainer.appendChild(completedContainer);
-
     // add header (proj name)
     const todoHeader = document.createElement("h1");
     todoHeader.textContent = "";
     todoHeader.classList.add("todo-header");
-
     todosContainer.appendChild(todoHeader);
+
+    // add nav item
+    const completedContainer = document.createElement("div");
+    const headerDiv = document.createElement("div");
+    headerDiv.classList.add("completed-header");
+    const completedNavSpan = document.createElement("span");
+    const completedCount = document.createElement("span");
+    completedCount.textContent = 0;
+    completedNavSpan.textContent = "Completed Todos";
+    headerDiv.appendChild(completedNavSpan);
+    headerDiv.appendChild(completedCount);
+
+    completedContainer.appendChild(headerDiv);
+    completedContainer.classList.add("completed-container");
+    completedContainer.classList.add("hidden");
+
+    todosContainer.appendChild(completedContainer);
+
     todosArr.forEach((todo) => {
       const todoContainer = document.createElement("div");
       todoContainer.classList.add("todo-container");
@@ -155,6 +163,7 @@ export class TodoComponent extends Component {
 
   handleTodoAddClick(e) {
     this.TodoModal.showModal();
+    this.Modal.closeModal();
   }
 
   handleTodoEditClick(e) {

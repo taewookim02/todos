@@ -56,12 +56,6 @@ export class UIController {
           ".completed-container"
         );
         completedContainer.classList.remove("hidden");
-      } else if (!isAtTop) {
-        const completedContainer = document.querySelector(
-          ".completed-container"
-        );
-
-        completedContainer.classList.add("hidden");
       }
     });
   }
