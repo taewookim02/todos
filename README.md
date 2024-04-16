@@ -11,13 +11,11 @@
 
 ## Todos:
 
-1. Add finished todo list
-
-- finishedYn to todo
-
-2. Add Scheduled nav item
-3. Add priority nav item
-4. clicking on nav item, todoEl, should close open modals
+1. clicking on nav item, todoEl, should close open modals
+2. Add completed todos at the top of contents on scrolling up
+3. Add logic to show only uncompleted todos
+4. Add Scheduled nav item
+5. Add priority nav item
 
 ## Use case scenarios
 

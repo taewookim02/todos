@@ -2,6 +2,7 @@ import { Button } from "./Button";
 import { Component } from "./Component";
 import { ProjectController } from "../../controllers/ProjectController";
 import { Modal } from "./Modal";
+import { TodoModal } from "./TodoModal";
 import { TodoController } from "../../controllers/TodoController";
 import { TodoComponent } from "./Todo";
 
@@ -12,6 +13,7 @@ export class Navbar extends Component {
     this.Modal = new Modal();
     this.TodoController = new TodoController();
     this.TodoComponent = new TodoComponent();
+    this.TodoModal = new TodoModal();
 
     // to counter this.Modal == undefined
     this.handleProjectAddClick = this.handleProjectAddClick.bind(this);
@@ -71,6 +73,8 @@ export class Navbar extends Component {
     const myTodosArr = this.TodoController.getTodosWithProjectId(projectId);
 
     this.TodoComponent.renderComponent(myTodosArr);
+    this.Modal.closeModal();
+    this.TodoModal.closeModal();
   }
 
   handleProjectEditClick(e) {

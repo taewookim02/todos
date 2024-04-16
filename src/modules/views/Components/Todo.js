@@ -11,6 +11,7 @@ export class TodoComponent extends Component {
     this.TodoModal = new TodoModal();
     this.TodoController = new TodoController();
     this.TodoDetailModal = new TodoDetailModal();
+    this.ProjectModal = new Modal();
   }
 
   renderComponent(todosArr) {
@@ -105,6 +106,8 @@ export class TodoComponent extends Component {
     isFinishedInput.checked = todoFromStorage.isFinished;
 
     this.TodoDetailModal.showModal();
+    this.TodoModal.closeModal();
+    this.ProjectModal.closeModal();
   }
 
   setCheckedPriority(prioNodes, storedPriority) {
