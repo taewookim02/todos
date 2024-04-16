@@ -78,7 +78,8 @@ export class Navbar extends Component {
     hiddenTodoInput.value = projectId;
 
     // todoHeader.textContent = projectObj.name;
-    const myTodosArr = this.TodoController.getTodosWithProjectId(projectId);
+    const myTodosArr =
+      this.TodoController.getUncompletedTodosWithProjectId(projectId);
 
     this.TodoComponent.renderComponent(myTodosArr);
     this.Modal.closeModal();

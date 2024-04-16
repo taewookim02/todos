@@ -26,11 +26,23 @@ export class TodoController {
     }
   }
 
-  getTodosWithProjectId(projectId) {
+  getUncompletedTodosWithProjectId(projectId) {
     const todosArr = this.getTodos();
     let matchingArr = [];
     for (let i = 0; i < todosArr.length; i++) {
-      if (todosArr[i].projectId === projectId) {
+      if (todosArr[i].projectId === projectId && !todosArr[i].isFinished) {
+        matchingArr.push(todosArr[i]);
+      }
+    }
+
+    return matchingArr;
+  }
+
+  getCompletedTodosWithProjectId(projectId) {
+    const todosArr = this.getTodos();
+    let matchingArr = [];
+    for (let i = 0; i < todosArr.length; i++) {
+      if (todosArr[i].projectId === projectId && todosArr[i].isFinished) {
         matchingArr.push(todosArr[i]);
       }
     }

@@ -38,6 +38,7 @@ export class UIController {
   }
 
   initScrollBehavior() {
+    // this is for showing completed todos
     const content = document.querySelector("#content");
 
     let isAtTop = true;
@@ -193,7 +194,15 @@ export class UIController {
       prio,
       isFinished
     );
-    const newTodoArr = this.TodoController.getTodosWithProjectId(projId);
+    const newTodoArr =
+      this.TodoController.getUncompletedTodosWithProjectId(projId);
+
+    const completedTodoArr =
+      this.TodoController.getCompletedTodosWithProjectId(projId);
+
+    // TODO: here?
+    console.log(completedTodoArr);
+
     this.TodoComponent.renderComponent(newTodoArr);
   }
 
@@ -204,6 +213,7 @@ export class UIController {
 
       // rerender navbar
       const newProjectsArr = this.ProjectController.getProjects();
+
       this.Navbar.renderComponent(newProjectsArr);
     } else {
       this.ProjectController.editProject(projectId, projectName);
@@ -222,13 +232,26 @@ export class UIController {
       this.TodoController.addTodo(newTodo);
 
       // rerender todos
-      const newTodoArr = this.TodoController.getTodosWithProjectId(projectId);
+      const newTodoArr =
+        this.TodoController.getUncompletedTodosWithProjectId(projectId);
+      // TODO: here?
+
+      const completedTodoArr =
+        this.TodoController.getCompletedTodosWithProjectId(projectId);
+      console.log(completedTodoArr);
+
       this.TodoComponent.renderComponent(newTodoArr);
     } else {
       this.TodoController.editTodoName(todoId, todoName);
 
       // rerender todos
-      const newTodoArr = this.TodoController.getTodosWithProjectId(projectId);
+      const newTodoArr =
+        this.TodoController.getUncompletedTodosWithProjectId(projectId);
+      // TODO: here?
+
+      const completedTodoArr =
+        this.TodoController.getCompletedTodosWithProjectId(projectId);
+      console.log(completedTodoArr);
       this.TodoComponent.renderComponent(newTodoArr);
     }
   }
