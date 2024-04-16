@@ -4,6 +4,7 @@ import { Modal } from "./Modal";
 import { TodoModal } from "./TodoModal";
 import { TodoController } from "../../controllers/TodoController";
 import { TodoDetailModal } from "./TodoDetailModal";
+import { ProjectController } from "../../controllers/ProjectController";
 export class TodoComponent extends Component {
   constructor() {
     super();
@@ -12,6 +13,7 @@ export class TodoComponent extends Component {
     this.TodoController = new TodoController();
     this.TodoDetailModal = new TodoDetailModal();
     this.ProjectModal = new Modal();
+    this.ProjectController = new ProjectController();
   }
 
   renderComponent(todosArr) {
@@ -29,8 +31,11 @@ export class TodoComponent extends Component {
       todosContainer.innerHTML = "";
     }
 
-    // todosContainer.classList.add("todos-container");
+    const todoHeader = document.createElement("h1");
+    todoHeader.textContent = "";
+    todoHeader.classList.add("todo-header");
 
+    todosContainer.appendChild(todoHeader);
     todosArr.forEach((todo) => {
       const todoContainer = document.createElement("div");
       todoContainer.classList.add("todo-container");
@@ -94,7 +99,13 @@ export class TodoComponent extends Component {
 
       return;
     }
-    const todoId = e.target.getAttribute("data-id");
+
+    let targetElement = e.target;
+    while (targetElement != null && !targetElement.hasAttribute("data-id")) {
+      targetElement = targetElement.parentElement;
+    }
+
+    const todoId = targetElement.getAttribute("data-id");
 
     const todoFromStorage = this.TodoController.getSingleTodo(todoId);
 

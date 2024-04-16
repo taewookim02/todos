@@ -72,4 +72,9 @@ export class ProjectController {
       projectsArr
     );
   }
+
+  getName(projectId) {
+    let project = this.getProject(projectId);
+    return project.name;
+  }
 }

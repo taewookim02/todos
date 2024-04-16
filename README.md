@@ -11,12 +11,12 @@
 
 ## Todos:
 
-1. Add checkbox next to todo divs
 2. Add completed todos at the top of contents on scrolling up
 3. Add logic to show only uncompleted todos
 4. Add Scheduled nav item
    - use date-fns?
 5. Add priority nav item
+6. confirm modal on project delete
 
 ## Use case scenarios
 

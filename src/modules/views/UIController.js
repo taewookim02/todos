@@ -77,6 +77,7 @@ export class UIController {
       ".project-form-container"
     );
 
+    // modal
     headerElement.addEventListener("click", (e) => {
       let isClickInsideNavItem = Array.from(navItemElements).some((element) =>
         element.contains(e.target)

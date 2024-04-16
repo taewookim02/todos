@@ -67,14 +67,26 @@ export class Navbar extends Component {
 
   handleProjectDivClick(e) {
     // render all todos with the data-id
-    const projectId = e.target.getAttribute("data-id");
-    const hiddentTodoInput = document.querySelector("#todo-projectId");
-    hiddentTodoInput.value = projectId;
+
+    let targetElement = e.target;
+    while (targetElement != null && !targetElement.hasAttribute("data-id")) {
+      targetElement = targetElement.parentElement;
+    }
+
+    const projectId = targetElement.getAttribute("data-id");
+    const hiddenTodoInput = document.querySelector("#todo-projectId");
+    hiddenTodoInput.value = projectId;
+
+    // todoHeader.textContent = projectObj.name;
     const myTodosArr = this.TodoController.getTodosWithProjectId(projectId);
 
     this.TodoComponent.renderComponent(myTodosArr);
     this.Modal.closeModal();
     this.TodoModal.closeModal();
+
+    const todoHeader = document.querySelector(".todo-header");
+    const projectName = this.ProjectController.getName(projectId);
+    todoHeader.textContent = projectName;
   }
 
   handleProjectEditClick(e) {
@@ -84,14 +96,13 @@ export class Navbar extends Component {
     const formInput = document.querySelector("#projectName");
     hiddenInput.value = projectId;
     const selectedProjectName =
-      this.ProjectController.getProject(projectId).name; //FIXME: sometimes undefined
+      this.ProjectController.getProject(projectId).name;
     formInput.value = selectedProjectName;
     this.Modal.showModal();
     formInput.focus();
   }
 
   handleProjectAddClick() {
-    // TODO: reset modal
     this.Modal.showModal();
   }
 
