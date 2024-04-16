@@ -11,14 +11,13 @@
 
 ## Todos:
 
-1. I need to save on form submit
+1. Add finished todo list
 
-1. Todo details to save on form submit
-   - duedate
-   - priority
-   - details
-1. ...
-1. Populate values of modal
+- finishedYn to todo
+
+2. Add Scheduled nav item
+3. Add priority nav item
+4. clicking on nav item, todoEl, should close open modals
 
 ## Use case scenarios
 

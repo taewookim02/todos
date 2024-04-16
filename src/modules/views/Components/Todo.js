@@ -77,11 +77,11 @@ export class TodoComponent extends Component {
   }
 
   handleTodoElementClick(e) {
-    // TODO: doing this part atm
     const todoId = e.target.getAttribute("data-id");
 
     const todoFromStorage = this.TodoController.getSingleTodo(todoId);
 
+    // Populate the input fields for TodoDetailModal
     const nameInput = document.querySelector("#todoDetailName");
     nameInput.value = todoFromStorage.name;
     const idInput = document.querySelector("#todoDetailId");
@@ -100,6 +100,9 @@ export class TodoComponent extends Component {
       'input[name="todoDetailPrio"]'
     );
     this.setCheckedPriority(prioInputNodes, todoFromStorage.priority);
+
+    const isFinishedInput = document.querySelector("#todoDetailIsFinished");
+    isFinishedInput.checked = todoFromStorage.isFinished;
 
     this.TodoDetailModal.showModal();
   }

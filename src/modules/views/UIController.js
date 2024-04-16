@@ -37,7 +37,6 @@ export class UIController {
   }
 
   initTodoDetailModal() {
-    // TODO: pass callback
     const todoDetailModal = new TodoDetailModal(
       this.todoDetailCallback.bind(this)
     );
@@ -151,15 +150,23 @@ export class UIController {
     });
   }
 
-  todoDetailCallback(todoId, todoName, projId, description, dueDate, prio) {
-    // console.log(todoId, todoName, projId, description, dueDate, prio); // lv1pqi0z asd lv1niayq sdsad 2024-04-19 urgent
+  todoDetailCallback(
+    todoId,
+    todoName,
+    projId,
+    description,
+    dueDate,
+    prio,
+    isFinished
+  ) {
     this.TodoController.editTodoWithValues(
       todoId,
       todoName,
       projId,
       description,
       dueDate,
-      prio
+      prio,
+      isFinished
     );
     const newTodoArr = this.TodoController.getTodosWithProjectId(projId);
     this.TodoComponent.renderComponent(newTodoArr);

@@ -34,6 +34,10 @@ export class TodoDetailModal extends Component {
                   <label for="chill">Chill</label>
                 </div>
               </fieldset>
+              <div>
+                <label for="todoDetailIsFinished">Is finished: </label>
+                <input type="checkbox" id="todoDetailIsFinished" name="todoDetailIsFinished"/>
+              </div>
               <input type="hidden" id="todoDetailId" name="todoDetailId" ${
                 todoId ? `value="${todoId}"` : ""
               }></input>
@@ -46,7 +50,6 @@ export class TodoDetailModal extends Component {
         </div>
     `;
 
-    // TODO: only attaches once
     detailedModal.classList.add("overlay");
     detailedModal.classList.add("modal-hidden");
 
@@ -68,8 +71,18 @@ export class TodoDetailModal extends Component {
     const dueDate = formData.get("todoDetailDueDate");
     const description = formData.get("todoDetailDesc");
     const prio = formData.get("todoDetailPrio");
+    let isFinished = formData.get("todoDetailIsFinished"); // true: on, false: null
+    isFinished = isFinished === "on" ? true : false;
 
-    this.todoCallback(todoId, todoName, projId, description, dueDate, prio);
+    this.todoCallback(
+      todoId,
+      todoName,
+      projId,
+      description,
+      dueDate,
+      prio,
+      isFinished
+    );
     // console.log(todoName, todoId, dueDate, description, prio);
     this.closeModal();
   }

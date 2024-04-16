@@ -79,14 +79,23 @@ export class TodoController {
   }
 
   // TODO: projId needed?
-  editTodoWithValues(todoId, todoName, projId, description, dueDate, prio) {
+  editTodoWithValues(
+    todoId,
+    todoName,
+    projId,
+    description,
+    dueDate,
+    prio,
+    isFinished
+  ) {
     let todosArr = this.getTodos();
     for (let i = 0; i < todosArr.length; i++) {
       if (todosArr[i].id === todoId) {
         todosArr[i].name = todoName;
         todosArr[i].description = description;
         todosArr[i].dueDate = dueDate;
-        todosArr[i].priority = prio;
+        todosArr[i].priority = prio ?? "";
+        todosArr[i].isFinished = isFinished;
         break;
       }
     }
