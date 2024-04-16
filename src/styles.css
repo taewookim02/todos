@@ -46,23 +46,15 @@
   background-color: green;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  position: relative;
 }
 
 /* MODAL */
-.modal-hidden {
+.modal-hidden,
+.hidden {
   display: none;
 }
-
-/* .modal-overlay {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-} */
 
 /* TODOS */
 .todos-container {

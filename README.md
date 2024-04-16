@@ -17,6 +17,9 @@
    - use date-fns?
 5. Add priority nav item
 6. confirm modal on project delete
+7. drag drop
+
+![alt text](image-1.png)
 
 ## Use case scenarios
 

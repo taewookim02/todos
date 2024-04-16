@@ -1,6 +1,5 @@
 import { Navbar } from "./Components/Navbar";
 import { Modal } from "./Components/Modal";
-// import projectController here?
 import { ProjectController } from "../controllers/ProjectController";
 import { Project } from "../models/Project";
 import { TodoController } from "../controllers/TodoController";
@@ -8,6 +7,7 @@ import { Todo } from "../models/Todo";
 import { TodoModal } from "./Components/TodoModal";
 import { TodoComponent } from "./Components/Todo";
 import { TodoDetailModal } from "./Components/TodoDetailModal";
+
 export class UIController {
   static isTodoModalOpen = false;
   static isProjectModalOpen = false;
@@ -33,6 +33,36 @@ export class UIController {
       this.initContentClickBehavior();
       this.initHeaderClickBehavior();
       this.initOverlayClickBehavior();
+      this.initScrollBehavior();
+    });
+  }
+
+  initScrollBehavior() {
+    const content = document.querySelector("#content");
+
+    let isAtTop = true;
+    document.addEventListener("scroll", (e) => {
+      if (window.scrollY === 0) {
+        isAtTop = true;
+        console.log("At the top of the page");
+      } else {
+        isAtTop = false;
+      }
+    });
+
+    document.addEventListener("wheel", (e) => {
+      if (isAtTop && e.deltaY < 0) {
+        const completedContainer = document.querySelector(
+          ".completed-container"
+        );
+        completedContainer.classList.remove("hidden");
+      } else if (!isAtTop) {
+        const completedContainer = document.querySelector(
+          ".completed-container"
+        );
+
+        completedContainer.classList.add("hidden");
+      }
     });
   }
 
