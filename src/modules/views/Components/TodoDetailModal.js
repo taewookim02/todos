@@ -69,9 +69,8 @@ export class TodoDetailModal extends Component {
     const description = formData.get("todoDetailDesc");
     const prio = formData.get("todoDetailPrio");
 
-    // TODO: pass values to this.todoCallback
     this.todoCallback(todoId, todoName, projId, description, dueDate, prio);
-    console.log(todoName, todoId, dueDate, description, prio);
+    // console.log(todoName, todoId, dueDate, description, prio);
     this.closeModal();
   }
 

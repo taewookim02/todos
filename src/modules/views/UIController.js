@@ -152,7 +152,7 @@ export class UIController {
   }
 
   todoDetailCallback(todoId, todoName, projId, description, dueDate, prio) {
-    console.log(todoId, todoName, projId, description, dueDate, prio); // lv1pqi0z asd lv1niayq sdsad 2024-04-19 urgent
+    // console.log(todoId, todoName, projId, description, dueDate, prio); // lv1pqi0z asd lv1niayq sdsad 2024-04-19 urgent
     this.TodoController.editTodoWithValues(
       todoId,
       todoName,

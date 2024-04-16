@@ -81,7 +81,6 @@ export class TodoComponent extends Component {
     const todoId = e.target.getAttribute("data-id");
 
     const todoFromStorage = this.TodoController.getSingleTodo(todoId);
-    console.log(todoFromStorage);
 
     const nameInput = document.querySelector("#todoDetailName");
     nameInput.value = todoFromStorage.name;
@@ -95,7 +94,7 @@ export class TodoComponent extends Component {
     dueDateInput.value = todoFromStorage.dueDate;
 
     const descriptionInput = document.querySelector("#todoDetailDesc");
-    descriptionInput.value = todoFromStorage.description;
+    descriptionInput.value = todoFromStorage.description ?? "";
 
     const prioInputNodes = document.querySelectorAll(
       'input[name="todoDetailPrio"]'
