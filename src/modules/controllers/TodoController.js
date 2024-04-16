@@ -101,4 +101,15 @@ export class TodoController {
     }
     this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
   }
+
+  editIsFinished(todoId, checkedStatus) {
+    let todosArr = this.getTodos();
+    for (let i = 0; i < todosArr.length; i++) {
+      if (todosArr[i].id === todoId) {
+        todosArr[i].isFinished = checkedStatus;
+        break;
+      }
+    }
+    this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
+  }
 }

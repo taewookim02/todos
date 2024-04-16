@@ -88,8 +88,10 @@ export class TodoComponent extends Component {
   handleTodoElementClick(e) {
     if (e.target.type === "checkbox") {
       const todoId = e.target.getAttribute("data-id");
-      console.log(todoId);
-      // call todoController
+      const checkedStatus = e.target.checked;
+      console.log(checkedStatus);
+      this.TodoController.editIsFinished(todoId, checkedStatus);
+
       return;
     }
     const todoId = e.target.getAttribute("data-id");
