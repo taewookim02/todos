@@ -6,7 +6,7 @@ export class TodoDetailModal extends Component {
     this.todoCallback = todoCallback;
   }
 
-  renderComponent(todoId) {
+  renderComponent(todoId, projId) {
     const detailedModal = document.createElement("div");
     detailedModal.innerHTML = `
         <div class="detail-todo-content">
@@ -37,6 +37,9 @@ export class TodoDetailModal extends Component {
               <input type="hidden" id="todoDetailId" name="todoDetailId" ${
                 todoId ? `value="${todoId}"` : ""
               }></input>
+              <input type="hidden" id="todoDetailProjId" name="todoDetailProjId"  ${
+                projId ? `value="${projId}"` : ""
+              }></input>
               <button type="submit">Submit</button>
             </div>
           </form>
@@ -59,13 +62,15 @@ export class TodoDetailModal extends Component {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const todoName = formData.get("todoDetailName");
     const todoId = formData.get("todoDetailId");
+    const todoName = formData.get("todoDetailName");
+    const projId = formData.get("todoDetailProjId");
     const dueDate = formData.get("todoDetailDueDate");
     const description = formData.get("todoDetailDesc");
     const prio = formData.get("todoDetailPrio");
 
     // TODO: pass values to this.todoCallback
+    this.todoCallback(todoId, todoName, projId, description, dueDate, prio);
     console.log(todoName, todoId, dueDate, description, prio);
     this.closeModal();
   }

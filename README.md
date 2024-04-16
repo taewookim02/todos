@@ -11,12 +11,14 @@
 
 ## Todos:
 
+1. I need to save on form submit
+
 1. Todo details to save on form submit
    - duedate
    - priority
    - details
-2. ...
-3. Populate values of modal
+1. ...
+1. Populate values of modal
 
 ## Use case scenarios
 

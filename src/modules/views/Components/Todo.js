@@ -88,6 +88,9 @@ export class TodoComponent extends Component {
     const idInput = document.querySelector("#todoDetailId");
     idInput.value = todoFromStorage.id;
 
+    const projId = document.querySelector("#todoDetailProjId");
+    projId.value = todoFromStorage.projectId;
+
     const dueDateInput = document.querySelector("#todoDetailDueDate");
     dueDateInput.value = todoFromStorage.dueDate;
 

@@ -37,7 +37,10 @@ export class UIController {
   }
 
   initTodoDetailModal() {
-    const todoDetailModal = new TodoDetailModal();
+    // TODO: pass callback
+    const todoDetailModal = new TodoDetailModal(
+      this.todoDetailCallback.bind(this)
+    );
     todoDetailModal.renderComponent();
   }
 
@@ -148,6 +151,20 @@ export class UIController {
     });
   }
 
+  todoDetailCallback(todoId, todoName, projId, description, dueDate, prio) {
+    console.log(todoId, todoName, projId, description, dueDate, prio); // lv1pqi0z asd lv1niayq sdsad 2024-04-19 urgent
+    this.TodoController.editTodoWithValues(
+      todoId,
+      todoName,
+      projId,
+      description,
+      dueDate,
+      prio
+    );
+    const newTodoArr = this.TodoController.getTodosWithProjectId(projId);
+    this.TodoComponent.renderComponent(newTodoArr);
+  }
+
   projectModalCallback(projectId, projectName) {
     if (projectId === "") {
       const newProject = new Project(projectName);
@@ -168,6 +185,7 @@ export class UIController {
   todoModalCallback(todoId, todoName) {
     const projectId = document.querySelector("#todo-projectId").value;
     if (todoId === "") {
+      // create new todo
       const newTodo = new Todo(todoName, projectId);
       this.TodoController.addTodo(newTodo);
 

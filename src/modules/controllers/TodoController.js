@@ -60,6 +60,7 @@ export class TodoController {
     for (let i = 0; i < todosArr.length; i++) {
       if (todosArr[i].id === todoId) {
         todosArr.splice(i, 1);
+        break;
       }
     }
     this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
@@ -71,6 +72,22 @@ export class TodoController {
     for (let i = 0; i < todosArr.length; i++) {
       if (todosArr[i].id === todoId) {
         todosArr[i].name = name;
+        break;
+      }
+    }
+    this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
+  }
+
+  // TODO: projId needed?
+  editTodoWithValues(todoId, todoName, projId, description, dueDate, prio) {
+    let todosArr = this.getTodos();
+    for (let i = 0; i < todosArr.length; i++) {
+      if (todosArr[i].id === todoId) {
+        todosArr[i].name = todoName;
+        todosArr[i].description = description;
+        todosArr[i].dueDate = dueDate;
+        todosArr[i].priority = prio;
+        break;
       }
     }
     this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
