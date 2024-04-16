@@ -11,13 +11,12 @@
 
 ## Todos:
 
-1. Add Todo details
+1. Todo details to save on form submit
    - duedate
    - priority
    - details
-   2. Add more values in model
-   3. ...
-   4. Populate values of modal
+2. ...
+3. Populate values of modal
 
 ## Use case scenarios
 

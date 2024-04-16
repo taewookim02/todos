@@ -89,9 +89,28 @@ export class TodoComponent extends Component {
     idInput.value = todoFromStorage.id;
 
     const dueDateInput = document.querySelector("#todoDetailDueDate");
+    dueDateInput.value = todoFromStorage.dueDate;
+
     const descriptionInput = document.querySelector("#todoDetailDesc");
+    descriptionInput.value = todoFromStorage.description;
+
+    const prioInputNodes = document.querySelectorAll(
+      'input[name="todoDetailPrio"]'
+    );
+    const prioSelectedInput = this.getSelectedPriority(prioInputNodes);
+    // TODO: add checking of radio button on todoFromStorage data
 
     this.TodoDetailModal.showModal();
+  }
+
+  getSelectedPriority(prioInput) {
+    let selectedPrio = null;
+    prioInput.forEach((input) => {
+      if (input.checked) {
+        selectedPrio = input.value;
+      }
+    });
+    return selectedPrio;
   }
 
   handleTodoAddClick(e) {

@@ -1,8 +1,9 @@
 import { Component } from "./Component";
 
 export class TodoDetailModal extends Component {
-  constructor() {
+  constructor(todoCallback) {
     super();
+    this.todoCallback = todoCallback;
   }
 
   renderComponent(todoId) {
@@ -46,12 +47,27 @@ export class TodoDetailModal extends Component {
     detailedModal.classList.add("overlay");
     detailedModal.classList.add("modal-hidden");
 
-    // const closeModal = document.querySelector(".close");
-    // closeModal.addEventListener("click", (e) => {
-    //   this.closeModal();
-    // });
     const bodyElement = document.querySelector("body");
     bodyElement.appendChild(detailedModal);
+
+    document
+      .querySelector("#detailTodoForm")
+      .addEventListener("submit", (e) => this.handleSubmit(e));
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const todoName = formData.get("todoDetailName");
+    const todoId = formData.get("todoDetailId");
+    const dueDate = formData.get("todoDetailDueDate");
+    const description = formData.get("todoDetailDesc");
+    const prio = formData.get("todoDetailPrio");
+
+    // TODO: pass values to this.todoCallback
+    console.log(todoName, todoId, dueDate, description, prio);
+    this.closeModal();
   }
 
   closeModal() {
