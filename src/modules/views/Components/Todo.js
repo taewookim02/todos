@@ -37,6 +37,13 @@ export class TodoComponent extends Component {
       todoContainer.setAttribute("data-id", todo.id);
       todoContainer.setAttribute("data-projectId", todo.projectId);
 
+      // finished checkbox
+      const isFinishedCheckbox = document.createElement("input");
+      isFinishedCheckbox.type = "checkbox";
+      isFinishedCheckbox.classList.add("todoIsFinished");
+      isFinishedCheckbox.setAttribute("data-id", todo.id);
+      isFinishedCheckbox.checked = todo.isFinished;
+
       const todoName = document.createElement("p");
       todoName.textContent = todo.name;
 
@@ -57,6 +64,7 @@ export class TodoComponent extends Component {
       todoButtonsDiv.appendChild(todoEditButton);
       todoButtonsDiv.appendChild(todoCloseButton);
 
+      todoContainer.appendChild(isFinishedCheckbox);
       todoContainer.appendChild(todoName);
       todoContainer.appendChild(todoButtonsDiv);
       todosContainer.appendChild(todoContainer);
@@ -78,6 +86,12 @@ export class TodoComponent extends Component {
   }
 
   handleTodoElementClick(e) {
+    if (e.target.type === "checkbox") {
+      const todoId = e.target.getAttribute("data-id");
+      console.log(todoId);
+      // call todoController
+      return;
+    }
     const todoId = e.target.getAttribute("data-id");
 
     const todoFromStorage = this.TodoController.getSingleTodo(todoId);
