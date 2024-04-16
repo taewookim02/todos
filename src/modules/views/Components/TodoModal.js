@@ -1,10 +1,12 @@
 import { Component } from "./Component";
 import { Button } from "./Button";
 import { UIController } from "../UIController";
+import { ProjectController } from "../../controllers/ProjectController";
 export class TodoModal extends Component {
   constructor(todoCallback) {
     super();
     this.todoCallback = todoCallback;
+    this.ProjectController = new ProjectController();
   }
 
   renderComponent(todoId) {
@@ -50,6 +52,12 @@ export class TodoModal extends Component {
     const todoName = formData.get("todoName");
     const todoId = formData.get("todoId");
     this.todoCallback(todoId, todoName);
+
+    const projId = formData.get("todo-projectId");
+    const projNameElement = document.querySelector(".todo-header");
+    const projectName = this.ProjectController.getName(projId);
+    projNameElement.textContent = projectName;
+
     this.closeModal();
   }
 
