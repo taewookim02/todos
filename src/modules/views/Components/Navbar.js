@@ -5,6 +5,7 @@ import { Modal } from "./Modal";
 import { TodoModal } from "./TodoModal";
 import { TodoController } from "../../controllers/TodoController";
 import { TodoComponent } from "./Todo";
+import { UIController } from "../UIController";
 
 export class Navbar extends Component {
   constructor() {
@@ -74,6 +75,7 @@ export class Navbar extends Component {
     }
 
     const projectId = targetElement.getAttribute("data-id");
+    UIController.CURRENT_PROJECT_ID = projectId;
     const hiddenTodoInput = document.querySelector("#todo-projectId");
     hiddenTodoInput.value = projectId;
 

@@ -11,6 +11,7 @@ import { TodoDetailModal } from "./Components/TodoDetailModal";
 export class UIController {
   static isTodoModalOpen = false;
   static isProjectModalOpen = false;
+  static CURRENT_PROJECT_ID = "";
 
   constructor() {
     this.Navbar = new Navbar();
@@ -197,11 +198,10 @@ export class UIController {
     const newTodoArr =
       this.TodoController.getUncompletedTodosWithProjectId(projId);
 
-    const completedTodoArr =
-      this.TodoController.getCompletedTodosWithProjectId(projId);
-
     // TODO: here?
-    console.log(completedTodoArr);
+    // const completedTodoArr =
+    //   this.TodoController.getCompletedTodosWithProjectId(projId);
+    // console.log(completedTodoArr);
 
     this.TodoComponent.renderComponent(newTodoArr);
   }
@@ -236,9 +236,9 @@ export class UIController {
         this.TodoController.getUncompletedTodosWithProjectId(projectId);
       // TODO: here?
 
-      const completedTodoArr =
-        this.TodoController.getCompletedTodosWithProjectId(projectId);
-      console.log(completedTodoArr);
+      // const completedTodoArr =
+      //   this.TodoController.getCompletedTodosWithProjectId(projectId);
+      // console.log(completedTodoArr);
 
       this.TodoComponent.renderComponent(newTodoArr);
     } else {
@@ -249,9 +249,9 @@ export class UIController {
         this.TodoController.getUncompletedTodosWithProjectId(projectId);
       // TODO: here?
 
-      const completedTodoArr =
-        this.TodoController.getCompletedTodosWithProjectId(projectId);
-      console.log(completedTodoArr);
+      // const completedTodoArr =
+      //   this.TodoController.getCompletedTodosWithProjectId(projectId);
+      // console.log(completedTodoArr);
       this.TodoComponent.renderComponent(newTodoArr);
     }
   }
