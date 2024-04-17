@@ -25,11 +25,11 @@ export class UIController {
   }
 
   init(projectsArr) {
-    this.Navbar.renderComponent(projectsArr);
     this.initProjectModal();
     this.initTodoModal();
-    this.initFirstDivClick();
     this.initTodoDetailModal();
+    this.Navbar.renderComponent(projectsArr);
+    this.initFirstDivClick();
     document.addEventListener("DOMContentLoaded", (e) => {
       this.initContentClickBehavior();
       this.initHeaderClickBehavior();
@@ -111,6 +111,7 @@ export class UIController {
       if (
         // !navItemElement.contains(e.target) &&
         !isClickInsideNavItem &&
+        // FIXME: e.target for main nav items
         !projectFormContainer.contains(e.target)
       ) {
         if (!UIController.isProjectModalOpen) {

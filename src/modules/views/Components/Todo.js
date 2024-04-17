@@ -6,6 +6,9 @@ import { TodoController } from "../../controllers/TodoController";
 import { TodoDetailModal } from "./TodoDetailModal";
 import { ProjectController } from "../../controllers/ProjectController";
 import { UIController } from "../UIController";
+//
+import { format } from "date-fns";
+
 export class TodoComponent extends Component {
   constructor() {
     super();
@@ -187,7 +190,11 @@ export class TodoComponent extends Component {
     projId.value = todoFromStorage.projectId;
 
     const dueDateInput = document.querySelector("#todoDetailDueDate");
-    dueDateInput.value = todoFromStorage.dueDate;
+
+    dueDateInput.value =
+      todoFromStorage.dueDate !== ""
+        ? format(todoFromStorage.dueDate, "yyyy-MM-dd")
+        : "";
 
     const descriptionInput = document.querySelector("#todoDetailDesc");
     descriptionInput.value = todoFromStorage.description ?? "";

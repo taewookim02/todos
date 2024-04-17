@@ -16,13 +16,16 @@
    - SCHEDULED
    - ALL
    - PRIORITY
-5. Add priority nav itemv
-6. confirm modal on project delete
-7. drag drop
-8. fix project add (AppController.js:18 AppController init() called
-   index.html:1 An invalid form control with name='projectName' is not focusable. <input type=​"text" id=​"projectName" name=​"projectName" required>​)
-   ![alt text](image-1.png)
-9. Add throttling for scroll event listenr
+5. todoDetail should rerender main navitems
+6. dynamically get count
+7. Add priority nav itemv
+8. confirm modal on project delete
+9. drag drop
+10. fix project add (AppController.js:18 AppController init() called
+    index.html:1 An invalid form control with name='projectName' is not focusable. <input type=​"text" id=​"projectName" name=​"projectName" required>​)
+    ![alt text](image-1.png)
+11. Add throttling for scroll event listenr
+12. UIController // FIXME: e.target for main nav items !projectFormContainer.contains(e.
 
 ## Use case scenarios
 

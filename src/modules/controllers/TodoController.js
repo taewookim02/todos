@@ -1,5 +1,6 @@
 import { ProjectController } from "./ProjectController";
 import { StorageController } from "./StorageController";
+import { isToday } from "date-fns";
 export class TodoController {
   constructor() {
     this.ProjectController = new ProjectController();
@@ -124,4 +125,50 @@ export class TodoController {
     }
     this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
   }
+
+  getTodayCount = () => {
+    let todosArr = this.getTodos();
+    let count = 0;
+    for (let i = 0; i < todosArr.length; i++) {
+      // console.log(!todosArr[i].isFinished);
+      if (isToday(todosArr[i].dueDate) && !todosArr[i].isFinished) {
+        count++;
+      }
+    }
+    return count;
+  };
+
+  getScheduledCount = () => {
+    let todosArr = this.getTodos();
+    let count = 0;
+    for (let i = 0; i < todosArr.length; i++) {
+      if (todosArr[i].dueDate && !todosArr[i].isFinished) {
+        count++;
+      }
+    }
+    return count;
+  };
+
+  getAllCount = () => {
+    let todosArr = this.getTodos();
+    let count = 0;
+    for (let i = 0; i < todosArr.length; i++) {
+      if (!todosArr[i].isFinished) {
+        count++;
+      }
+    }
+
+    return count;
+  };
+
+  getUrgentCount = () => {
+    let todosArr = this.getTodos();
+    let count = 0;
+    for (let i = 0; i < todosArr.length; i++) {
+      if (todosArr[i].priority != "" && !todosArr[i].isFinished) {
+        count++;
+      }
+    }
+    return count;
+  };
 }
