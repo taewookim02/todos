@@ -191,7 +191,7 @@ export class UIController {
       todoName,
       projId,
       description,
-      dueDate,
+      new Date(dueDate),
       prio,
       isFinished
     );
