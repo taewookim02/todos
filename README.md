@@ -12,8 +12,11 @@
 ## Todos:
 
 4. Add Scheduled nav item
-   - use date-fns?
-5. Add priority nav item
+   - TODAY
+   - SCHEDULED
+   - ALL
+   - PRIORITY
+5. Add priority nav itemv
 6. confirm modal on project delete
 7. drag drop
 8. fix project add (AppController.js:18 AppController init() called

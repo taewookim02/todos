@@ -162,3 +162,16 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+/* NAV ITEMS */
+
+.item-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: 1fr 1fr;
+}
+
+.item__upper-div {
+  display: flex;
+  justify-content: space-around;
+}
