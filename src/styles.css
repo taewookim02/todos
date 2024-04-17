@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +10,9 @@ html,
 body {
   height: 100%;
   overflow-y: auto;
+}
+body {
+  font-family: "Noto Sans", sans-serif;
 }
 
 .nav__project,
@@ -169,9 +174,25 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-row: 1fr 1fr;
+  gap: 8px;
 }
 
 .item__upper-div {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.nav__main--item {
+  padding: 8px;
+}
+
+.nav__main--item:hover {
+  background-color: #ff5454;
+  cursor: pointer;
+}
+
+.item__lower-div span {
+  color: #555;
+  font-weight: 700;
+  font-size: 0.8rem;
 }
