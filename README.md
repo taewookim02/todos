@@ -11,7 +11,6 @@
 
 ## Todos:
 
-3. Add logic to show only uncompleted todos
 4. Add Scheduled nav item
    - use date-fns?
 5. Add priority nav item
@@ -20,6 +19,7 @@
 8. fix project add (AppController.js:18 AppController init() called
    index.html:1 An invalid form control with name='projectName' is not focusable. <input type=​"text" id=​"projectName" name=​"projectName" required>​)
    ![alt text](image-1.png)
+9. Add throttling for scroll event listenr
 
 ## Use case scenarios
 
