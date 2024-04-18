@@ -61,14 +61,14 @@ export class TodoController {
   }
 
   addTodo(todoObj) {
-    let todosArr = this.getTodos();
+    const todosArr = this.getTodos();
     todosArr.push(todoObj);
 
     this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
   }
 
   removeTodoById(todoId) {
-    let todosArr = this.getTodos();
+    const todosArr = this.getTodos();
 
     for (let i = 0; i < todosArr.length; i++) {
       if (todosArr[i].id === todoId) {
@@ -80,7 +80,7 @@ export class TodoController {
   }
 
   editTodoName(todoId, name) {
-    let todosArr = this.getTodos();
+    const todosArr = this.getTodos();
 
     for (let i = 0; i < todosArr.length; i++) {
       if (todosArr[i].id === todoId) {
@@ -101,7 +101,7 @@ export class TodoController {
     prio,
     isFinished
   ) {
-    let todosArr = this.getTodos();
+    const todosArr = this.getTodos();
     for (let i = 0; i < todosArr.length; i++) {
       if (todosArr[i].id === todoId) {
         todosArr[i].name = todoName;
@@ -116,7 +116,7 @@ export class TodoController {
   }
 
   editIsFinished(todoId, checkedStatus) {
-    let todosArr = this.getTodos();
+    const todosArr = this.getTodos();
     for (let i = 0; i < todosArr.length; i++) {
       if (todosArr[i].id === todoId) {
         todosArr[i].isFinished = checkedStatus;
@@ -127,10 +127,9 @@ export class TodoController {
   }
 
   getTodayCount = () => {
-    let todosArr = this.getTodos();
+    const todosArr = this.getTodos();
     let count = 0;
     for (let i = 0; i < todosArr.length; i++) {
-      // console.log(!todosArr[i].isFinished);
       if (isToday(todosArr[i].dueDate) && !todosArr[i].isFinished) {
         count++;
       }
@@ -138,8 +137,21 @@ export class TodoController {
     return count;
   };
 
+  getTodayTodoItems = () => {
+    const todosArr = this.getTodos();
+    const matchingItems = [];
+
+    for (let i = 0; i < todosArr.length; i++) {
+      if (isToday(todosArr[i].dueDate) && !todosArr[i].isFinished) {
+        matchingItems.push(todosArr[i]);
+      }
+    }
+
+    return matchingItems;
+  };
+
   getScheduledCount = () => {
-    let todosArr = this.getTodos();
+    const todosArr = this.getTodos();
     let count = 0;
     for (let i = 0; i < todosArr.length; i++) {
       if (todosArr[i].dueDate && !todosArr[i].isFinished) {
@@ -149,8 +161,21 @@ export class TodoController {
     return count;
   };
 
+  getScheduledTodoItems = () => {
+    const todosArr = this.getTodos();
+    const matchingItems = [];
+
+    for (let i = 0; i < todosArr.length; i++) {
+      if (todosArr[i].dueDate && !todosArr[i].isFinished) {
+        matchingItems.push(todosArr[i]);
+      }
+    }
+
+    return matchingItems;
+  };
+
   getAllCount = () => {
-    let todosArr = this.getTodos();
+    const todosArr = this.getTodos();
     let count = 0;
     for (let i = 0; i < todosArr.length; i++) {
       if (!todosArr[i].isFinished) {
@@ -161,8 +186,19 @@ export class TodoController {
     return count;
   };
 
+  getAllTodoItems = () => {
+    const todosArr = this.getTodos();
+    const matchingItems = [];
+    for (let i = 0; i < todosArr.length; i++) {
+      if (!todosArr[i].isFinished) {
+        matchingItems.push(todosArr[i]);
+      }
+    }
+    return matchingItems;
+  };
+
   getUrgentCount = () => {
-    let todosArr = this.getTodos();
+    const todosArr = this.getTodos();
     let count = 0;
     for (let i = 0; i < todosArr.length; i++) {
       if (todosArr[i].priority != "" && !todosArr[i].isFinished) {
@@ -170,5 +206,16 @@ export class TodoController {
       }
     }
     return count;
+  };
+
+  getUrgentTodoItems = () => {
+    const todosArr = this.getTodos();
+    const matchingItems = [];
+    for (let i = 0; i < todosArr.length; i++) {
+      if (todosArr[i].priority != "" && !todosArr[i].isFinished) {
+        matchingItems.push(todosArr[i]);
+      }
+    }
+    return matchingItems;
   };
 }

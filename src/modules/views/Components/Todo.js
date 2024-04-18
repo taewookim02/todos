@@ -160,6 +160,72 @@ export class TodoComponent extends Component {
     }
   }
 
+  renderAfterWhere(todosArr) {
+    const content = document.querySelector("#content");
+    // content.innerHTML = "";
+
+    let todosContainer = document.querySelector("#todos-container");
+
+    if (!todosContainer) {
+      todosContainer = document.createElement("div");
+      todosContainer.id = "todos-container";
+      todosContainer.classList.add("todos-container");
+      content.insertBefore(todosContainer, content.firstChild);
+    } else {
+      todosContainer.innerHTML = "";
+    }
+
+    // add header (proj name)
+    const todoHeader = document.createElement("h1");
+    todoHeader.textContent = UIController.CURRENT_PROJECT_ID;
+    todoHeader.classList.add("todo-header");
+    todosContainer.appendChild(todoHeader);
+
+    //
+    todosArr.forEach((todo) => {
+      const todoContainer = document.createElement("div");
+      todoContainer.classList.add("todo-container");
+      todoContainer.setAttribute("data-id", todo.id);
+      todoContainer.setAttribute("data-projectId", todo.projectId);
+
+      // finished checkbox
+      const isFinishedCheckbox = document.createElement("input");
+      isFinishedCheckbox.type = "checkbox";
+      isFinishedCheckbox.classList.add("todoIsFinished");
+      isFinishedCheckbox.setAttribute("data-id", todo.id);
+      isFinishedCheckbox.checked = todo.isFinished;
+
+      const todoName = document.createElement("p");
+      todoName.textContent = todo.name;
+
+      const todoEditButton = new Button(
+        "edit",
+        (e) => this.handleTodoEditClick(e), // FIXME: adapt to getWhere
+        todo.id
+      ).renderComponent();
+
+      // button close
+      const todoCloseButton = new Button(
+        "x",
+        () => this.handleTodoCloseClick(todo.id), // FIXME: adapt to getWhere
+        todo.id
+      ).renderComponent();
+
+      const todoButtonsDiv = document.createElement("div");
+      todoButtonsDiv.appendChild(todoEditButton);
+      todoButtonsDiv.appendChild(todoCloseButton);
+
+      todoContainer.appendChild(isFinishedCheckbox);
+      todoContainer.appendChild(todoName);
+      todoContainer.appendChild(todoButtonsDiv);
+      todosContainer.appendChild(todoContainer);
+
+      todoContainer.addEventListener("click", (e) => {
+        this.handleTodoElementClick(e); // FIXME: adapt to getWhere
+      });
+    });
+  }
+
   handleTodoElementClick(e) {
     if (e.target.type === "checkbox") {
       const todoId = e.target.getAttribute("data-id");

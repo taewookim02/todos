@@ -129,22 +129,34 @@ export class UIController {
 
         // render corresponding todos
 
+        let matchingArr = [];
         if (targetMenuClassName) {
           // curr proj isn't specific.. so:
           // UIController.CURRENT_PROJECT_ID = "HAHAHA";
           switch (targetMenuClassName) {
             case "item-today":
-              console.log("item-today");
               // render item-today todos
+              UIController.CURRENT_PROJECT_ID = "today";
+              matchingArr = this.TodoController.getTodayTodoItems();
+              this.TodoComponent.renderAfterWhere(matchingArr);
               break;
             case "item-scheduled":
               // render item-scheduled todos
+              UIController.CURRENT_PROJECT_ID = "scheduled";
+              matchingArr = this.TodoController.getScheduledTodoItems();
+              this.TodoComponent.renderAfterWhere(matchingArr);
               break;
             case "item-all":
               // render item-all todos
+              UIController.CURRENT_PROJECT_ID = "all";
+              matchingArr = this.TodoController.getAllTodoItems();
+              this.TodoComponent.renderAfterWhere(matchingArr);
               break;
             case "item-priority":
               // render item-priority todos
+              UIController.CURRENT_PROJECT_ID = "priority";
+              matchingArr = this.TodoController.getUrgentTodoItems();
+              this.TodoComponent.renderAfterWhere(matchingArr);
               break;
             default:
               break;

@@ -30,6 +30,7 @@
 9. confirm modal on project delete
 10. drag drop
 11. Add throttling for scroll event listenr
+12. project delete cascade to todos
 
 ## Use case scenarios
 

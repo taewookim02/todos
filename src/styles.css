@@ -37,10 +37,11 @@ body {
 .nav {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: calc(100% - 19px);
   position: fixed;
   overflow-y: auto;
   width: 200px;
+  overflow-x: hidden;
 }
 
 .header {
@@ -176,6 +177,7 @@ body {
   grid-row: 1fr 1fr;
   gap: 8px;
   padding: 4px;
+  position: sticky;
 }
 
 .item__upper-div {
