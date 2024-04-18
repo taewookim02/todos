@@ -79,6 +79,7 @@ export class ProjectController {
       }
     }
 
+    // save to localStorage
     this.StorageController.saveCurrentArrayToLocalStorage(
       "projects",
       projectsArr

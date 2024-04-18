@@ -79,11 +79,11 @@ export class TodoComponent extends Component {
       const todoName = document.createElement("p");
       todoName.textContent = todo.name;
 
-      const todoEditButton = new Button(
-        "edit",
-        (e) => this.handleTodoEditClick(e),
-        todo.id
-      ).renderComponent();
+      // const todoEditButton = new Button(
+      //   "edit",
+      //   (e) => this.handleTodoEditClick(e),
+      //   todo.id
+      // ).renderComponent();
 
       // button close
       const todoCloseButton = new Button(
@@ -93,7 +93,7 @@ export class TodoComponent extends Component {
       ).renderComponent();
 
       const todoButtonsDiv = document.createElement("div");
-      todoButtonsDiv.appendChild(todoEditButton);
+      // todoButtonsDiv.appendChild(todoEditButton);
       todoButtonsDiv.appendChild(todoCloseButton);
 
       todoContainer.appendChild(isFinishedCheckbox);
@@ -122,11 +122,11 @@ export class TodoComponent extends Component {
       const todoName = document.createElement("p");
       todoName.textContent = todo.name;
 
-      const todoEditButton = new Button(
-        "edit",
-        (e) => this.handleTodoEditClick(e),
-        todo.id
-      ).renderComponent();
+      // const todoEditButton = new Button(
+      //   "edit",
+      //   (e) => this.handleTodoEditClick(e),
+      //   todo.id
+      // ).renderComponent();
 
       // button close
       const todoCloseButton = new Button(
@@ -136,7 +136,7 @@ export class TodoComponent extends Component {
       ).renderComponent();
 
       const todoButtonsDiv = document.createElement("div");
-      todoButtonsDiv.appendChild(todoEditButton);
+      // todoButtonsDiv.appendChild(todoEditButton);
       todoButtonsDiv.appendChild(todoCloseButton);
 
       todoContainer.appendChild(isFinishedCheckbox);
@@ -207,11 +207,11 @@ export class TodoComponent extends Component {
       textDiv.appendChild(todoName);
       textDiv.appendChild(projectName);
 
-      const todoEditButton = new Button(
-        "edit",
-        (e) => this.handleGeneralTodoEditClick(e), // FIXME: adapt to getWhere
-        todo.id
-      ).renderComponent();
+      // const todoEditButton = new Button(
+      //   "edit",
+      //   (e) => this.handleGeneralTodoEditClick(e), // FIXME: adapt to getWhere
+      //   todo.id
+      // ).renderComponent();
 
       // button close
       const todoCloseButton = new Button(
@@ -221,7 +221,7 @@ export class TodoComponent extends Component {
       ).renderComponent();
 
       const todoButtonsDiv = document.createElement("div");
-      todoButtonsDiv.appendChild(todoEditButton);
+      // todoButtonsDiv.appendChild(todoEditButton);
       todoButtonsDiv.appendChild(todoCloseButton);
 
       todoContainer.appendChild(isFinishedCheckbox);
@@ -241,9 +241,9 @@ export class TodoComponent extends Component {
   }
 
   //handle
-  handleGeneralTodoEditClick(e) {
-    console.log(e);
-  }
+  // handleGeneralTodoEditClick(e) {
+  //   console.log(e);
+  // }
 
   handleGeneralTodoContainerClick(e) {
     console.log(e);

@@ -14,9 +14,16 @@
 ![alt text](image-1.png)
 
 1. main 4 nav handle submit
-
+   - edit left
+   - general add should have project list select option
 2. when should things rerender?
+
    - on user crud
+
+3. what data needed for rerender?
+
+-
+
 3. todos container rerender should be done with animation on 1 sec delay
 4. scroll event -> Uncaught TypeError: Cannot read properties of null (reading 'classList')
    at HTMLDocument.<anonymous> (UIController.js:60:1)
