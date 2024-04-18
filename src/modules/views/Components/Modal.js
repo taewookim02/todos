@@ -43,7 +43,10 @@ export class Modal extends Component {
     const formData = new FormData(e.target);
     const projectName = formData.get("projectName");
     const projectId = formData.get("projectId");
-    this.projectCallback(projectId, projectName); // FIXME:
+    console.log(this.projectCallback); // undefined
+    this.projectCallback(projectId, projectName); // FIXME:Uncaught TypeError: this.projectCallback is not a function
+    // at Modal.handleSubmit (Modal.js:46:1)
+    // at HTMLFormElement.<anonymous> (Modal.js:38:1)
     this.closeModal();
   }
 

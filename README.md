@@ -16,16 +16,19 @@
    - SCHEDULED
    - ALL
    - PRIORITY
-5. todoDetail should rerender main navitems
-6. dynamically get count
-7. Add priority nav itemv
-8. confirm modal on project delete
-9. drag drop
-10. fix project add (AppController.js:18 AppController init() called
-    index.html:1 An invalid form control with name='projectName' is not focusable. <input type=​"text" id=​"projectName" name=​"projectName" required>​)
-    ![alt text](image-1.png)
+5. click on main nav items should render the items matching.
+6. fix project add (AppController.js:18 AppController init() called
+   index.html:1 An invalid form control with name='projectName' is not focusable. <input type=​"text" id=​"projectName" name=​"projectName" required>​)
+   ![alt text](image-1.png)
+7. UIController // FIXME: e.target for main nav items !projectFormContainer.contains(e.
+8. when should things rerender?
+
+   - when user checks finished (main nav 4 items)
+   - todos container rerender should be done with animation on 1 sec delay
+
+9. confirm modal on project delete
+10. drag drop
 11. Add throttling for scroll event listenr
-12. UIController // FIXME: e.target for main nav items !projectFormContainer.contains(e.
 
 ## Use case scenarios
 

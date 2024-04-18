@@ -108,12 +108,53 @@ export class UIController {
       let isClickInsideNavItem = Array.from(navItemElements).some((element) =>
         element.contains(e.target)
       );
-      if (
-        // !navItemElement.contains(e.target) &&
-        !isClickInsideNavItem &&
-        // FIXME: e.target for main nav items
-        !projectFormContainer.contains(e.target)
+      let targetElement = e.target;
+      let targetMenuClassName = "";
+      while (
+        targetElement != null &&
+        !targetElement.classList.contains("item-container")
       ) {
+        targetElement = targetElement.parentElement;
+        if (
+          targetElement != null &&
+          targetElement.classList.contains("nav__main--item")
+        ) {
+          targetMenuClassName = targetElement.classList[1];
+        }
+      }
+      // console.log(isClickInsideNavItem);
+      if (targetElement !== null) {
+        isClickInsideNavItem = !isClickInsideNavItem;
+
+        // render corresponding todos
+
+        if (targetMenuClassName) {
+          // curr proj isn't specific.. so:
+          // UIController.CURRENT_PROJECT_ID = "HAHAHA";
+          switch (targetMenuClassName) {
+            case "item-today":
+              console.log("item-today");
+              // render item-today todos
+              break;
+            case "item-scheduled":
+              // render item-scheduled todos
+              break;
+            case "item-all":
+              // render item-all todos
+              break;
+            case "item-priority":
+              // render item-priority todos
+              break;
+            default:
+              break;
+          }
+        }
+      }
+
+      let isClickInsideProjectForm = e.target.closest(
+        ".project-form-container"
+      );
+      if (!isClickInsideNavItem && !isClickInsideProjectForm) {
         if (!UIController.isProjectModalOpen) {
           this.showProjectModal();
           const projectNameElement = document.querySelector("#projectName");
