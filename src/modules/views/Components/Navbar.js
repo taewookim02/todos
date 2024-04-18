@@ -147,7 +147,8 @@ export class Navbar extends Component {
   }
 
   handleProjectDivClick(e) {
-    // render all todos with the data-id
+    // the modal isn't rendered at first.. so we render
+    this.Modal.renderComponent();
 
     let targetElement = e.target;
     while (targetElement != null && !targetElement.hasAttribute("data-id")) {

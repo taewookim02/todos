@@ -11,6 +11,7 @@
 
 ## Todos:
 
+3. fix project nav div click when overflowing
 4. Add Scheduled nav item
    - TODAY
    - SCHEDULED
