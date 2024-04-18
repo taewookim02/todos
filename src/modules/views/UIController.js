@@ -111,6 +111,8 @@ export class UIController {
       );
       let targetElement = e.target;
       let targetMenuClassName = "";
+
+      // filter for 4 main menu items
       while (
         targetElement != null &&
         !targetElement.classList.contains("item-container")
@@ -183,8 +185,18 @@ export class UIController {
     const contentElement = document.querySelector("#content");
     const todosContainer = document.querySelector(".todos-container");
     const todoFormContainer = document.querySelector(".todo-form-container");
-
+    const generalProjectId = ["scheduled", "today", "all", "priority"];
     contentElement.addEventListener("click", (e) => {
+      // TODO: general todos.. what to do?
+      // if current project id is in general
+      // if (generalProjectId.includes(UIController.CURRENT_PROJECT_ID)) {
+      //   console.log("HEY");
+      //   // do something
+      //   // what should I do here?
+
+      //   return;
+      // }
+
       if (
         !todosContainer.contains(e.target) &&
         !todoFormContainer.contains(e.target)
@@ -250,15 +262,17 @@ export class UIController {
       prio,
       isFinished
     );
-    const newTodoArr =
-      this.TodoController.getUncompletedTodosWithProjectId(projId);
+    const generalMenu = ["today", "scheduled", "all", "priority"];
+    console.log(UIController.CURRENT_PROJECT_ID);
+    if (generalMenu.includes(UIController.CURRENT_PROJECT_ID)) {
+      // TODO: if general, do
 
-    // TODO: here?
-    // const completedTodoArr =
-    //   this.TodoController.getCompletedTodosWithProjectId(projId);
-    // console.log(completedTodoArr);
-
-    this.TodoComponent.renderComponent(newTodoArr);
+      console.log("hello");
+    } else {
+      const newTodoArr =
+        this.TodoController.getUncompletedTodosWithProjectId(projId);
+      this.TodoComponent.renderComponent(newTodoArr);
+    }
   }
 
   projectModalCallback(projectId, projectName) {

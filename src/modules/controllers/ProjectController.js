@@ -1,9 +1,11 @@
 import { StorageController } from "./StorageController";
 import { Project } from "../models/Project";
+import { TodoController } from "./TodoController";
 
 export class ProjectController {
   constructor() {
     this.StorageController = new StorageController();
+    // this.TodoController = new TodoController(); // stack overflow..
   }
 
   getProjects() {
@@ -62,15 +64,25 @@ export class ProjectController {
 
   deleteProject(projectId) {
     let projectsArr = this.getProjects();
+    let todosArr = new TodoController().getTodos();
+
     for (let i = 0; i < projectsArr.length; i++) {
       if (projectId === projectsArr[i].id) {
         projectsArr.splice(i, 1);
       }
     }
+
+    for (let i = 0; i < todosArr.length; i++) {
+      if (todosArr[i].projectId === projectId) {
+        todosArr.splice(i, 1);
+      }
+    }
+
     this.StorageController.saveCurrentArrayToLocalStorage(
       "projects",
       projectsArr
     );
+    this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
   }
 
   getName(projectId) {

@@ -202,20 +202,20 @@ export class TodoComponent extends Component {
       todoName.textContent = todo.name;
       const projectName = document.createElement("p");
       projectName.classList.add("todo__project--name");
-      projectName.textContent = this.ProjectController.getName(todo.projectId);
+      projectName.textContent = this.ProjectController.getName(todo.projectId); // FIXME: this is because project delete doesn't cascade to todos
       textDiv.appendChild(todoName);
       textDiv.appendChild(projectName);
 
       const todoEditButton = new Button(
         "edit",
-        (e) => this.handleTodoEditClick(e), // FIXME: adapt to getWhere
+        (e) => this.handleGeneralTodoEditClick(e), // FIXME: adapt to getWhere
         todo.id
       ).renderComponent();
 
       // button close
       const todoCloseButton = new Button(
         "x",
-        () => this.handleTodoCloseClick(todo.id), // FIXME: adapt to getWhere
+        () => this.handleGeneralTodoCloseClick(todo.id), // FIXME: adapt to getWhere
         todo.id
       ).renderComponent();
 
@@ -230,11 +230,19 @@ export class TodoComponent extends Component {
       todosContainer.appendChild(todoContainer);
 
       todoContainer.addEventListener("click", (e) => {
-        this.handleGeneralTodoContainerClick(e); // FIXME: adapt to getWhere
+        // this.handleGeneralTodoContainerClick(e); // FIXME: adapt to getWhere
+        this.handleTodoElementClick(e);
       });
     });
   }
+  handleGeneralTodoCloseClick(e) {
+    console.log(e);
+  }
+
   //handle
+  handleGeneralTodoEditClick(e) {
+    console.log(e);
+  }
 
   handleGeneralTodoContainerClick(e) {
     console.log(e);
@@ -256,7 +264,6 @@ export class TodoComponent extends Component {
     }
 
     const todoId = targetElement.getAttribute("data-id");
-
     const todoFromStorage = this.TodoController.getSingleTodo(todoId);
 
     // Populate the input fields for TodoDetailModal
@@ -264,19 +271,26 @@ export class TodoComponent extends Component {
     nameInput.value = todoFromStorage.name;
     const idInput = document.querySelector("#todoDetailId");
     idInput.value = todoFromStorage.id;
-
     const projId = document.querySelector("#todoDetailProjId");
     projId.value = todoFromStorage.projectId;
-
     const dueDateInput = document.querySelector("#todoDetailDueDate");
 
-    dueDateInput.value =
-      todoFromStorage.dueDate !== ""
-        ? format(todoFromStorage.dueDate, "yyyy-MM-dd")
-        : "";
+    if (todoFromStorage.dueDate) {
+      try {
+        dueDateInput.value = format(
+          new Date(todoFromStorage.dueDate),
+          "yyyy-MM-dd"
+        );
+      } catch (error) {
+        console.log("Error formatting date:", error);
+        dueDateInput.value = ""; // Set to empty or some default value if date is invalid
+      }
+    } else {
+      dueDateInput.value = ""; // Handle null or undefined cases
+    }
 
     const descriptionInput = document.querySelector("#todoDetailDesc");
-    descriptionInput.value = todoFromStorage.description ?? "";
+    descriptionInput.value = todoFromStorage.description || "";
 
     const prioInputNodes = document.querySelectorAll(
       'input[name="todoDetailPrio"]'
