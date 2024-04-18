@@ -12,7 +12,6 @@ import { format } from "date-fns";
 export class TodoComponent extends Component {
   constructor() {
     super();
-    this.Modal = new Modal();
     this.TodoModal = new TodoModal();
     this.TodoController = new TodoController();
     this.TodoDetailModal = new TodoDetailModal();
@@ -220,7 +219,8 @@ export class TodoComponent extends Component {
 
   handleTodoAddClick(e) {
     this.TodoModal.showModal();
-    this.Modal.closeModal();
+    // this.Modal.closeModal();
+    this.ProjectModal.closeModal();
   }
 
   handleTodoEditClick(e) {

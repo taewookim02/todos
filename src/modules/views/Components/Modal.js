@@ -1,9 +1,15 @@
 import { Component } from "./Component";
 import { Button } from "./Button";
 import { UIController } from "../UIController";
+import { Project } from "../../models/Project";
+import { ProjectController } from "../../controllers/ProjectController";
+import { Navbar } from "./Navbar";
+
 export class Modal extends Component {
   constructor(projectCallback) {
     super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.ProjectController = new ProjectController();
     this.projectCallback = projectCallback;
   }
 
@@ -38,16 +44,30 @@ export class Modal extends Component {
       .addEventListener("submit", (e) => this.handleSubmit(e)); // FIXME:
   }
 
+  defaultProjectHandler(projectId, projectName) {
+    if (projectId === "") {
+      const newProject = new Project(projectName);
+      this.ProjectController.addProject(newProject);
+    } else {
+      this.ProjectController.editProject(projectId, projectName);
+    }
+    // Re-render navbar to reflect changes
+    const newProjectsArr = this.ProjectController.getProjects();
+    new Navbar().renderComponent(newProjectsArr);
+    this.closeModal();
+  }
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const projectName = formData.get("projectName");
     const projectId = formData.get("projectId");
-    console.log(this.projectCallback); // undefined
-    this.projectCallback(projectId, projectName); // FIXME:Uncaught TypeError: this.projectCallback is not a function
-    // at Modal.handleSubmit (Modal.js:46:1)
-    // at HTMLFormElement.<anonymous> (Modal.js:38:1)
-    this.closeModal();
+
+    if (typeof this.projectCallback === "function") {
+      this.projectCallback(projectId, projectName); //
+      this.closeModal();
+    } else {
+      this.defaultProjectHandler(projectId, projectName);
+    }
   }
 
   handleCloseButtonClick(e) {

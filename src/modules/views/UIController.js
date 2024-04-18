@@ -15,21 +15,21 @@ export class UIController {
 
   constructor() {
     this.Navbar = new Navbar();
-    this.Modal = new Modal();
     this.ProjectController = new ProjectController();
     this.TodoController = new TodoController();
     this.Todo = new Todo();
     this.TodoModal = new TodoModal();
     this.TodoDetailModal = new TodoDetailModal();
     this.TodoComponent = new TodoComponent();
+    this.Modal = new Modal();
   }
 
   init(projectsArr) {
     this.initProjectModal();
     this.initTodoModal();
     this.initTodoDetailModal();
-    this.Navbar.renderComponent(projectsArr);
     this.initFirstDivClick();
+    this.Navbar.renderComponent(projectsArr);
     document.addEventListener("DOMContentLoaded", (e) => {
       this.initContentClickBehavior();
       this.initHeaderClickBehavior();
@@ -66,14 +66,15 @@ export class UIController {
     const todoDetailModal = new TodoDetailModal(
       this.todoDetailCallback.bind(this)
     );
+    //console.log(todoDetailModal);
     todoDetailModal.renderComponent();
   }
 
   initProjectModal() {
     // render modal
-    const modal = new Modal(this.projectModalCallback.bind(this));
-
-    modal.renderComponent();
+    const modalComponent = new Modal(this.projectModalCallback.bind(this));
+    // console.log(modalComponent);
+    modalComponent.renderComponent();
   }
 
   initOverlayClickBehavior() {
