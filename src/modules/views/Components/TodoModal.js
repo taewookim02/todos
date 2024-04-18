@@ -10,6 +10,7 @@ export class TodoModal extends Component {
   }
 
   renderComponent(todoId) {
+    let projectArr = this.ProjectController.getProjects();
     const todoModal = document.createElement("div");
     todoModal.innerHTML = `
       <div class="todoModal-content">
@@ -22,11 +23,19 @@ export class TodoModal extends Component {
           <input type="hidden" id="todo-projectId" name="todo-projectId" ${
             projectId ? `value="${projectId}"` : ""
           }>
+          <select class="hidden" id="todo-select-projectId">
+            ${projectArr
+              .map((proj) => `<option value="${proj.id}">${proj.name}</option>`)
+              .join("")}
+          </select>
+          
           <button type="submit">${todoId ? "Save changes" : "Add"}</button>
+          
           
         </form>
       </div>
     `;
+
     todoModal.classList.add("todo-form-container");
 
     todoModal.classList.add("modal-hidden");
@@ -80,6 +89,8 @@ export class TodoModal extends Component {
     if (todoModal) {
       todoModal.classList.add("modal-hidden");
       todoModal.classList.remove("modal-overlay");
+      // if arr.contains(uicontroller.)~~
+      // classList.remove
     }
 
     UIController.isTodoModalOpen = false;
@@ -95,6 +106,15 @@ export class TodoModal extends Component {
 
     todoModal.classList.add("modal-overlay");
     todoModal.classList.remove("modal-hidden");
+
+    // if arr.contains(uicontroller.)~~
+    // classList.add
+    const selectElement = document.querySelector("#todo-select-projectId");
+    if (UIController.GENERAL_LIST.includes(UIController.CURRENT_PROJECT_ID)) {
+      selectElement.classList.remove("hidden");
+    } else {
+      selectElement.classList.add("hidden");
+    }
 
     UIController.isTodoModalOpen = true;
   }

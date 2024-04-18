@@ -16,22 +16,21 @@
 1. main 4 nav handle submit
    - edit left
    - general add should have project list select option
+     - handle submit
 2. when should things rerender?
-
    - on user crud
-
 3. what data needed for rerender?
 
--
+   - todoArr, projectArr
 
-3. todos container rerender should be done with animation on 1 sec delay
-4. scroll event -> Uncaught TypeError: Cannot read properties of null (reading 'classList')
+4. todos container rerender should be done with animation on 1 sec delay
+5. scroll event -> Uncaught TypeError: Cannot read properties of null (reading 'classList')
    at HTMLDocument.<anonymous> (UIController.js:60:1)
-5. confirm modal on project delete
-6. drag drop
-7. Add throttling for scroll event listenr
-8. nav\_\_main--item click isn't recognized properly on the edges
-9. fix project nav div click when overflowing
+6. confirm modal on project delete
+7. drag drop
+8. Add throttling for scroll event listenr
+9. nav\_\_main--item click isn't recognized properly on the edges
+10. fix project nav div click when overflowing
 
 ## Use case scenarios
 

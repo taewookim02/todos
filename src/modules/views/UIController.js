@@ -12,6 +12,7 @@ export class UIController {
   static isTodoModalOpen = false;
   static isProjectModalOpen = false;
   static CURRENT_PROJECT_ID = "";
+  static GENERAL_LIST = ["today", "scheduled", "all", "priority"];
 
   constructor() {
     this.Navbar = new Navbar();
@@ -122,7 +123,7 @@ export class UIController {
           targetElement != null &&
           targetElement.classList.contains("nav__main--item")
         ) {
-          targetMenuClassName = targetElement.classList[1];
+          targetMenuClassName = targetElement.classList[1]; // item-all, item-priority, item-scheduled, item-today..
         }
       }
       // console.log(isClickInsideNavItem);
@@ -191,8 +192,8 @@ export class UIController {
       // if current project id is in general
       // if (generalProjectId.includes(UIController.CURRENT_PROJECT_ID)) {
       //   console.log("HEY");
-      //   // do something
-      //   // what should I do here?
+      // do something
+      // what should I do here?
 
       //   return;
       // }
