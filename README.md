@@ -23,9 +23,8 @@
 5. confirm modal on project delete
 6. drag drop
 7. Add throttling for scroll event listenr
-8. project delete cascade to todos
-9. nav\_\_main--item click isn't recognized properly on the edges
-10. fix project nav div click when overflowing
+8. nav\_\_main--item click isn't recognized properly on the edges
+9. fix project nav div click when overflowing
 
 ## Use case scenarios
 

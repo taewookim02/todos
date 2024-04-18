@@ -66,13 +66,14 @@ export class ProjectController {
     let projectsArr = this.getProjects();
     let todosArr = new TodoController().getTodos();
 
-    for (let i = 0; i < projectsArr.length; i++) {
+    for (let i = projectsArr.length - 1; i >= 0; i--) {
       if (projectId === projectsArr[i].id) {
         projectsArr.splice(i, 1);
       }
     }
 
-    for (let i = 0; i < todosArr.length; i++) {
+    // remove all todos with the same projectid
+    for (let i = todosArr.length - 1; i >= 0; i--) {
       if (todosArr[i].projectId === projectId) {
         todosArr.splice(i, 1);
       }

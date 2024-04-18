@@ -183,6 +183,7 @@ export class TodoComponent extends Component {
 
     //
     todosArr.forEach((todo) => {
+      console.log(todo);
       const todoContainer = document.createElement("div");
       todoContainer.classList.add("todo-container");
       todoContainer.setAttribute("data-id", todo.id);
@@ -202,7 +203,7 @@ export class TodoComponent extends Component {
       todoName.textContent = todo.name;
       const projectName = document.createElement("p");
       projectName.classList.add("todo__project--name");
-      projectName.textContent = this.ProjectController.getName(todo.projectId); // FIXME: this is because project delete doesn't cascade to todos
+      projectName.textContent = this.ProjectController.getName(todo.projectId); // FIXME:
       textDiv.appendChild(todoName);
       textDiv.appendChild(projectName);
 
