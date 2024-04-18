@@ -195,8 +195,16 @@ export class TodoComponent extends Component {
       isFinishedCheckbox.setAttribute("data-id", todo.id);
       isFinishedCheckbox.checked = todo.isFinished;
 
+      const textDiv = document.createElement("div");
+
+      textDiv.classList.add("todo__text--div");
       const todoName = document.createElement("p");
       todoName.textContent = todo.name;
+      const projectName = document.createElement("p");
+      projectName.classList.add("todo__project--name");
+      projectName.textContent = this.ProjectController.getName(todo.projectId);
+      textDiv.appendChild(todoName);
+      textDiv.appendChild(projectName);
 
       const todoEditButton = new Button(
         "edit",
@@ -216,14 +224,20 @@ export class TodoComponent extends Component {
       todoButtonsDiv.appendChild(todoCloseButton);
 
       todoContainer.appendChild(isFinishedCheckbox);
-      todoContainer.appendChild(todoName);
+      todoContainer.appendChild(textDiv);
+      //todoContainer.appendChild(projectName);
       todoContainer.appendChild(todoButtonsDiv);
       todosContainer.appendChild(todoContainer);
 
       todoContainer.addEventListener("click", (e) => {
-        this.handleTodoElementClick(e); // FIXME: adapt to getWhere
+        this.handleGeneralTodoContainerClick(e); // FIXME: adapt to getWhere
       });
     });
+  }
+  //handle
+
+  handleGeneralTodoContainerClick(e) {
+    console.log(e);
   }
 
   handleTodoElementClick(e) {

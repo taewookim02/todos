@@ -11,26 +11,21 @@
 
 ## Todos:
 
-3. fix project nav div click when overflowing
-4. Add Scheduled nav item
-   - TODAY
-   - SCHEDULED
-   - ALL
-   - PRIORITY
-5. click on main nav items should render the items matching.
-6. fix project add (AppController.js:18 AppController init() called
-   index.html:1 An invalid form control with name='projectName' is not focusable. <input type=​"text" id=​"projectName" name=​"projectName" required>​)
-   ![alt text](image-1.png)
-7. UIController // FIXME: e.target for main nav items !projectFormContainer.contains(e.
-8. when should things rerender?
+![alt text](image-1.png)
 
-   - when user checks finished (main nav 4 items)
-   - todos container rerender should be done with animation on 1 sec delay
+1. main 4 nav handle submit
 
-9. confirm modal on project delete
-10. drag drop
-11. Add throttling for scroll event listenr
-12. project delete cascade to todos
+2. when should things rerender?
+   - on user crud
+3. todos container rerender should be done with animation on 1 sec delay
+4. scroll event -> Uncaught TypeError: Cannot read properties of null (reading 'classList')
+   at HTMLDocument.<anonymous> (UIController.js:60:1)
+5. confirm modal on project delete
+6. drag drop
+7. Add throttling for scroll event listenr
+8. project delete cascade to todos
+9. nav\_\_main--item click isn't recognized properly on the edges
+10. fix project nav div click when overflowing
 
 ## Use case scenarios
 
