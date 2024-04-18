@@ -25,11 +25,11 @@ export class UIController {
   }
 
   init(projectsArr) {
+    this.Navbar.renderComponent(projectsArr);
     this.initProjectModal();
     this.initTodoModal();
     this.initTodoDetailModal();
     this.initFirstDivClick();
-    this.Navbar.renderComponent(projectsArr);
     document.addEventListener("DOMContentLoaded", (e) => {
       this.initContentClickBehavior();
       this.initHeaderClickBehavior();
