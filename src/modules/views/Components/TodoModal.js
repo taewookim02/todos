@@ -65,7 +65,11 @@ export class TodoModal extends Component {
     const projId = formData.get("todo-projectId");
     const projNameElement = document.querySelector(".todo-header");
     const projectName = this.ProjectController.getName(projId);
-    projNameElement.textContent = projectName;
+    if (UIController.GENERAL_LIST.includes(UIController.CURRENT_PROJECT_ID)) {
+      projNameElement.textContent = UIController.CURRENT_PROJECT_ID;
+    } else {
+      projNameElement.textContent = projectName;
+    }
 
     this.closeModal();
   }
@@ -107,9 +111,10 @@ export class TodoModal extends Component {
     todoModal.classList.add("modal-overlay");
     todoModal.classList.remove("modal-hidden");
 
-    // if arr.contains(uicontroller.)~~
-    // classList.add
     const selectElement = document.querySelector("#todo-select-projectId");
+
+    // if current menu is all, today, scheduled, prio,
+    // show select option for project names when adding todo
     if (UIController.GENERAL_LIST.includes(UIController.CURRENT_PROJECT_ID)) {
       selectElement.classList.remove("hidden");
     } else {

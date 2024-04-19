@@ -177,13 +177,15 @@ export class TodoComponent extends Component {
 
     // add header (proj name)
     const todoHeader = document.createElement("h1");
+    console.log("inside renderAfterWhere");
     todoHeader.textContent = UIController.CURRENT_PROJECT_ID;
+    console.log("inside renderAfterWhere:", UIController.CURRENT_PROJECT_ID);
     todoHeader.classList.add("todo-header");
     todosContainer.appendChild(todoHeader);
 
     //
     todosArr.forEach((todo) => {
-      console.log(todo);
+      // console.log(todo);
       const todoContainer = document.createElement("div");
       todoContainer.classList.add("todo-container");
       todoContainer.setAttribute("data-id", todo.id);
@@ -203,7 +205,7 @@ export class TodoComponent extends Component {
       todoName.textContent = todo.name;
       const projectName = document.createElement("p");
       projectName.classList.add("todo__project--name");
-      projectName.textContent = this.ProjectController.getName(todo.projectId); // FIXME:
+      projectName.textContent = this.ProjectController.getName(todo.projectId);
       textDiv.appendChild(todoName);
       textDiv.appendChild(projectName);
 

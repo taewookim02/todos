@@ -295,6 +295,39 @@ export class UIController {
   }
 
   todoModalCallback(todoId, todoName) {
+    // TODO: take into account of project select
+
+    // if UIController.CurrentProject, g
+    // projectId = chosen select
+    // else go on
+    if (UIController.GENERAL_LIST.includes(UIController.CURRENT_PROJECT_ID)) {
+      const projectId = document.querySelector("#todo-select-projectId").value;
+      console.log(projectId);
+      const newTodo = new Todo(todoName, projectId);
+      this.TodoController.addTodo(newTodo);
+
+      let generalTodosArr;
+
+      switch (UIController.CURRENT_PROJECT_ID) {
+        case "all":
+          generalTodosArr = this.TodoController.getAllTodoItems();
+          break;
+        case "priority":
+          generalTodosArr = this.TodoController.getUrgentTodoItems();
+          break;
+        case "today":
+          generalTodosArr = this.TodoController.getTodayTodoItems();
+          break;
+        case "scheduled":
+          generalTodosArr = this.TodoController.getScheduledTodoItems();
+          break;
+      }
+      console.log(UIController.CURRENT_PROJECT_ID);
+      this.TodoComponent.renderAfterWhere(generalTodosArr);
+      // this.setCurrentHeader(UIController.CURRENT_PROJECT_ID);
+      return;
+    }
+
     const projectId = document.querySelector("#todo-projectId").value;
     if (todoId === "") {
       // create new todo
@@ -307,12 +340,16 @@ export class UIController {
       // TODO: here?
 
       // const completedTodoArr =
-      //   this.TodoController.getCompletedTodosWithProjectId(projectId);
+      //   this.TodoController.getCompletedTodosWithProjectId(projectIdif
       // console.log(completedTodoArr);
+      console.log("in if");
 
       this.TodoComponent.renderComponent(newTodoArr);
     } else {
+      // edit existing todo
       this.TodoController.editTodoName(todoId, todoName);
+
+      console.log("in else");
 
       // rerender todos
       const newTodoArr =
@@ -325,4 +362,13 @@ export class UIController {
       this.TodoComponent.renderComponent(newTodoArr);
     }
   }
+
+  // setCurrentHeader = (name) => {
+  //   console.log("in setCurrentHeader");
+  //   const todoHeaderElement = document.querySelector(".todo-header");
+  //   console.log("in setCurrentHeader:", todoHeaderElement, name);
+
+  //   todoHeaderElement.textContent = name;
+  //   console.log("in setCurrentHeader:", todoHeaderElement, name);
+  // };
 }
