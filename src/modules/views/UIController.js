@@ -295,13 +295,15 @@ export class UIController {
       return;
     }
 
+    // IF IT IS JUST NORMAL PROJECT WITH PROJECT ID
     // update localStorage
     this.TodoController.editTodoWithValues(
       todoId,
       todoName,
       projId,
       description,
-      new Date(dueDate),
+      // new Date(dueDate),
+      Helper.formatDateDashToCommasReturnNewDate(dueDate),
       prio,
       isFinished
     );

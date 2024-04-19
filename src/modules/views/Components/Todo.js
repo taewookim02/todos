@@ -36,7 +36,9 @@ export class TodoComponent extends Component {
 
     // add header (proj name)
     const todoHeader = document.createElement("h1");
-    todoHeader.textContent = "";
+    todoHeader.textContent = this.ProjectController.getName(
+      UIController.CURRENT_PROJECT_ID
+    );
     todoHeader.classList.add("todo-header");
     todosContainer.appendChild(todoHeader);
 
