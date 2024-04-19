@@ -2,6 +2,7 @@ import { Component } from "./Component";
 import { Button } from "./Button";
 import { UIController } from "../UIController";
 import { ProjectController } from "../../controllers/ProjectController";
+import { format } from "date-fns";
 export class TodoModal extends Component {
   constructor(todoCallback) {
     super();
@@ -33,10 +34,12 @@ export class TodoModal extends Component {
               <option value="medium">Medium</option>
               <option value="chill">Chill</option>
           </select>
+          <input type="date" id="todo-general-date" name="todo-general-date" value="${format(
+            new Date(),
+            "yyyy-MM-dd"
+          )}" />
           
           <button type="submit">${todoId ? "Save changes" : "Add"}</button>
-          
-          
         </form>
       </div>
     `;
@@ -118,8 +121,12 @@ export class TodoModal extends Component {
 
     const projSelectElement = document.querySelector("#todo-select-projectId");
     const prioSelectElement = document.querySelector("#todo-select-priority");
+    const generalDateElement = document.querySelector("#todo-general-date");
 
+    // reset classes & attr
     prioSelectElement.classList.add("hidden");
+    generalDateElement.classList.add("hidden");
+    generalDateElement.required = false;
 
     // if current menu is all, today, scheduled, prio,
     // show select option for project names when adding todo
@@ -127,8 +134,11 @@ export class TodoModal extends Component {
       projSelectElement.classList.remove("hidden");
       switch (UIController.CURRENT_PROJECT_ID) {
         case "priority":
-          // console.log("@@@@@@@");
           prioSelectElement.classList.remove("hidden");
+          break;
+        case "scheduled":
+          generalDateElement.classList.remove("hidden");
+          generalDateElement.required = true;
           break;
       }
     } else {

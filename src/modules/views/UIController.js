@@ -7,6 +7,7 @@ import { Todo } from "../models/Todo";
 import { TodoModal } from "./Components/TodoModal";
 import { TodoComponent } from "./Components/Todo";
 import { TodoDetailModal } from "./Components/TodoDetailModal";
+import { Helper } from "../utils/Helper";
 
 export class UIController {
   static isTodoModalOpen = false;
@@ -327,6 +328,15 @@ export class UIController {
           generalTodosArr = this.TodoController.getTodayTodoItems();
           break;
         case "scheduled":
+          // newTodo.setDueDate()
+          const generalDateVal =
+            document.querySelector("#todo-general-date").value;
+          const formattedDate =
+            Helper.formatDateDashToCommasReturnNewDate(generalDateVal);
+
+          newTodo.setDueDate(formattedDate);
+          this.TodoController.addTodo(newTodo);
+
           generalTodosArr = this.TodoController.getScheduledTodoItems();
           break;
       }
