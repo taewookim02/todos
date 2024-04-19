@@ -37,9 +37,21 @@ export class UIController {
       this.initHeaderClickBehavior();
       this.initOverlayClickBehavior();
       this.initScrollBehavior();
+      this.listenForDocumentSubmit();
     });
   }
 
+  listenForDocumentSubmit = (e) => {
+    const bodyElement = document.querySelector("body");
+
+    bodyElement.addEventListener("submit", (e) => {
+      // rerender navbar on document submit
+      let projectsArr = this.ProjectController.getProjects();
+      this.Navbar.renderComponent(projectsArr);
+    });
+  };
+
+  // FIXME: Add Throttle
   initScrollBehavior() {
     // this is for showing completed todos
     const content = document.querySelector("#content");

@@ -13,24 +13,16 @@
 
 ![alt text](image-1.png)
 
-1. DetailedTodo submit handling for general menu
-2. when should things rerender?
-   - on user crud
-3. what data needed for rerender?
-
-   - todoArr, projectArr
-
-4. btn top right
-5. if menu all -> add todo -> redirects to project page -> add again (UIController.CURRENT_PROJECT_ID) is still 'all'
-6. todos container rerender should be done with animation on 1 sec delay
-7. scroll event -> Uncaught TypeError: Cannot read properties of null (reading 'classList')
+1. "New Todo +" button to the top right
+2. btn top right
+3. todos container rerender should be done with animation on 1 sec delay
+4. scroll event -> Uncaught TypeError: Cannot read properties of null (reading 'classList')
    at HTMLDocument.<anonymous> (UIController.js:60:1)
-8. confirm modal on project delete
-9. drag drop
-10. Add throttling for scroll event listenr
-11. nav\_\_main--item click isn't recognized properly on the edges
-12. fix project nav div click when overflowing
-13. "New Todo +" button to the top right
+5. confirm modal on project delete
+6. drag drop
+7. Add throttling for scroll event listenr
+8. nav\_\_main--item click isn't recognized properly on the edges
+9. fix project nav div click when overflowing
 
 ## Use case scenarios
 

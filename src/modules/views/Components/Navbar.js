@@ -54,8 +54,7 @@ export class Navbar extends Component {
     upperDiv.classList.add("item__upper-div");
     upperDiv.innerHTML = icon;
 
-    let number = 3;
-    number = getCount();
+    let number = getCount();
 
     // getCount() // getcount gets assigned during switch
     const countSpan = document.createElement("span");
