@@ -348,6 +348,7 @@ export class TodoComponent extends Component {
     this.TodoModal.showModal();
     const todoNameElement = document.querySelector("#todoName");
     todoNameElement.scrollIntoView();
+    todoNameElement.focus();
     this.ProjectModal.closeModal();
   }
 

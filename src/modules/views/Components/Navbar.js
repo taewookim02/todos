@@ -190,6 +190,7 @@ export class Navbar extends Component {
     const projectNameElement = document.querySelector("#projectName");
     // scroll
     projectNameElement.scrollIntoView();
+    projectNameElement.focus();
     this.TodoModal.closeModal();
   }
 
