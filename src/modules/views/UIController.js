@@ -130,10 +130,11 @@ export class UIController {
       if (targetElement !== null) {
         isClickInsideNavItem = !isClickInsideNavItem;
 
-        // render corresponding todos
-
+        // render corresponding todos for general menu
         let matchingArr = [];
         if (targetMenuClassName) {
+          this.closeTodoModal();
+          this.closeProjectModal();
           // curr proj isn't specific.. so:
           // UIController.CURRENT_PROJECT_ID = "HAHAHA";
           switch (targetMenuClassName) {
@@ -263,17 +264,16 @@ export class UIController {
       prio,
       isFinished
     );
-    const generalMenu = ["today", "scheduled", "all", "priority"];
-    console.log(UIController.CURRENT_PROJECT_ID);
-    if (generalMenu.includes(UIController.CURRENT_PROJECT_ID)) {
-      // TODO: if general, do
+    // const generalMenu = ["today", "scheduled", "all", "priority"];
+    // console.log(UIController.CURRENT_PROJECT_ID);
+    // if (generalMenu.includes(UIController.CURRENT_PROJECT_ID)) {
+    //   // TODO: if general, do
 
-      console.log("hello");
-    } else {
-      const newTodoArr =
-        this.TodoController.getUncompletedTodosWithProjectId(projId);
-      this.TodoComponent.renderComponent(newTodoArr);
-    }
+    // } else {
+    const newTodoArr =
+      this.TodoController.getUncompletedTodosWithProjectId(projId);
+    this.TodoComponent.renderComponent(newTodoArr);
+    // }
   }
 
   projectModalCallback(projectId, projectName) {
@@ -342,14 +342,12 @@ export class UIController {
       // const completedTodoArr =
       //   this.TodoController.getCompletedTodosWithProjectId(projectIdif
       // console.log(completedTodoArr);
-      console.log("in if");
 
       this.TodoComponent.renderComponent(newTodoArr);
     } else {
-      // edit existing todo
+      // FIXME: this is legacy code, todoname edit is a removed feature
+      // edit existing todo name only
       this.TodoController.editTodoName(todoId, todoName);
-
-      console.log("in else");
 
       // rerender todos
       const newTodoArr =

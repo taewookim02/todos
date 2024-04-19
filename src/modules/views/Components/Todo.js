@@ -177,9 +177,7 @@ export class TodoComponent extends Component {
 
     // add header (proj name)
     const todoHeader = document.createElement("h1");
-    console.log("inside renderAfterWhere");
     todoHeader.textContent = UIController.CURRENT_PROJECT_ID;
-    console.log("inside renderAfterWhere:", UIController.CURRENT_PROJECT_ID);
     todoHeader.classList.add("todo-header");
     todosContainer.appendChild(todoHeader);
 

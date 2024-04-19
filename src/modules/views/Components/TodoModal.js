@@ -28,6 +28,11 @@ export class TodoModal extends Component {
               .map((proj) => `<option value="${proj.id}">${proj.name}</option>`)
               .join("")}
           </select>
+          <select class="hidden" id="todo-select-priority">
+              <option value="urgent">Urgent</option>
+              <option value="medium">Medium</option>
+              <option value="chill">Chill</option>
+          </select>
           
           <button type="submit">${todoId ? "Save changes" : "Add"}</button>
           
@@ -111,14 +116,23 @@ export class TodoModal extends Component {
     todoModal.classList.add("modal-overlay");
     todoModal.classList.remove("modal-hidden");
 
-    const selectElement = document.querySelector("#todo-select-projectId");
+    const projSelectElement = document.querySelector("#todo-select-projectId");
+    const prioSelectElement = document.querySelector("#todo-select-priority");
+
+    prioSelectElement.classList.add("hidden");
 
     // if current menu is all, today, scheduled, prio,
     // show select option for project names when adding todo
     if (UIController.GENERAL_LIST.includes(UIController.CURRENT_PROJECT_ID)) {
-      selectElement.classList.remove("hidden");
+      projSelectElement.classList.remove("hidden");
+      switch (UIController.CURRENT_PROJECT_ID) {
+        case "priority":
+          // console.log("@@@@@@@");
+          prioSelectElement.classList.remove("hidden");
+          break;
+      }
     } else {
-      selectElement.classList.add("hidden");
+      projSelectElement.classList.add("hidden");
     }
 
     UIController.isTodoModalOpen = true;
