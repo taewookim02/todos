@@ -8,6 +8,7 @@ import { ProjectController } from "../../controllers/ProjectController";
 import { UIController } from "../UIController";
 //
 import { format } from "date-fns";
+import { Helper } from "../../utils/Helper";
 
 export class TodoComponent extends Component {
   constructor() {
@@ -34,13 +35,26 @@ export class TodoComponent extends Component {
       todosContainer.innerHTML = "";
     }
 
+    // TODO HEADER (project name, add button)
+    const todoHeaderDiv = document.createElement("div");
+    todoHeaderDiv.classList.add("todo__header--div");
     // add header (proj name)
-    const todoHeader = document.createElement("h1");
-    todoHeader.textContent = this.ProjectController.getName(
+    const todoHeaderH1 = document.createElement("h1");
+    todoHeaderH1.textContent = this.ProjectController.getName(
       UIController.CURRENT_PROJECT_ID
     );
-    todoHeader.classList.add("todo-header");
-    todosContainer.appendChild(todoHeader);
+    // add button
+    const addTodoButton = new Button("New Todo +", (e) =>
+      this.handleTodoAddClick(e)
+    ).renderComponent();
+    addTodoButton.id = "add-todo-btn";
+
+    todoHeaderH1.classList.add("todo-header");
+    todoHeaderDiv.appendChild(todoHeaderH1);
+    todoHeaderDiv.appendChild(addTodoButton);
+
+    // todosContainer.appendChild(todoHeaderH1);
+    todosContainer.appendChild(todoHeaderDiv);
 
     // add nav item
     const completedContainer = document.createElement("div");
@@ -151,15 +165,17 @@ export class TodoComponent extends Component {
       });
     });
 
-    if (!document.querySelector("#add-todo-btn")) {
-      const addTodoButton = new Button("New Todo +", (e) =>
-        this.handleTodoAddClick(e)
-      ).renderComponent();
-      addTodoButton.id = "add-todo-btn";
-      // content.appendChild(addTodoButton);
-      let todoContainerElement = document.querySelector(".todo-form-container");
-      content.insertBefore(addTodoButton, todoContainerElement);
-    }
+    // COMMENTED
+    // if (!document.querySelector("#add-todo-btn")) {
+    //   const addTodoButton = new Button("New Todo +", (e) =>
+    //     this.handleTodoAddClick(e)
+    //   ).renderComponent();
+    //   addTodoButton.id = "add-todo-btn";
+
+    //   let todoContainerElement = document.querySelector(".todo-form-container");
+    //   content.insertBefore(addTodoButton, todoContainerElement);
+    // }
+    // COMMENTED
   }
 
   renderAfterWhere(todosArr) {
@@ -177,11 +193,25 @@ export class TodoComponent extends Component {
       todosContainer.innerHTML = "";
     }
 
+    const todoHeaderDiv = document.createElement("div");
+    todoHeaderDiv.classList.add("todo__header--div");
+
     // add header (proj name)
-    const todoHeader = document.createElement("h1");
-    todoHeader.textContent = UIController.CURRENT_PROJECT_ID;
-    todoHeader.classList.add("todo-header");
-    todosContainer.appendChild(todoHeader);
+    const todoHeaderH1 = document.createElement("h1");
+    todoHeaderH1.textContent = Helper.toTitleCase(
+      UIController.CURRENT_PROJECT_ID
+    );
+    todoHeaderH1.classList.add("todo-header");
+
+    // add button
+    const addTodoButton = new Button("New Todo +", (e) =>
+      this.handleTodoAddClick(e)
+    ).renderComponent();
+    addTodoButton.id = "add-todo-btn";
+    todoHeaderDiv.appendChild(todoHeaderH1);
+    todoHeaderDiv.appendChild(addTodoButton);
+    todosContainer.appendChild(todoHeaderDiv);
+    // todosContainer.appendChild(todoHeaderH1);
 
     //
     todosArr.forEach((todo) => {

@@ -72,9 +72,20 @@ body {
 }
 
 /* TODOS */
+.todo__header--div {
+  display: flex;
+  justify-content: space-between;
+  /* TODO: make header sticky
+  position: sticky;
+  top: 20px;
+  z-index: 2000; */
+  align-items: center;
+}
+
 .todos-container {
   padding-top: 1rem;
   position: relative;
+  overflow: visible;
 }
 
 .todo-header {
@@ -87,22 +98,15 @@ body {
   cursor: pointer;
 }
 
-#add-todo-btn,
 .add-project-btn {
-  /* order: 1; */
-  /* margin-top: 0; */
   position: fixed;
   z-index: 100;
   bottom: 0;
-  /* width: 100%;  */
-  /* this should be todos-containers width but it seems to be larger*/
-  /* TODO: add scrollTo bottom on click */
 }
 
-/* .add-project-btn {
-  order: 1;
-  margin-top: auto;
-} */
+#add-todo-btn {
+  margin: 0 8px 8px 0;
+}
 
 /* DETAIL MODAL */
 .detail-todo-container {

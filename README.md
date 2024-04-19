@@ -14,15 +14,18 @@
 ![alt text](image-1.png)
 
 1. "New Todo +" button to the top right
-2. btn top right
-3. todos container rerender should be done with animation on 1 sec delay
-4. scroll event -> Uncaught TypeError: Cannot read properties of null (reading 'classList')
+2. todos container rerender should be done with animation on 1 sec delay
+3. scroll event -> Uncaught TypeError: Cannot read properties of null (reading 'classList')
    at HTMLDocument.<anonymous> (UIController.js:60:1)
-5. confirm modal on project delete
-6. drag drop
-7. Add throttling for scroll event listenr
-8. nav\_\_main--item click isn't recognized properly on the edges
-9. fix project nav div click when overflowing
+4. confirm modal on project delete
+5. drag drop
+6. Add throttling for scroll event listenr
+7. nav\_\_main--item click isn't recognized properly on the edges
+8. fix project nav div click when overflowing
+9. edit project name -> once is good -> second -> Navbar.js:180
+10. order by prio
+11. order by schedule
+12. new todo button -> scroll to input modal
 
 ## Use case scenarios
 
