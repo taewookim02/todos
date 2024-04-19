@@ -13,4 +13,10 @@ export class Helper {
     const dateObj = new Date(yyyy, MM, dd);
     return dateObj;
   };
+
+  static toTitleCase = (str) => {
+    return str.replace(/([^\W_]+[^\s-]*) */g, (txt) => {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  };
 }
