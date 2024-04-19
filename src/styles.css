@@ -80,6 +80,7 @@ body {
   top: 20px;
   z-index: 2000; */
   align-items: center;
+  background-color: white;
 }
 
 .todos-container {
@@ -209,4 +210,11 @@ body {
 /* todo elements */
 .todo__project--name {
   font-size: 0.7rem;
+}
+
+.container,
+.content,
+body,
+html {
+  overflow: visible; /* Ensure this does not conflict */
 }
