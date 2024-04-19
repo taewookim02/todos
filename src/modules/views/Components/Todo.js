@@ -346,7 +346,8 @@ export class TodoComponent extends Component {
 
   handleTodoAddClick(e) {
     this.TodoModal.showModal();
-    // this.Modal.closeModal();
+    const todoNameElement = document.querySelector("#todoName");
+    todoNameElement.scrollIntoView();
     this.ProjectModal.closeModal();
   }
 

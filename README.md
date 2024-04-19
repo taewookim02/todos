@@ -13,7 +13,7 @@
 
 ![alt text](image-1.png)
 
-1. "New Todo +" button to the top right
+1. new todo button -> scroll to input modal
 2. todos container rerender should be done with animation on 1 sec delay
 3. scroll event -> Uncaught TypeError: Cannot read properties of null (reading 'classList')
    at HTMLDocument.<anonymous> (UIController.js:60:1)
@@ -25,7 +25,6 @@
 9. edit project name -> once is good -> second -> Navbar.js:180
 10. order by prio
 11. order by schedule
-12. new todo button -> scroll to input modal
 
 ## Use case scenarios
 

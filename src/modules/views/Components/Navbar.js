@@ -187,6 +187,10 @@ export class Navbar extends Component {
 
   handleProjectAddClick() {
     this.Modal.showModal();
+    const projectNameElement = document.querySelector("#projectName");
+    // scroll
+    projectNameElement.scrollIntoView();
+    this.TodoModal.closeModal();
   }
 
   handleProjectCloseClick(projectId) {
