@@ -17,4 +17,7 @@ export class Todo {
     this.priority = priority;
     this.isFinished = isFinished;
   }
+
+  setPriority = (priority) => (this.priority = priority);
+  setDueDate = (dueDate) => (this.dueDate = dueDate);
 }

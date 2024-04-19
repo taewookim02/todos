@@ -304,25 +304,33 @@ export class UIController {
       const projectId = document.querySelector("#todo-select-projectId").value;
       console.log(projectId);
       const newTodo = new Todo(todoName, projectId);
-      this.TodoController.addTodo(newTodo);
 
       let generalTodosArr;
 
       switch (UIController.CURRENT_PROJECT_ID) {
         case "all":
+          this.TodoController.addTodo(newTodo);
           generalTodosArr = this.TodoController.getAllTodoItems();
           break;
         case "priority":
+          const selectedPriorityVal = document.querySelector(
+            "#todo-select-priority"
+          ).value;
+          newTodo.setPriority(selectedPriorityVal);
+          this.TodoController.addTodo(newTodo);
           generalTodosArr = this.TodoController.getUrgentTodoItems();
           break;
         case "today":
+          newTodo.setDueDate(new Date());
+          this.TodoController.addTodo(newTodo);
+
           generalTodosArr = this.TodoController.getTodayTodoItems();
           break;
         case "scheduled":
           generalTodosArr = this.TodoController.getScheduledTodoItems();
           break;
       }
-      console.log(UIController.CURRENT_PROJECT_ID);
+      // console.log(UIController.CURRENT_PROJECT_ID);
       this.TodoComponent.renderAfterWhere(generalTodosArr);
       // this.setCurrentHeader(UIController.CURRENT_PROJECT_ID);
       return;
