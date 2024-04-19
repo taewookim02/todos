@@ -256,6 +256,46 @@ export class UIController {
     prio,
     isFinished
   ) {
+    // TODO: add checks for UIController.CURRENT_PROJECT_ID
+    if (UIController.GENERAL_LIST.includes(UIController.CURRENT_PROJECT_ID)) {
+      // if general menu
+      let generalTodosArr;
+
+      // Edit the todo value first
+      this.TodoController.editTodoWithValues(
+        todoId,
+        todoName,
+        projId,
+        description,
+        new Date(dueDate),
+        prio,
+        isFinished
+      );
+      // switch to render diff todo items
+      switch (UIController.CURRENT_PROJECT_ID) {
+        case "today":
+          generalTodosArr = this.TodoController.getTodayTodoItems();
+
+          break;
+        case "scheduled":
+          generalTodosArr = this.TodoController.getScheduledTodoItems();
+
+          break;
+        case "all":
+          generalTodosArr = this.TodoController.getAllTodoItems();
+
+          break;
+        case "priority":
+          generalTodosArr = this.TodoController.getUrgentTodoItems();
+
+          break;
+      }
+      this.TodoComponent.renderAfterWhere(generalTodosArr);
+
+      return;
+    }
+
+    // update localStorage
     this.TodoController.editTodoWithValues(
       todoId,
       todoName,
@@ -265,14 +305,10 @@ export class UIController {
       prio,
       isFinished
     );
-    // const generalMenu = ["today", "scheduled", "all", "priority"];
-    // console.log(UIController.CURRENT_PROJECT_ID);
-    // if (generalMenu.includes(UIController.CURRENT_PROJECT_ID)) {
-    //   // TODO: if general, do
 
-    // } else {
     const newTodoArr =
       this.TodoController.getUncompletedTodosWithProjectId(projId);
+
     this.TodoComponent.renderComponent(newTodoArr);
     // }
   }
@@ -296,11 +332,6 @@ export class UIController {
   }
 
   todoModalCallback(todoId, todoName) {
-    // TODO: take into account of project select
-
-    // if UIController.CurrentProject, g
-    // projectId = chosen select
-    // else go on
     if (UIController.GENERAL_LIST.includes(UIController.CURRENT_PROJECT_ID)) {
       const projectId = document.querySelector("#todo-select-projectId").value;
       console.log(projectId);
@@ -340,9 +371,9 @@ export class UIController {
           generalTodosArr = this.TodoController.getScheduledTodoItems();
           break;
       }
-      // console.log(UIController.CURRENT_PROJECT_ID);
       this.TodoComponent.renderAfterWhere(generalTodosArr);
-      // this.setCurrentHeader(UIController.CURRENT_PROJECT_ID);
+
+      // return and not proceed with the code below
       return;
     }
 
