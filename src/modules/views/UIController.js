@@ -56,26 +56,44 @@ export class UIController {
   // FIXME: Add Throttle
   initScrollBehavior() {
     // this is for showing completed todos
-    const content = document.querySelector("#content");
-
     let isAtTop = true;
+    let throttleTimeout = null;
+
     document.addEventListener("scroll", (e) => {
-      if (window.scrollY === 0) {
-        isAtTop = true;
-        console.log("At the top of the page");
-      } else {
-        isAtTop = false;
+      if (throttleTimeout) {
+        return;
       }
+
+      throttleTimeout = setTimeout(() => {
+        throttleTimeout = null; // reset timeout
+        if (window.scrollY === 0) {
+          isAtTop = true;
+          console.log("At the top of the page");
+        } else {
+          isAtTop = false;
+        }
+      }, 100); // throttle period: 100 ms
     });
 
     document.addEventListener("wheel", (e) => {
-      if (isAtTop && e.deltaY < 0) {
-        const completedContainer = document.querySelector(
-          ".completed-container"
-        );
-        completedContainer.classList.remove("hidden");
-        UIController.IS_COMPLETED_OPEN = true;
-      }
+      if (throttleTimeout) return;
+
+      throttleTimeout = setTimeout(() => {
+        throttleTimeout = null; // reset timeout
+        if (isAtTop && e.deltaY < 0) {
+          if (
+            UIController.GENERAL_LIST.includes(UIController.CURRENT_PROJECT_ID)
+          ) {
+            return; // if in general menu, return.
+          }
+
+          const completedContainer = document.querySelector(
+            ".completed-container"
+          );
+          completedContainer.classList.remove("hidden");
+          UIController.IS_COMPLETED_OPEN = true;
+        }
+      }, 100); // throttle period: 100 ms
     });
   }
 
