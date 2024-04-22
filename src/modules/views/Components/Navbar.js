@@ -136,9 +136,13 @@ export class Navbar extends Component {
         this.handleProjectDivClick(e)
       );
 
+      // dragging events
       projectNavDiv.addEventListener("dragover", (e) => this.handleDragover(e));
       projectNavDiv.addEventListener("drop", (e) =>
         this.handleProjectDrop(e, project)
+      );
+      projectNavDiv.addEventListener("dragleave", (e) =>
+        this.handleDragLeave(e)
       );
 
       navEl.appendChild(projectNavDiv);
@@ -150,6 +154,11 @@ export class Navbar extends Component {
     addProjectButton.classList.add("add-project-btn");
     navEl.appendChild(addProjectButton);
   }
+
+  handleDragLeave = (e) => {
+    const targetProject = e.target.closest(".nav__project");
+    targetProject.classList.remove("highlight");
+  };
 
   handleProjectDrop = (e, project) => {
     e.preventDefault();
@@ -168,12 +177,17 @@ export class Navbar extends Component {
 
     // rerender todo
     this.TodoComponent.renderComponent(newTodoArr);
+
+    // remove highlight class
+    const targetProject = e.target.closest(".nav__project");
+    targetProject.classList.remove("highlight");
   };
 
+  // TODO: add throttling
   handleDragover = (e) => {
     e.preventDefault();
-    console.log(e.target);
-    // console.log("handleDragover on", e.target);
+    const targetProject = e.target.closest(".nav__project");
+    targetProject.classList.add("highlight");
   };
 
   handleProjectDivClick(e) {

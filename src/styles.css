@@ -237,3 +237,8 @@ html {
 .todo-container {
   pointer-events: auto;
 }
+
+.nav__project.highlight {
+  border: 2px dashed #007bff;
+  background-color: #e3f2fd;
+}
