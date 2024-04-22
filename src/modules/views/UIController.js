@@ -14,6 +14,7 @@ export class UIController {
   static isProjectModalOpen = false;
   static CURRENT_PROJECT_ID = "";
   static GENERAL_LIST = ["today", "scheduled", "all", "priority"];
+  static IS_COMPLETED_OPEN = false;
 
   constructor() {
     this.Navbar = new Navbar();
@@ -38,6 +39,7 @@ export class UIController {
       this.initOverlayClickBehavior();
       this.initScrollBehavior();
       this.listenForDocumentSubmit();
+      UIController.IS_COMPLETED_OPEN = false;
     });
   }
 
@@ -72,6 +74,7 @@ export class UIController {
           ".completed-container"
         );
         completedContainer.classList.remove("hidden");
+        UIController.IS_COMPLETED_OPEN = true;
       }
     });
   }

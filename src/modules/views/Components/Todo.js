@@ -9,6 +9,7 @@ import { UIController } from "../UIController";
 //
 import { format } from "date-fns";
 import { Helper } from "../../utils/Helper";
+import { Navbar } from "./Navbar";
 
 export class TodoComponent extends Component {
   constructor() {
@@ -79,6 +80,8 @@ export class TodoComponent extends Component {
         UIController.CURRENT_PROJECT_ID
       );
     completedCount.textContent = completedTodosArr.length;
+
+    // COMPLETED TODOS (separate div)
     completedTodosArr.forEach((todo) => {
       const todoContainer = document.createElement("div");
       todoContainer.classList.add("todo-container");
@@ -94,12 +97,6 @@ export class TodoComponent extends Component {
 
       const todoName = document.createElement("p");
       todoName.textContent = todo.name;
-
-      // const todoEditButton = new Button(
-      //   "edit",
-      //   (e) => this.handleTodoEditClick(e),
-      //   todo.id
-      // ).renderComponent();
 
       // button close
       const todoCloseButton = new Button(
@@ -138,12 +135,6 @@ export class TodoComponent extends Component {
       const todoName = document.createElement("p");
       todoName.textContent = todo.name;
 
-      // const todoEditButton = new Button(
-      //   "edit",
-      //   (e) => this.handleTodoEditClick(e),
-      //   todo.id
-      // ).renderComponent();
-
       // button close
       const todoCloseButton = new Button(
         "x",
@@ -164,18 +155,6 @@ export class TodoComponent extends Component {
         this.handleTodoElementClick(e);
       });
     });
-
-    // COMMENTED
-    // if (!document.querySelector("#add-todo-btn")) {
-    //   const addTodoButton = new Button("New Todo +", (e) =>
-    //     this.handleTodoAddClick(e)
-    //   ).renderComponent();
-    //   addTodoButton.id = "add-todo-btn";
-
-    //   let todoContainerElement = document.querySelector(".todo-form-container");
-    //   content.insertBefore(addTodoButton, todoContainerElement);
-    // }
-    // COMMENTED
   }
 
   renderAfterWhere(todosArr) {
@@ -284,9 +263,68 @@ export class TodoComponent extends Component {
   handleTodoElementClick(e) {
     if (e.target.type === "checkbox") {
       const todoId = e.target.getAttribute("data-id");
-      const checkedStatus = e.target.checked;
-      console.log(checkedStatus);
-      this.TodoController.editIsFinished(todoId, checkedStatus);
+      // let checkedStatus = e.target.checked;
+
+      if (e.target.checked) {
+        // set timeout
+        const todoContainerElement = e.target.parentElement;
+
+        setTimeout(() => {
+          if (e.target.checked) {
+            todoContainerElement.classList.add("hidden");
+            this.TodoController.editIsFinished(todoId, true);
+            // rerender completedTodos
+            const todosArr =
+              this.TodoController.getUncompletedTodosWithProjectId(
+                UIController.CURRENT_PROJECT_ID
+              );
+            this.renderComponent(todosArr);
+
+            // rerender navbar
+            const projectsArr = this.ProjectController.getProjects();
+
+            const navbarObj = new Navbar();
+            navbarObj.renderComponent(projectsArr);
+          } else {
+            // user clicked again within 1 second, cancel editing
+            todoContainerElement.classList.remove("hidden");
+            this.TodoController.editIsFinished(todoId, false);
+          }
+        }, 1000);
+      } else {
+        // TODO: handle completed Todo checkbox tick
+        const todoContainerElement = e.target.parentElement;
+        setTimeout(() => {
+          if (!e.target.checked) {
+            // untick
+            this.TodoController.editIsFinished(todoId, false);
+
+            // rerender todos container
+            const todosArr =
+              this.TodoController.getUncompletedTodosWithProjectId(
+                UIController.CURRENT_PROJECT_ID
+              );
+            this.renderComponent(todosArr);
+            const completedContainer = document.querySelector(
+              ".completed-container"
+            );
+
+            // TODO: find how to:
+            // 1. figure out whether the completed container is open
+            // 2. determine whether to show completedContainer or not
+            if (completedContainer.classList[1] == "hidden") {
+              completedContainer.classList.remove("hidden");
+            }
+            // rerender navbar
+            const projectsArr = this.ProjectController.getProjects();
+            const navbarObj = new Navbar();
+            navbarObj.renderComponent(projectsArr);
+          } else {
+            todoContainerElement.classList.remove("hidden");
+            this.TodoController.editIsFinished(todoId, true);
+          }
+        }, 1000);
+      }
 
       return;
     }
