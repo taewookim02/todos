@@ -68,10 +68,18 @@ export class TodoComponent extends Component {
     headerDiv.appendChild(completedNavSpan);
     headerDiv.appendChild(completedCount);
 
+    headerDiv.addEventListener("click", this.handleCompletedHeaderClick);
+
     completedContainer.appendChild(headerDiv);
     completedContainer.classList.add("completed-container");
     completedContainer.classList.add("hidden");
 
+    // completed todo items div
+    const completedTodosContainer = document.createElement("div");
+    completedTodosContainer.classList.add("completed-todos-container");
+    completedTodosContainer.classList.add("hidden");
+
+    completedContainer.appendChild(completedTodosContainer);
     todosContainer.appendChild(completedContainer);
 
     // get completedTodos
@@ -112,7 +120,7 @@ export class TodoComponent extends Component {
       todoContainer.appendChild(isFinishedCheckbox);
       todoContainer.appendChild(todoName);
       todoContainer.appendChild(todoButtonsDiv);
-      completedContainer.appendChild(todoContainer);
+      completedTodosContainer.appendChild(todoContainer);
 
       todoContainer.addEventListener("click", (e) => {
         this.handleTodoElementClick(e);
@@ -247,14 +255,15 @@ export class TodoComponent extends Component {
       });
     });
   }
-  handleGeneralTodoCloseClick(e) {
-    console.log(e);
-  }
 
-  //handle
-  // handleGeneralTodoEditClick(e) {
-  //   console.log(e);
-  // }
+  handleCompletedHeaderClick(e) {
+    // toggle completed todos visibility
+    const completedTodosContainer = document.querySelector(
+      ".completed-todos-container"
+    );
+    completedTodosContainer.classList.toggle("hidden");
+  }
+  handleGeneralTodoCloseClick(e) {}
 
   handleGeneralTodoContainerClick(e) {
     console.log(e);

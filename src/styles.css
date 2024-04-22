@@ -218,3 +218,7 @@ body,
 html {
   overflow: visible; /* Ensure this does not conflict */
 }
+
+.completed-header:hover {
+  cursor: pointer;
+}
