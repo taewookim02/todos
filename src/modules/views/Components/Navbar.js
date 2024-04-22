@@ -195,15 +195,9 @@ export class Navbar extends Component {
   }
 
   handleProjectCloseClick(projectId) {
-    // TODO: add modal to confirm
-
-    // delete project
-    try {
-      this.ProjectController.deleteProject(projectId);
-      // remove from ui
-      document.querySelector(`[data-id="${projectId}"]`).remove();
-    } catch (error) {
-      console.log(error);
-    }
+    // show confirm modal (yes/no for delete project)
+    UIController.CURRENT_DELETE_PROJECT_ID = projectId;
+    const confirmModalElement = document.querySelector(".delete-confirm-modal");
+    confirmModalElement.classList.toggle("modal-hidden");
   }
 }

@@ -13,16 +13,14 @@
 
 ![alt text](image-1.png)
 
-1. scroll event -> Uncaught TypeError: Cannot read properties of null (reading 'classList')
-   at HTMLDocument.<anonymous> (UIController.js:60:1)
-2. Add throttling for scroll event listenr
-3. confirm modal on project delete
-4. drag drop
-5. nav\_\_main--item click isn't recognized properly on the edges
-6. fix project nav div click when overflowing
-7. edit project name -> once is good -> second -> Navbar.js:180
-8. order by prio
-9. order by schedule
+1. confirm modal on project delete
+2. crud todo -> nav item click -> opens project modal
+3. drag drop
+4. nav\_\_main--item click isn't recognized properly on the edges
+5. fix project nav div click when overflowing
+6. edit project name -> once is good -> second -> Navbar.js:180
+7. order by prio
+8. order by schedule
 
 ## Use case scenarios
 

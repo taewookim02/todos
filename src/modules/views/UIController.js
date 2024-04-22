@@ -8,6 +8,7 @@ import { TodoModal } from "./Components/TodoModal";
 import { TodoComponent } from "./Components/Todo";
 import { TodoDetailModal } from "./Components/TodoDetailModal";
 import { Helper } from "../utils/Helper";
+import { DeleteConfirmModal } from "./Components/DeleteConfirmModal";
 
 export class UIController {
   static isTodoModalOpen = false;
@@ -15,6 +16,7 @@ export class UIController {
   static CURRENT_PROJECT_ID = "";
   static GENERAL_LIST = ["today", "scheduled", "all", "priority"];
   static IS_COMPLETED_OPEN = false;
+  static CURRENT_DELETE_PROJECT_ID = "";
 
   constructor() {
     this.Navbar = new Navbar();
@@ -36,6 +38,7 @@ export class UIController {
     document.addEventListener("DOMContentLoaded", (e) => {
       this.initContentClickBehavior();
       this.initHeaderClickBehavior();
+      DeleteConfirmModal.renderComponent();
       this.initOverlayClickBehavior();
       this.initScrollBehavior();
       this.listenForDocumentSubmit();
@@ -53,7 +56,6 @@ export class UIController {
     });
   };
 
-  // FIXME: Add Throttle
   initScrollBehavior() {
     // this is for showing completed todos
     let isAtTop = true;
@@ -124,6 +126,24 @@ export class UIController {
         this.closeTodoDetailModal();
       }
     });
+
+    const confirmModal = document.querySelector(".delete-confirm-modal");
+    const confirmModalContent = document.querySelector(
+      ".delete-confirm-modal-content"
+    );
+    const confirmCloseBtn = document.querySelector(".confirm-close");
+    confirmModal.addEventListener("click", (e) => {
+      if (
+        !confirmModalContent.contains(e.target) ||
+        confirmCloseBtn.contains(e.target)
+      ) {
+        this.closeConfirmModal();
+      }
+    });
+  }
+
+  closeConfirmModal() {
+    DeleteConfirmModal.closeModal();
   }
 
   closeTodoDetailModal() {

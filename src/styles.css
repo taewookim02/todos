@@ -55,6 +55,7 @@ body {
   grid-template-columns: 1fr 4fr;
   gap: 16px;
   min-height: 100vh;
+  position: relative;
 }
 
 .content {
@@ -128,7 +129,8 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.detail-todo-content {
+.detail-todo-content,
+.delete-confirm-modal-content {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
@@ -221,4 +223,13 @@ html {
 
 .completed-header:hover {
   cursor: pointer;
+}
+
+/* DELETE CONFIRM MODAL */
+
+#deleteConfirmForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
