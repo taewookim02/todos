@@ -91,6 +91,19 @@ export class TodoController {
     this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
   }
 
+  editTodoProjectId(todoId, projectId) {
+    const todosArr = this.getTodos();
+
+    for (let i = 0; i < todosArr.length; i++) {
+      if (todosArr[i].id === todoId) {
+        todosArr[i].projectId = projectId;
+        break;
+      }
+    }
+
+    this.StorageController.saveCurrentArrayToLocalStorage("todos", todosArr);
+  }
+
   // TODO: projId needed?
   editTodoWithValues(
     todoId,

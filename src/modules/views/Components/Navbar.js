@@ -136,6 +136,11 @@ export class Navbar extends Component {
         this.handleProjectDivClick(e)
       );
 
+      projectNavDiv.addEventListener("dragover", (e) => this.handleDragover(e));
+      projectNavDiv.addEventListener("drop", (e) =>
+        this.handleProjectDrop(e, project)
+      );
+
       navEl.appendChild(projectNavDiv);
     });
     const addProjectButton = new Button(
@@ -145,6 +150,31 @@ export class Navbar extends Component {
     addProjectButton.classList.add("add-project-btn");
     navEl.appendChild(addProjectButton);
   }
+
+  handleProjectDrop = (e, project) => {
+    e.preventDefault();
+    // console.log("dropped on project:", e.target);
+    // console.log(project.name);
+    // console.log(project.id);
+    const draggedId = e.dataTransfer.getData("text/plain");
+    const draggedElement = document.querySelector(`[data-id="${draggedId}"]`);
+
+    // edit todo
+    this.TodoController.editTodoProjectId(draggedId, project.id);
+    // get todo arr
+    const newTodoArr = this.TodoController.getUncompletedTodosWithProjectId(
+      UIController.CURRENT_PROJECT_ID
+    );
+
+    // rerender todo
+    this.TodoComponent.renderComponent(newTodoArr);
+  };
+
+  handleDragover = (e) => {
+    e.preventDefault();
+    console.log(e.target);
+    // console.log("handleDragover on", e.target);
+  };
 
   handleProjectDivClick(e) {
     // the modal isn't rendered at first.. so we render

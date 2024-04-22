@@ -154,9 +154,20 @@ export class TodoComponent extends Component {
       // todoButtonsDiv.appendChild(todoEditButton);
       todoButtonsDiv.appendChild(todoCloseButton);
 
+      // appending checkbox, name, buttons
       todoContainer.appendChild(isFinishedCheckbox);
       todoContainer.appendChild(todoName);
       todoContainer.appendChild(todoButtonsDiv);
+
+      // enable dragging
+      todoContainer.setAttribute("draggable", "true");
+      todoContainer.addEventListener("dragstart", this.handleDragStart);
+      todoContainer.addEventListener("dragend", this.handleDragEnd);
+      todoContainer.addEventListener("dragover", this.handleDragover);
+      todoContainer.addEventListener("drop", this.handleDrop);
+      // todoContainer.addEventListener("drop", this.handleDrop);
+
+      // append 1 todo to its container
       todosContainer.appendChild(todoContainer);
 
       todoContainer.addEventListener("click", (e) => {
@@ -164,6 +175,21 @@ export class TodoComponent extends Component {
       });
     });
   }
+
+  handleDrop = (e) => {
+    e.preventDefault();
+  };
+
+  handleDragover = (e) => {
+    e.preventDefault();
+    // console.log(e.target);
+  };
+
+  handleDragEnd = (e) => {};
+
+  handleDragStart = (e) => {
+    e.dataTransfer.setData("text/plain", e.target.getAttribute("data-id"));
+  };
 
   renderAfterWhere(todosArr) {
     const content = document.querySelector("#content");
