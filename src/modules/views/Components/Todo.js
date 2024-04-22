@@ -273,12 +273,37 @@ export class TodoComponent extends Component {
           if (e.target.checked) {
             todoContainerElement.classList.add("hidden");
             this.TodoController.editIsFinished(todoId, true);
-            // rerender completedTodos
-            const todosArr =
-              this.TodoController.getUncompletedTodosWithProjectId(
+
+            let todosArr;
+            if (
+              UIController.GENERAL_LIST.includes(
+                UIController.CURRENT_PROJECT_ID
+              )
+            ) {
+              // if current menu is general
+              switch (UIController.CURRENT_PROJECT_ID) {
+                case "all":
+                  todosArr = this.TodoController.getAllTodoItems();
+                  break;
+                case "priority":
+                  todosArr = this.TodoController.getUrgentTodoItems();
+                  break;
+                case "scheduled":
+                  todosArr = this.TodoController.getScheduledTodoItems();
+                  break;
+                case "today":
+                  todosArr = this.TodoController.getTodayTodoItems();
+                  break;
+              }
+
+              this.renderAfterWhere(todosArr);
+            } else {
+              // if current menu is project
+              todosArr = this.TodoController.getUncompletedTodosWithProjectId(
                 UIController.CURRENT_PROJECT_ID
               );
-            this.renderComponent(todosArr);
+              this.renderComponent(todosArr);
+            }
 
             // rerender navbar
             const projectsArr = this.ProjectController.getProjects();
