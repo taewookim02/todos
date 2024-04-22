@@ -56,6 +56,7 @@ export class Modal extends Component {
     new Navbar().renderComponent(newProjectsArr);
     this.closeModal();
   }
+
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);

@@ -107,6 +107,7 @@ export class Navbar extends Component {
       projectNavDiv.classList.add("nav__project");
       projectNavDiv.setAttribute("data-id", project.id);
       const projectText = document.createElement("h3");
+      projectText.classList.add("nav__project--text");
 
       const projectEditButton = new Button(
         "edit",

@@ -225,7 +225,11 @@ export class UIController {
       let isClickInsideProjectForm = e.target.closest(
         ".project-form-container"
       );
-      if (!isClickInsideNavItem && !isClickInsideProjectForm) {
+      const isInsideNav =
+        e.target.classList.contains("nav__project") ||
+        e.target.classList.contains("nav__project--text");
+
+      if (!isClickInsideNavItem && !isClickInsideProjectForm && !isInsideNav) {
         if (!UIController.isProjectModalOpen) {
           this.showProjectModal();
           const projectNameElement = document.querySelector("#projectName");

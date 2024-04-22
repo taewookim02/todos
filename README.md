@@ -13,14 +13,13 @@
 
 ![alt text](image-1.png)
 
-1. confirm modal on project delete
-2. crud todo -> nav item click -> opens project modal
-3. drag drop
-4. nav\_\_main--item click isn't recognized properly on the edges
-5. fix project nav div click when overflowing
-6. edit project name -> once is good -> second -> Navbar.js:180
-7. order by prio
-8. order by schedule
+1. drag drop
+2. general menu todo close btn handling
+3. nav\_\_main--item click isn't recognized properly on the edges
+4. fix project nav div click when overflowing
+5. edit project name -> once is good -> second -> Navbar.js:180
+6. order by prio
+7. order by schedule
 
 ## Use case scenarios
 
