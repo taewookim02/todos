@@ -81,6 +81,14 @@ export class Navbar extends Component {
     const mainNavDiv = document.createElement("div");
     mainNavDiv.classList.add("nav__main");
 
+    // Hamburger button in header
+    const headerElem = document.querySelector(".header");
+    console.log(headerElem);
+    const hamburgerBtn = document.createElement("button");
+    hamburgerBtn.classList.add("hamburger-menu-btn");
+    hamburgerBtn.textContent = "\u2630";
+    headerElem.appendChild(hamburgerBtn);
+
     // append items to mainNavDiv
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("item-container");
@@ -164,6 +172,8 @@ export class Navbar extends Component {
 
   handleProjectDrop = (e, project) => {
     e.preventDefault();
+
+    // FIXME: div -> ok, elements inside div -> jump jump
     // console.log("dropped on project:", e.target);
     // console.log(project.name);
     // console.log(project.id);

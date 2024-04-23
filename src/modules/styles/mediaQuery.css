@@ -38,7 +38,7 @@
       grid-template-columns: 1fr;
       position: relative;
     }
-    .nav {
+    .header {
       /* flex */
       position: absolute;
       width: 100vw;
@@ -47,10 +47,22 @@
       top: -100vh;
     }
 
-    .nav.active {
+    .hamburger-menu {
+      display: block; /* Only show the hamburger on small screens */
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      z-index: 2001;
+      cursor: pointer;
+    }
+
+    .header.active {
       top: 0;
     }
-    #content {
+
+    #content,
+    .nav {
       width: 100vw;
       height: 100vh;
     }
