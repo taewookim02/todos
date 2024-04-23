@@ -293,7 +293,34 @@ export class TodoComponent extends Component {
     );
     completedTodosContainer.classList.toggle("hidden");
   }
-  handleGeneralTodoCloseClick(e) {}
+  handleGeneralTodoCloseClick(todoId) {
+    this.TodoController.removeTodoById(todoId);
+    console.log(UIController.CURRENT_PROJECT_ID);
+
+    let todosArr;
+    switch (UIController.CURRENT_PROJECT_ID) {
+      case "all":
+        todosArr = this.TodoController.getAllTodoItems();
+        break;
+      case "priority":
+        todosArr = this.TodoController.getUrgentTodoItems();
+        break;
+      case "today":
+        todosArr = this.TodoController.getTodayTodoItems();
+        break;
+      case "scheduled":
+        todosArr = this.TodoController.getScheduledTodoItems();
+        break;
+    }
+
+    // render todos
+    this.renderAfterWhere(todosArr);
+
+    // render navbar
+    const projectsArr = this.ProjectController.getProjects();
+    const navbarObj = new Navbar();
+    navbarObj.renderComponent(projectsArr);
+  }
 
   handleGeneralTodoContainerClick(e) {
     console.log(e);
