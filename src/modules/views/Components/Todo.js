@@ -495,11 +495,16 @@ export class TodoComponent extends Component {
   }
 
   handleTodoCloseClick(todoId) {
-    try {
-      this.TodoController.removeTodoById(todoId);
-      document.querySelector(`[data-id="${todoId}"]`).remove();
-    } catch (error) {
-      console.log(error);
-    }
+    this.TodoController.removeTodoById(todoId);
+
+    // render todo
+    const todosArr = this.TodoController.getUncompletedTodosWithProjectId(
+      UIController.CURRENT_PROJECT_ID
+    );
+    this.renderComponent(todosArr);
+    // render navbar
+    const navbarObj = new Navbar();
+    const projectsArr = this.ProjectController.getProjects();
+    navbarObj.renderComponent(projectsArr);
   }
 }
