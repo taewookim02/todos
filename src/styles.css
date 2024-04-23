@@ -56,6 +56,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 8px;
+  border-bottom: 1px dashed #b6b6b6;
 }
 
 .nav__project--text {
@@ -115,14 +116,49 @@ body {
   font-size: 0.8rem;
 }
 
-/* .nav__project--btns .btn {
-  width: min-content;
-} */
-
 /* MODAL */
 .modal-hidden,
 .hidden {
   display: none;
+}
+
+/* PROJECT MODAL */
+
+#editProjectForm {
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#editProjectForm label {
+  font-weight: 700;
+}
+
+.modal-content {
+  position: relative;
+
+  padding: 0.5rem;
+  border-bottom: 1px dashed #b6b6b6;
+}
+
+.project__input-div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project__add--btn {
+  background-color: #e3f2fd;
+  border: 1px solid #333;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+.project__modal--close-btn {
+  position: absolute;
+  top: 3px;
+  right: 6px;
 }
 
 /* TODOS */

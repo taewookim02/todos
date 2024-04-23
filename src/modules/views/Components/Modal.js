@@ -19,11 +19,15 @@ export class Modal extends Component {
       <div class="modal-content">
         <form id="editProjectForm">
           <label for="projectName">Project Name:</label>
-          <input type="text" id="projectName" name="projectName" required>
-          <input type="hidden" id="projectId" name="projectId" ${
-            projectId ? `data-id="${projectId}"` : ""
-          }>
-          <button type="submit">${projectId ? "Save changes" : "Add"}</button>
+          <div class="project__input-div">
+            <input type="text" id="projectName" name="projectName" required>
+            <input type="hidden" id="projectId" name="projectId" ${
+              projectId ? `data-id="${projectId}"` : ""
+            }>
+            <button type="submit" class="project__add--btn">${
+              projectId ? "Save changes" : "Add"
+            }</button>
+          </div>
         </form>
       </div>
       `;
@@ -33,6 +37,7 @@ export class Modal extends Component {
     const closeButton = new Button("x", (e) =>
       this.handleCloseButtonClick(e)
     ).renderComponent();
+    closeButton.classList.add("project__modal--close-btn");
     projectModal.querySelector(".modal-content").appendChild(closeButton);
 
     let navElement = document.querySelector(".nav");
