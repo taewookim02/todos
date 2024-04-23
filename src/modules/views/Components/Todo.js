@@ -127,6 +127,9 @@ export class TodoComponent extends Component {
       });
     });
 
+    // TODO!
+    const todosWrapper = document.createElement("div");
+    todosWrapper.classList.add("todos-wrapper");
     todosArr.forEach((todo) => {
       const todoContainer = document.createElement("div");
       todoContainer.classList.add("todo-container");
@@ -168,12 +171,14 @@ export class TodoComponent extends Component {
       // todoContainer.addEventListener("drop", this.handleDrop);
 
       // append 1 todo to its container
-      todosContainer.appendChild(todoContainer);
+      // todosContainer.appendChild(todoContainer);
+      todosWrapper.appendChild(todoContainer);
 
       todoContainer.addEventListener("click", (e) => {
         this.handleTodoElementClick(e);
       });
     });
+    todosContainer.appendChild(todosWrapper);
   }
 
   handleDrop = (e) => {

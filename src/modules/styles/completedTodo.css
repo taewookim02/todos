@@ -1,0 +1,25 @@
+/* completed todos */
+.completed-container {
+  padding: 8px;
+  /* display: flex; using display flex makes it visible
+  justify-content: space-between; */
+}
+
+.completed-container span {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.completed-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* todo elements */
+.todo__project--name {
+  font-size: 0.7rem;
+}
+
+.completed-header:hover {
+  cursor: pointer;
+}

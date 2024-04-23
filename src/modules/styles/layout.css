@@ -1,0 +1,25 @@
+/* STRUCTURE */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  /* gap: 16px; */
+  min-height: 100vh;
+  position: relative;
+}
+
+.content {
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  position: relative;
+  border-left: 1px solid #333;
+  padding: 1rem;
+}
+
+.header {
+  /* background-color: #007bff; */
+  position: relative;
+  width: 20vw;
+  user-select: none;
+}

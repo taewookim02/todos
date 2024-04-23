@@ -1,0 +1,16 @@
+@media (max-width: 931px) {
+  .item-container {
+    grid-template-columns: 1fr; /* stack items on smaller screens */
+  }
+  .nav__main--item {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 4px;
+  }
+  .item-container svg {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+}

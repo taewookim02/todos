@@ -1,0 +1,44 @@
+/* TODOS */
+.todo__header--div {
+  display: flex;
+  justify-content: space-between;
+  /* TODO: make header sticky
+  position: sticky;
+  top: 20px;
+  z-index: 2000; */
+  align-items: center;
+  background-color: white;
+}
+
+.todos-container {
+  position: relative;
+  overflow: visible;
+}
+
+.todo-container {
+}
+
+.todos-wrapper {
+  padding-top: 1rem;
+}
+
+.todo-header {
+}
+
+.todo-container {
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+  gap: 1rem;
+
+  pointer-events: auto;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+
+  padding: 12px;
+  border-radius: 4px;
+
+  width: 100%;
+  /* flex-shrink: 0; */
+  user-select: none;
+}

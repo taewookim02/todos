@@ -1,0 +1,51 @@
+/* BTNS */
+.nav__project--btn-div {
+  display: flex;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.nav__project .btn svg {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-project-btn {
+  position: fixed;
+  z-index: 100;
+  width: 20vw;
+  border-top: 1px solid #333;
+  bottom: 0;
+}
+
+.add-project-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.add-project-btn:active {
+  background-color: #000;
+}
+
+#add-todo-btn {
+  /* margin: 0 8px 8px 0; */
+  border: 1px solid #333;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+#add-todo-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+#add-todo-btn:active {
+  background-color: #000;
+}

@@ -1,0 +1,33 @@
+/* GENERAL NAV ITEMS */
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: (auto-fill, minmax(200px, 1fr)); */
+  gap: 8px;
+  padding: 4px;
+  position: sticky;
+  border-bottom: 1px solid #333;
+}
+
+.item__upper-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__main--item {
+  padding: 8px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  min-width: 85px;
+}
+
+.nav__main--item:hover {
+  background-color: #ff5454;
+  cursor: pointer;
+}
+
+.item__lower-div span {
+  color: #555;
+  font-weight: 700;
+  font-size: 0.8rem;
+}

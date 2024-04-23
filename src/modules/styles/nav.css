@@ -1,0 +1,40 @@
+/* NAV */
+.nav {
+  display: flex;
+  flex-direction: column;
+  width: 20vw; /* 1fr 4fr, 1fr == 20vw */
+  height: calc(100% - 19px);
+  position: fixed;
+  overflow-y: auto;
+  /* overflow-x: hidden; */
+}
+
+.nav__project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px dashed #b6b6b6;
+}
+
+.nav__project--text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+}
+
+.nav__project:hover,
+.todo-container:hover {
+  background-color: bisque;
+  cursor: pointer;
+}
+
+.nav__project:active,
+.todo-container:active {
+  background-color: rgb(212, 188, 159);
+}
+
+.nav__project--btns {
+  display: flex;
+}

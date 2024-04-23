@@ -1,0 +1,54 @@
+/* PROJECT MODAL */
+
+#editProjectForm {
+  font-size: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#editProjectForm label {
+  font-weight: 700;
+}
+
+#projectName {
+  border: none;
+  border-bottom: 1px dashed #333;
+  outline: none;
+}
+
+.modal-content {
+  position: relative;
+
+  padding: 0.5rem;
+  border-bottom: 1px dashed #b6b6b6;
+}
+
+.project__input-div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project__add--btn {
+  background-color: #fff;
+  border: 1px solid #333;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+.project__add--btn:hover {
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+}
+
+.project__add--btn:active {
+  background-color: #000;
+}
+
+.project__modal--close-btn {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+}
