@@ -26,6 +26,12 @@
   cursor: pointer;
 }
 
+.item__lower-div {
+  display: flex;
+  justify-content: center;
+  align-items: cetner;
+}
+
 .item__lower-div span {
   color: #555;
   font-weight: 700;
