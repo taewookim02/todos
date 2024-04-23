@@ -13,13 +13,12 @@
 
 ![alt text](image-1.png)
 
-1. drag drop
-2. general menu todo close btn handling
-3. nav\_\_main--item click isn't recognized properly on the edges
-4. fix project nav div click when overflowing
-5. edit project name -> once is good -> second -> Navbar.js:180
-6. order by prio
-7. order by schedule
+1. general menu todo close btn handling
+2. nav\_\_main--item click isn't recognized properly on the edges
+3. fix project nav div click when overflowing
+4. edit project name -> once is good -> second -> Navbar.js:180
+5. order by prio
+6. order by schedule
 
 ## Use case scenarios
 

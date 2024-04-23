@@ -185,10 +185,14 @@ export class TodoComponent extends Component {
     // console.log(e.target);
   };
 
-  handleDragEnd = (e) => {};
+  handleDragEnd = (e) => {
+    e.target.classList.remove("is-dragging");
+    console.log(e.target);
+  };
 
   handleDragStart = (e) => {
     e.dataTransfer.setData("text/plain", e.target.getAttribute("data-id"));
+    e.target.classList.add("is-dragging");
   };
 
   renderAfterWhere(todosArr) {
