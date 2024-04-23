@@ -20,21 +20,22 @@ body {
 .container {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  gap: 16px;
+  /* gap: 16px; */
   min-height: 100vh;
   position: relative;
 }
 
 .content {
-  background-color: green;
+  /* background-color: green; */
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   position: relative;
+  border-left: 1px solid #333;
 }
 
 .header {
-  background-color: #007bff;
+  /* background-color: #007bff; */
   position: relative;
   width: 20vw;
 }
@@ -88,6 +89,7 @@ body {
   gap: 8px;
   padding: 4px;
   position: sticky;
+  border-bottom: 1px solid #333;
 }
 
 .item__upper-div {
@@ -175,11 +177,13 @@ body {
 .add-project-btn {
   position: fixed;
   z-index: 100;
+  width: 20vw;
+  border-top: 1px solid #333;
   bottom: 0;
 }
 
 #add-todo-btn {
-  margin: 0 8px 8px 0;
+  /* margin: 0 8px 8px 0; */
 }
 
 /* DETAIL MODAL */

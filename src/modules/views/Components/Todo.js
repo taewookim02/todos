@@ -187,7 +187,6 @@ export class TodoComponent extends Component {
 
   handleDragEnd = (e) => {
     e.target.classList.remove("is-dragging");
-    console.log(e.target);
   };
 
   handleDragStart = (e) => {
