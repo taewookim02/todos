@@ -12,9 +12,14 @@
     justify-content: space-between;
     padding: 4px;
   }
-  .item-container svg {
+  .nav__main--item svg {
     display: none;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 745px) {
+  /* TODO: container grid temp col: 1fr */
+  /* .header absolute */
+  /* .header outside of screen */
+  /* Add hamburger menu */
+  /* hamburger on click, .header appears with z-index 2000 */
 }

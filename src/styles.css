@@ -1,5 +1,6 @@
 @import url(./modules/styles/variables.css);
 @import url(./modules/styles/basic.css);
+@import url(./modules/styles/input.css);
 @import url(./modules/styles/layout.css);
 @import url(./modules/styles/nav.css);
 @import url(./modules/styles/generalNav.css);
@@ -12,3 +13,4 @@
 @import url(./modules/styles/drag.css);
 @import url(./modules/styles/mediaQuery.css);
 @import url(./modules/styles/todoModal.css);
+@import url(./modules/styles/svg.css);

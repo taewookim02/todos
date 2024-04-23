@@ -14,11 +14,7 @@ body {
 
 body {
   font-family: "Noto Sans", sans-serif;
-}
-
-input,
-button {
-  font-family: inherit;
+  color: var(--font-color-primary);
 }
 
 .modal-hidden,

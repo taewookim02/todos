@@ -1,0 +1,12 @@
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  border-radius: var(--border-radius-sm);
+}
+
+textarea {
+  resize: none;
+  padding: var(--padding-sm);
+}

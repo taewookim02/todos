@@ -23,6 +23,7 @@
   width: 20vw;
   border-top: 1px solid #333;
   bottom: 0;
+  border-radius: 0;
 }
 
 .add-project-btn:hover {

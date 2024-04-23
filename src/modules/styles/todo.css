@@ -60,3 +60,7 @@
 .todo-container:active {
   background-color: var(--active-color);
 }
+
+.todo-header {
+  color: var(--font-color-primary);
+}
