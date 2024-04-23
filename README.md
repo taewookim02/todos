@@ -13,9 +13,9 @@
 
 ![alt text](image-1.png)
 
-1. edit project name -> once is good -> second -> Navbar.js:180
-2. order by prio
-3. order by schedule
+1. styling
+2. responsive
+3. refactor js
 
 ## Use case scenarios
 
