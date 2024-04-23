@@ -166,24 +166,13 @@ export class UIController {
       );
       let targetElement = e.target;
       let targetMenuClassName = "";
+      let navMainItem = targetElement.closest(".nav__main--item");
 
       // filter for 4 main menu items
-      while (
-        targetElement != null &&
-        !targetElement.classList.contains("item-container")
-      ) {
-        targetElement = targetElement.parentElement;
-        if (
-          targetElement != null &&
-          targetElement.classList.contains("nav__main--item")
-        ) {
-          targetMenuClassName = targetElement.classList[1]; // item-all, item-priority, item-scheduled, item-today..
-        }
-      }
-      // console.log(isClickInsideNavItem);
-      if (targetElement !== null) {
+      if (navMainItem) {
         isClickInsideNavItem = !isClickInsideNavItem;
-
+        // console.log();
+        targetMenuClassName = navMainItem.classList[1];
         // render corresponding todos for general menu
         let matchingArr = [];
         if (targetMenuClassName) {
