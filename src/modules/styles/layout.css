@@ -8,18 +8,11 @@
 }
 
 .content {
-  /* background-color: green; */
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   position: relative;
   border-left: 1px solid #333;
   padding: 1rem;
-}
-
-.header {
-  /* background-color: #007bff; */
-  position: relative;
-  width: 20vw;
-  user-select: none;
+  gap: var(--gap-xl);
 }

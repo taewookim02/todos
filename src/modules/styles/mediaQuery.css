@@ -1,4 +1,8 @@
-@media (max-width: 931px) {
+@media (max-width: 1078px) {
+  /* TODO: .item-container breaks */
+}
+
+@media (max-width: 1078px) {
   .item-container {
     grid-template-columns: 1fr; /* stack items on smaller screens */
   }

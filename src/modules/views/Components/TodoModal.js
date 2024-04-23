@@ -39,7 +39,9 @@ export class TodoModal extends Component {
             "yyyy-MM-dd"
           )}" />
           
-          <button type="submit">${todoId ? "Save changes" : "Add"}</button>
+          <button type="submit" class="todo__add--btn">${
+            todoId ? "Save changes" : "Add"
+          }</button>
         </form>
       </div>
     `;
@@ -51,6 +53,7 @@ export class TodoModal extends Component {
     const closeButton = new Button("x", (e) =>
       this.handleCloseButtonClick(e)
     ).renderComponent();
+    closeButton.classList.add("todo__modal--close-btn");
 
     todoModal.querySelector(".todoModal-content").appendChild(closeButton);
 

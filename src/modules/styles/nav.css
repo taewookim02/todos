@@ -1,4 +1,11 @@
 /* NAV */
+.header {
+  /* background-color: #007bff; */
+  position: relative;
+  width: 20vw;
+  user-select: none;
+}
+
 .nav {
   display: flex;
   flex-direction: column;
@@ -6,7 +13,7 @@
   height: calc(100% - 19px);
   position: fixed;
   overflow-y: auto;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 .nav__project {

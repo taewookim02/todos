@@ -1,0 +1,49 @@
+/* TODO MODAL */
+
+#editTodoForm {
+  font-size: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+
+#editTodoForm label {
+  font-weight: 700;
+}
+
+#todoName {
+  border: none;
+  border-bottom: 1px dashed var(--border-color-strong);
+  outline: none;
+}
+
+.todoModal-content {
+  position: relative;
+
+  padding: 0.5rem;
+  border: 1px solid var(--border-color-strong);
+  border-radius: var(--border-radius-sm);
+}
+
+.todo__add--btn {
+  background-color: var(--btn-white);
+  border: 1px solid var(--border-color-strong);
+  font-size: 0.8rem;
+  border-radius: var(--border-radius-sm);
+}
+
+.todo__add--btn:hover {
+  cursor: pointer;
+  background-color: var(--hover-color);
+  color: var(--font-color-white);
+}
+
+.todo__add--btn:active {
+  background-color: var(--btn-active-color);
+}
+
+.todo__modal--close-btn {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+}

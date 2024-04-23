@@ -48,13 +48,14 @@
   color: var(--font-color-white);
 }
 
-.todo-container:hover .btn:hover {
+/* COMMENTED DUE TO COLOR */
+/* .todo-container:hover .btn:hover {
   color: var(--btn-hover-color);
 }
 
 .todo-container:hover .btn:active {
   color: var(--btn-active-color);
-}
+} */
 
 .todo-container:active {
   background-color: var(--active-color);

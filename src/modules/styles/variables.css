@@ -2,14 +2,19 @@
   /* COLOR (EVENT) */
   --hover-color: #333;
   --active-color: #000;
-  --btn-active-color: red;
-  --btn-hover-color: orange;
+
+  /* COLOR (BTN EVENT) */
+  --btn-active-color: #000;
+  --btn-hover-color: #333;
 
   /* COLOR (FONT) */
   --font-color-white: #fff;
 
   /* COLOR (SCHEME) */
   --color-primary: #333;
+
+  /* COLOR (BUTTON) */
+  --btn-white: #fff;
 
   /* BORDER */
   --border-color-strong: #333;
@@ -20,6 +25,8 @@
   --padding-sm: 4px;
 
   /* GAP */
+  --gap-sm: 4px;
   --gap-md: 8px;
   --gap-lg: 12px;
+  --gap-xl: 24px;
 }
