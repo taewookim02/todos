@@ -1,18 +1,36 @@
 /* completed todos */
+
 .completed-container {
-  padding: 8px;
-  /* display: flex; using display flex makes it visible
-  justify-content: space-between; */
+  /* display: flex; 
+  flex-direction: column; */
+  gap: var(--gap-md);
+  border: 1px solid var(--border-color-strong);
+  padding: var(--padding-sm);
+  border-radius: var(--border-radius-sm);
 }
 
 .completed-container span {
   font-size: 1rem;
   font-weight: 700;
 }
+.completed-todos-container {
+  /* border: 1px solid var(--hover-color);
+  border-radius: var(--border-radius-sm); */
+}
 
 .completed-header {
   display: flex;
   justify-content: space-between;
+  border-radius: 6px;
+  padding: 4px;
+  /* border: 1px solid var(--hover-color); */
+}
+.completed-header:hover {
+  background-color: var(--hover-color);
+  color: #fff;
+}
+.completed-header:active {
+  background-color: var(--active-color);
 }
 
 /* todo elements */

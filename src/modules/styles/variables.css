@@ -1,0 +1,25 @@
+:root {
+  /* COLOR (EVENT) */
+  --hover-color: #333;
+  --active-color: #000;
+  --btn-active-color: red;
+  --btn-hover-color: orange;
+
+  /* COLOR (FONT) */
+  --font-color-white: #fff;
+
+  /* COLOR (SCHEME) */
+  --color-primary: #333;
+
+  /* BORDER */
+  --border-color-strong: #333;
+  --border-radius-sm: 4px;
+
+  /* WHITESPACE */
+  --margin-sm: 16px;
+  --padding-sm: 4px;
+
+  /* GAP */
+  --gap-md: 8px;
+  --gap-lg: 12px;
+}

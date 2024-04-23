@@ -2,10 +2,6 @@
 .todo__header--div {
   display: flex;
   justify-content: space-between;
-  /* TODO: make header sticky
-  position: sticky;
-  top: 20px;
-  z-index: 2000; */
   align-items: center;
   background-color: white;
 }
@@ -13,16 +9,16 @@
 .todos-container {
   position: relative;
   overflow: visible;
-}
-
-.todo-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
 }
 
 .todos-wrapper {
-  padding-top: 1rem;
-}
-
-.todo-header {
+  /* padding-top: 1rem; */
+  border: 1px solid var(--hover-color);
+  border-radius: var(--border-radius-sm);
+  margin-top: var(--margin-sm);
 }
 
 .todo-container {
@@ -39,6 +35,27 @@
   border-radius: 4px;
 
   width: 100%;
-  /* flex-shrink: 0; */
   user-select: none;
+}
+
+.todo-container:hover {
+  background-color: var(--hover-color);
+  color: var(--font-color-white);
+  cursor: pointer;
+}
+
+.todo-container:hover .btn {
+  color: var(--font-color-white);
+}
+
+.todo-container:hover .btn:hover {
+  color: var(--btn-hover-color);
+}
+
+.todo-container:hover .btn:active {
+  color: var(--btn-active-color);
+}
+
+.todo-container:active {
+  background-color: var(--active-color);
 }

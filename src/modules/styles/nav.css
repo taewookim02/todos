@@ -24,15 +24,18 @@
   font-size: 0.9rem;
 }
 
-.nav__project:hover,
-.todo-container:hover {
-  background-color: bisque;
+.nav__project:hover {
+  background-color: var(--hover-color);
+  color: var(--font-color-white);
   cursor: pointer;
 }
 
-.nav__project:active,
-.todo-container:active {
-  background-color: rgb(212, 188, 159);
+.nav__project:hover svg {
+  fill: var(--font-color-white);
+}
+/* TODO: svg color on hover */
+.nav__project:active {
+  background-color: var(--active-color);
 }
 
 .nav__project--btns {
