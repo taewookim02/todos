@@ -13,13 +13,9 @@
 
 ![alt text](image-1.png)
 
-1. general menu todo close btn handling
-2. todo close rerender navbar
-3. nav\_\_main--item click isn't recognized properly on the edges
-4. fix project nav div click when overflowing
-5. edit project name -> once is good -> second -> Navbar.js:180
-6. order by prio
-7. order by schedule
+1. edit project name -> once is good -> second -> Navbar.js:180
+2. order by prio
+3. order by schedule
 
 ## Use case scenarios
 

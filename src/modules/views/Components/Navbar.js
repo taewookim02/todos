@@ -218,10 +218,17 @@ export class Navbar extends Component {
   }
 
   handleProjectEditClick(e) {
+    console.log(e.target);
     const projectId = e.target.getAttribute("data-id");
+    console.log(projectId);
 
-    const hiddenInput = document.querySelector("#projectId");
+    let hiddenInput = document.querySelector("#projectId");
+    if (!hiddenInput) {
+      this.Modal.renderComponent();
+      hiddenInput = document.querySelector("#projectId");
+    }
     const formInput = document.querySelector("#projectName");
+    console.log(formInput);
     hiddenInput.value = projectId;
     const selectedProjectName =
       this.ProjectController.getProject(projectId).name;
