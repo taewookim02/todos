@@ -2,9 +2,11 @@
 .detail-todo-container {
   display: flex;
   flex-direction: column;
+  gap: var(--gap-sm);
 }
 
 .overlay {
+  /* PARENT OF ALL */
   position: fixed;
   z-index: 10;
   left: 0;
@@ -14,16 +16,59 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.detail-todo-content,
-.delete-confirm-modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
+.detail-todo-content {
+  background-color: var(--background-color);
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--border-color-strong);
+  border-radius: var(--border-radius-md);
   width: 80%;
+  margin: 15% auto;
   position: relative;
 }
 
+/* INPUTS */
+#detailTodoForm {
+  font-size: 0.7rem;
+}
+
+#detailTodoForm input,
+#detailTodoForm textarea,
+#detailTodoForm select,
+#detailTodoForm fieldset,
+#detailTodoForm button {
+  border: 1px solid var(--border-color-strong);
+}
+
+#detailTodoForm label,
+#detailTodoForm legend {
+  font-weight: 700;
+}
+
+#detailTodoForm fieldset div,
+.todoDetailIsFinishedDiv {
+  display: flex;
+  gap: var(--gap-sm);
+  align-items: center;
+}
+
+#todoDetailName {
+  border: none;
+  border-bottom: 1px dashed #333;
+  outline: none;
+  padding: 0 2px;
+}
+
+#todoDetailDueDate,
+#todoDetailDesc {
+  font-size: inherit;
+}
+
+.todoDetailWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* CLOSE BTN */
 .close {
   color: #333;
   position: absolute;

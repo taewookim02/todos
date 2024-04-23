@@ -13,12 +13,18 @@ export class TodoDetailModal extends Component {
         <span class="close">&times;</span>
           <form id="detailTodoForm">
             <div class="detail-todo-container">
-              <label for="todoDetailName">Todo Name:</label>
-              <input type="text" id="todoDetailName" name="todoDetailName" required></input>
-              <label for="todoDetailDueDate">Due: </label>
-              <input type="date" id="todoDetailDueDate" name="todoDetailDueDate"></input>
-              <label for="todoDetailDesc">Details</label>
-              <textarea id="todoDetailDesc" name="todoDetailDesc"></textarea>
+              <div class="todoDetailWrap">
+                <label for="todoDetailName">Todo Name:</label>
+                <input type="text" id="todoDetailName" name="todoDetailName" required></input>
+              </div>
+              <div class="todoDetailWrap">
+                <label for="todoDetailDueDate">Due: </label>
+                <input type="date" id="todoDetailDueDate" name="todoDetailDueDate"></input>
+              </div>
+              <div class="todoDetailWrap">
+                <label for="todoDetailDesc">Details</label>
+                <textarea id="todoDetailDesc" name="todoDetailDesc"></textarea>
+              </div>
               <fieldset>
                 <legend>Priority</legend>
                 <div>
@@ -34,7 +40,7 @@ export class TodoDetailModal extends Component {
                   <label for="chill">Chill</label>
                 </div>
               </fieldset>
-              <div>
+              <div class="todoDetailIsFinishedDiv">
                 <label for="todoDetailIsFinished">Is finished: </label>
                 <input type="checkbox" id="todoDetailIsFinished" name="todoDetailIsFinished"/>
               </div>

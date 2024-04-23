@@ -85,6 +85,17 @@
     .add-project-btn {
       width: 100vw;
     }
+
+    /* DETAIL MODAL */
+    .detail-todo-content {
+      position: absolute; /* Change to absolute */
+      top: 50%; /* Position at 50% from top */
+      left: 50%; /* Center from the left */
+      transform: translate(
+        -50%,
+        -65%
+      ); /* Move back by own dimensions to center */
+    }
   }
 
   @media (max-width: 241px) {

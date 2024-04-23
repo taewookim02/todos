@@ -1,4 +1,14 @@
 /* DELETE CONFIRM MODAL */
+.delete-confirm-modal-content {
+  background-color: var(--background-color);
+  border-radius: var(--border-radius--sm);
+  border: 1px solid red;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  position: relative;
+}
 
 #deleteConfirmForm {
   display: flex;

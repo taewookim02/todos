@@ -10,3 +10,8 @@ textarea {
   resize: none;
   padding: var(--padding-sm);
 }
+
+fieldset {
+  padding: var(--padding-sm) var(--padding-md);
+  border-radius: var(--border-radius-sm);
+}

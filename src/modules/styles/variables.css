@@ -21,10 +21,12 @@
   /* BORDER */
   --border-color-strong: #333;
   --border-radius-sm: 4px;
+  --border-radius-md: 8px;
 
   /* WHITESPACE */
   --margin-sm: 16px;
   --padding-sm: 4px;
+  --padding-md: 8px;
 
   /* GAP */
   --gap-sm: 4px;
