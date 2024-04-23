@@ -153,8 +153,23 @@ body {
 }
 
 /* BTNS */
+
+.nav__project--btn-div {
+  display: flex;
+}
+
 .btn {
   cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.nav__project .btn svg {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-project-btn {

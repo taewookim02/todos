@@ -118,6 +118,7 @@ export class Navbar extends Component {
         (e) => this.handleProjectEditClick(e),
         project.id
       ).renderComponent();
+      projectEditButton.classList.add("edit-btn");
 
       // button close
       const projectCloseButton = new Button(
@@ -126,8 +127,10 @@ export class Navbar extends Component {
         project.id
       ).renderComponent();
       // this.attachEvent(projectCloseButton);
+      projectCloseButton.classList.add("delete-btn");
 
       const projectButtonsDiv = document.createElement("div");
+      projectButtonsDiv.classList.add("nav__project--btn-div");
 
       projectNavDiv.appendChild(projectText);
       projectButtonsDiv.appendChild(projectEditButton);
