@@ -36,6 +36,7 @@ body {
 .header {
   background-color: #007bff;
   position: relative;
+  width: 20vw;
 }
 
 /* NAV */
@@ -51,7 +52,6 @@ body {
 
 .nav__project {
   display: flex;
-  /* flex-wrap: wrap; */
   justify-content: space-between;
   align-items: center;
   padding: 8px;
@@ -61,6 +61,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 0.9rem;
 }
 
 .nav__project:hover,
@@ -72,6 +73,10 @@ body {
 .nav__project:active,
 .todo-container:active {
   background-color: rgb(212, 188, 159);
+}
+
+.nav__project--btns {
+  display: flex;
 }
 
 /* GENERAL NAV ITEMS */
@@ -107,6 +112,10 @@ body {
   font-weight: 700;
   font-size: 0.8rem;
 }
+
+/* .nav__project--btns .btn {
+  width: min-content;
+} */
 
 /* MODAL */
 .modal-hidden,
@@ -229,13 +238,6 @@ body {
   font-size: 0.7rem;
 }
 
-.container,
-.content,
-body,
-html {
-  overflow: visible; /* Ensure this does not conflict */
-}
-
 .completed-header:hover {
   cursor: pointer;
 }
@@ -296,7 +298,7 @@ html {
     justify-content: space-between;
     padding: 4px;
   }
-  svg {
+  .item-container svg {
     display: none;
   }
 }
