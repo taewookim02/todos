@@ -1,6 +1,7 @@
 /* NAV */
 .header {
   /* background-color: #007bff; */
+  background-color: var(--background-color);
   position: relative;
   width: 20vw;
   user-select: none;
@@ -22,6 +23,7 @@
   align-items: center;
   padding: 8px;
   border-bottom: 1px dashed #b6b6b6;
+  background-color: var(--background-color);
 }
 
 .nav__project--text {
@@ -56,5 +58,6 @@
   cursor: pointer;
   position: absolute;
   top: 10px;
-  left: 10px;
+  right: 10px;
+  padding: 4px 8px;
 }

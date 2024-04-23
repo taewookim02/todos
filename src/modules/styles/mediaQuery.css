@@ -47,14 +47,15 @@
       top: -100vh;
     }
 
-    .hamburger-menu {
+    .hamburger-menu-btn {
       display: block; /* Only show the hamburger on small screens */
       position: absolute;
       top: 10px;
-      right: 10px;
+      /* left: calc(100vw - 40px); */
       font-size: 24px;
       z-index: 2001;
       cursor: pointer;
+      width: min-content;
     }
 
     .header.active {
@@ -67,12 +68,22 @@
       height: 100vh;
     }
 
+    #content,
+    .nav {
+      /* visible content below hamburger */
+      padding-top: 72px;
+    }
+
     .todo-header {
       font-size: 1rem;
     }
 
     #add-todo-btn {
       padding: 0.2rem 0.5rem;
+    }
+
+    .add-project-btn {
+      width: 100vw;
     }
   }
 

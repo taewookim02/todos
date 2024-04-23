@@ -81,14 +81,6 @@ export class Navbar extends Component {
     const mainNavDiv = document.createElement("div");
     mainNavDiv.classList.add("nav__main");
 
-    // Hamburger button in header
-    const headerElem = document.querySelector(".header");
-    console.log(headerElem);
-    const hamburgerBtn = document.createElement("button");
-    hamburgerBtn.classList.add("hamburger-menu-btn");
-    hamburgerBtn.textContent = "\u2630";
-    headerElem.appendChild(hamburgerBtn);
-
     // append items to mainNavDiv
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("item-container");
@@ -203,9 +195,6 @@ export class Navbar extends Component {
   };
 
   handleProjectDivClick(e) {
-    // the modal isn't rendered at first.. so we render
-    // this.Modal.renderComponent();
-
     let targetElement = e.target;
     while (targetElement != null && !targetElement.hasAttribute("data-id")) {
       targetElement = targetElement.parentElement;
@@ -227,6 +216,9 @@ export class Navbar extends Component {
     const todoHeader = document.querySelector(".todo-header");
     const projectName = this.ProjectController.getName(projectId);
     todoHeader.textContent = projectName;
+
+    // toggle hamburger menu
+    UIController.handleHamburgerMenuClick();
   }
 
   handleProjectEditClick(e) {
@@ -257,6 +249,9 @@ export class Navbar extends Component {
     projectNameElement.scrollIntoView();
     projectNameElement.focus();
     this.TodoModal.closeModal();
+
+    // Hamburger menu toggle
+    UIController.handleHamburgerMenuClick();
   }
 
   handleProjectCloseClick(projectId) {

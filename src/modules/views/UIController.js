@@ -42,9 +42,27 @@ export class UIController {
       this.initOverlayClickBehavior();
       this.initScrollBehavior();
       this.listenForDocumentSubmit();
+      this.initHamburgerMenu();
       UIController.IS_COMPLETED_OPEN = false;
     });
   }
+
+  initHamburgerMenu = (e) => {
+    // Hamburger button in body
+    const bodyElem = document.querySelector("body");
+
+    const hamburgerBtn = document.createElement("button");
+    hamburgerBtn.classList.add("hamburger-menu-btn");
+    hamburgerBtn.textContent = "\u2630";
+    bodyElem.appendChild(hamburgerBtn);
+
+    const hamburgerElem = document.querySelector(".hamburger-menu-btn");
+
+    // add event listender
+    hamburgerElem.addEventListener("click", (e) =>
+      UIController.handleHamburgerMenuClick(e)
+    );
+  };
 
   listenForDocumentSubmit = (e) => {
     const bodyElement = document.querySelector("body");
@@ -209,6 +227,7 @@ export class UIController {
               break;
           }
         }
+        UIController.handleHamburgerMenuClick();
       }
 
       let isClickInsideProjectForm = e.target.closest(
@@ -260,6 +279,12 @@ export class UIController {
       }
     });
   }
+
+  static handleHamburgerMenuClick = (e) => {
+    // get header
+    const headerElem = document.querySelector(".header");
+    headerElem.classList.toggle("active");
+  };
 
   closeTodoModal() {
     this.TodoModal.closeModal();
