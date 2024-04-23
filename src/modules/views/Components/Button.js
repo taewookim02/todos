@@ -9,7 +9,7 @@ export class Button extends Component {
 
   renderComponent() {
     const button = document.createElement("button");
-    button.textContent = this.textContent;
+    button.innerHTML = this.textContent;
     button.classList.add("btn");
     if (this.dataId) {
       button.setAttribute("data-id", this.dataId);
