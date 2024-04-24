@@ -47,6 +47,8 @@ export class UIController {
     });
   }
 
+  // TODO: add logo for mobile like initHamburgerMenu
+
   initHamburgerMenu = (e) => {
     // Hamburger button in body
     const bodyElem = document.querySelector("body");
@@ -196,8 +198,7 @@ export class UIController {
         if (targetMenuClassName) {
           this.closeTodoModal();
           this.closeProjectModal();
-          // curr proj isn't specific.. so:
-          // UIController.CURRENT_PROJECT_ID = "HAHAHA";
+
           switch (targetMenuClassName) {
             case "item-today":
               // render item-today todos
@@ -233,11 +234,23 @@ export class UIController {
       let isClickInsideProjectForm = e.target.closest(
         ".project-form-container"
       );
+
+      let isClickInsideLogo = e.target.closest(".nav__logo-div");
+
+      let isClickInsideGeneralNav = e.target.closest(".item-container");
+
       const isInsideNav =
         e.target.classList.contains("nav__project") ||
         e.target.classList.contains("nav__project--text");
 
-      if (!isClickInsideNavItem && !isClickInsideProjectForm && !isInsideNav) {
+      if (
+        // dont' open
+        !isClickInsideNavItem &&
+        !isClickInsideProjectForm &&
+        !isInsideNav &&
+        !isClickInsideLogo &&
+        !isClickInsideGeneralNav
+      ) {
         if (!UIController.isProjectModalOpen) {
           this.showProjectModal();
           const projectNameElement = document.querySelector("#projectName");

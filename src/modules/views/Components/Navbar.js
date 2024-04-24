@@ -78,9 +78,15 @@ export class Navbar extends Component {
   renderComponent(projectsArr) {
     const navEl = document.querySelector(".nav");
     navEl.innerHTML = "";
+    // LOGO
+    const logoDiv = document.createElement("div");
+    logoDiv.classList.add("nav__logo-div");
+    const logoSvg = require("svg-inline-loader?classPrefix!../../../assets/whatTodo.svg");
+    logoDiv.innerHTML = logoSvg;
+    navEl.appendChild(logoDiv);
+
     const mainNavDiv = document.createElement("div");
     mainNavDiv.classList.add("nav__main");
-
     // append items to mainNavDiv
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("item-container");
@@ -149,6 +155,7 @@ export class Navbar extends Component {
 
       navEl.appendChild(projectNavDiv);
     });
+
     const addProjectButton = new Button(
       "New Project +",
       this.handleProjectAddClick
