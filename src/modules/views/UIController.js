@@ -58,6 +58,14 @@ export class UIController {
     hamburgerBtn.textContent = "\u2630";
     bodyElem.appendChild(hamburgerBtn);
 
+    // LOGO
+    const logoDiv = document.createElement("div");
+    logoDiv.classList.add("nav__logo-div--absolute");
+    // const logoSvg = require("svg-inline-loader?classPrefix!../../../assets/whatTodo.svg");
+    const logoSvg = require("svg-inline-loader?classPrefix!../../assets/whatTodoQuestion.svg");
+    logoDiv.innerHTML = logoSvg;
+    bodyElem.appendChild(logoDiv);
+
     const hamburgerElem = document.querySelector(".hamburger-menu-btn");
 
     // add event listender
@@ -297,6 +305,8 @@ export class UIController {
     // get header
     const headerElem = document.querySelector(".header");
     headerElem.classList.toggle("active");
+    const headerLogo = document.querySelector(".nav__logo-div--absolute");
+    headerLogo.classList.toggle("logo-active");
   };
 
   closeTodoModal() {

@@ -24,12 +24,21 @@
   cursor: pointer;
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 16px;
   padding: 4px 8px;
   background-color: var(--background-color);
   border-radius: var(--border-radius-sm);
   box-shadow: none;
   border: 1px solid var(--border-color-strong);
+}
+.nav__logo-div--absolute {
+  visibility: hidden;
+  position: absolute;
+  height: auto;
+  width: 100px;
+  top: 22px;
+  left: 19px;
+  /* padding: 4px 8px; */
 }
 
 /* LOGO */

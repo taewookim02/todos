@@ -70,8 +70,22 @@
       width: min-content;
     }
 
+    .nav__logo-div--absolute {
+      opacity: 0;
+      visibility: hidden;
+      z-index: 2001;
+      transition: var(--trans-opacity-visibility);
+    }
+    .nav__logo-div--absolute.logo-active {
+      opacity: 1;
+      visibility: visible;
+      transition: var(--trans-opacity-visibility);
+    }
+
     .header.active {
-      top: 0;
+      /* height: calc(100% - 19px); */
+      /* this is because of the new project + btn at the bottom */
+      top: -18px;
     }
 
     #content,

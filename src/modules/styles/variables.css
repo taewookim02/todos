@@ -40,4 +40,5 @@
 
   /* ANIMATIONS/TRANSITIONS */
   --trans-to-top: top 0.2s ease-in-out;
+  --trans-opacity-visibility: opacity 0.1s, visibility 0.2s;
 }
