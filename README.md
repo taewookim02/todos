@@ -11,11 +11,15 @@
 
 ## Todos:
 
-1. styling
-2. handle dropon on nav item (div ok, its child not ok)
-3. main nav item emoticons
-4. responsive
-5. refactor js
+1. insert logo (navbar)
+2. animations
+3. todo-container styling
+4. typography
+5. colors
+6. handle dropon on nav item (div ok, its child not ok)
+7. main nav item emoticons
+8. responsive
+9. refactor js
 
 ## Use case scenarios
 
