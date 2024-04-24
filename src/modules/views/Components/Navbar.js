@@ -251,7 +251,9 @@ export class Navbar extends Component {
     this.TodoModal.closeModal();
 
     // Hamburger menu toggle
-    UIController.handleHamburgerMenuClick();
+    if (!document.querySelector(".active")) {
+      UIController.handleHamburgerMenuClick();
+    }
   }
 
   handleProjectCloseClick(projectId) {

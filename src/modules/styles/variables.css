@@ -36,4 +36,7 @@
   --gap-md: 8px;
   --gap-lg: 12px;
   --gap-xl: 24px;
+
+  /* ANIMATIONS/TRANSITIONS */
+  --trans-to-bottom: top 0.2s ease-in-out;
 }

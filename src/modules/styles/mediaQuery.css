@@ -38,13 +38,25 @@
       grid-template-columns: 1fr;
       position: relative;
     }
+    .overlay {
+      z-index: 4000;
+    }
     .header {
-      /* flex */
       position: absolute;
       width: 100vw;
       height: 100vh;
       z-index: 2000;
       top: -100vh;
+      /* transition here */
+      transition: var(--trans-to-bottom);
+    }
+
+    .delete-confirm-modal-content {
+      width: 80%;
+      margin-top: 65%;
+    }
+    #deleteConfirmForm h3 {
+      font-size: 0.7rem;
     }
 
     .hamburger-menu-btn {
