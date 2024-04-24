@@ -8,17 +8,15 @@
   position: sticky;
   border-bottom: 1px solid #333;
 }
-
-.item__upper-div {
-  display: flex;
-  justify-content: space-between;
-}
-
 .nav__main--item {
   padding: 8px;
   border: 1px solid #333;
   border-radius: 6px;
   min-width: 85px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
 }
 
 .nav__main--item:hover {
@@ -26,14 +24,31 @@
   cursor: pointer;
 }
 
+/* menu name */
 .item__lower-div {
-  display: flex;
-  justify-content: center;
-  align-items: cetner;
-}
-
-.item__lower-div span {
   color: #555;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  grid-column: span 2;
+}
+
+/* icon */
+.item__icon {
+  grid-column: span;
+  justify-self: start;
+  align-self: end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item__icon > svg {
+  width: 27px;
+  height: auto;
+}
+
+/* number */
+.item__number {
+  justify-self: end;
+  font-size: 1.2rem;
 }

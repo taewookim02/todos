@@ -50,16 +50,22 @@ export class Navbar extends Component {
     }
 
     // upperDiv (icon, number)
-    const upperDiv = document.createElement("div");
-    upperDiv.classList.add("item__upper-div");
-    upperDiv.innerHTML = icon;
+    // const upperDiv = document.createElement("div");
+    // upperDiv.classList.add("item__upper-div");
+    // upperDiv.innerHTML = icon;
 
+    // ICON
+    const itemIconDiv = document.createElement("div");
+    itemIconDiv.classList.add("item__icon");
+    itemIconDiv.innerHTML = icon;
+
+    // NUMBER
     let number = getCount();
-
-    // getCount() // getcount gets assigned during switch
+    const itemNumberDiv = document.createElement("div");
+    itemNumberDiv.classList.add("item__number");
     const countSpan = document.createElement("span");
     countSpan.textContent = number;
-    upperDiv.appendChild(countSpan);
+    itemNumberDiv.appendChild(countSpan);
 
     // lowerDiv (label)
     const lowerDiv = document.createElement("div");
@@ -69,7 +75,10 @@ export class Navbar extends Component {
     lowerDiv.appendChild(labelSpan);
 
     // append upperDiv, lowerDiv to mainNavDivitem
-    mainNavDivItem.appendChild(upperDiv);
+
+    // mainNavDivItem.appendChild()
+    mainNavDivItem.appendChild(itemIconDiv);
+    mainNavDivItem.appendChild(itemNumberDiv);
     mainNavDivItem.appendChild(lowerDiv);
 
     return mainNavDivItem;
