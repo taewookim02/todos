@@ -307,6 +307,8 @@ export class UIController {
     headerElem.classList.toggle("active");
     const headerLogo = document.querySelector(".nav__logo-div--absolute");
     headerLogo.classList.toggle("logo-active");
+    // const addPrjBtn = document.querySelector(".add-project-btn");
+    // addPrjBtn.classList.toggle("hidden");
   };
 
   closeTodoModal() {

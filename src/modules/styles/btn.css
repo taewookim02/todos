@@ -25,6 +25,9 @@
   bottom: 0;
   border-radius: 0;
 }
+.add-project-btn.btn-hidden {
+  visibility: hidden;
+}
 
 .add-project-btn:hover {
   background-color: #333;

@@ -32,7 +32,7 @@
 
 .project__add--btn {
   background-color: #fff;
-  border: 1px solid var(--border-color-light);
+  border: 1px solid var(--border-color-strong);
   font-size: 0.8rem;
   border-radius: 4px;
 }

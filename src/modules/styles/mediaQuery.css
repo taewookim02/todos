@@ -1,16 +1,25 @@
 @media (max-width: 1078px) {
   .item-container {
     grid-template-columns: 1fr; /* stack items on smaller screens */
+    /* padding: 12px 0px; */
   }
   .nav__main--item {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 4px;
+    gap: 4px;
   }
-  .nav__main--item svg {
-    display: none;
+
+  .item__icon {
+    order: 1;
+  }
+  .item__lower-div {
+    order: 2;
+    margin-right: auto;
+  }
+  .item__number {
+    order: 3;
   }
 }
 @media (max-width: 745px) {
@@ -18,22 +27,21 @@
   .item__upper-div span {
     font-size: 0.7rem;
   }
+  .item__icon > svg {
+    width: 22px;
+    height: auto;
+  }
 
   .nav__project--text {
-    font-size: 0.7rem;
+    font-size: 1.1rem;
   }
+
   .nav__project .btn svg {
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: auto;
   }
 
-  @media (max-width: 494px) {
-    /* TODO: container grid temp col: 1fr */
-    /* .header absolute */
-    /* .header outside of screen */
-    /* Add hamburger menu */
-    /* hamburger on click, .header appears with z-index 2000 */
-
+  @media (max-width: 587px) {
     .container {
       grid-template-columns: 1fr;
       position: relative;
@@ -49,6 +57,13 @@
       top: -100vh;
       /* transition here */
       transition: var(--trans-to-top);
+    }
+
+    .item__lower-div > span {
+      font-size: 0.9rem;
+    }
+    .nav__project--btn-div {
+      gap: 16px;
     }
 
     .delete-confirm-modal-content {
@@ -85,7 +100,8 @@
     .header.active {
       /* height: calc(100% - 19px); */
       /* this is because of the new project + btn at the bottom */
-      top: -18px;
+      top: -19px;
+      /* top: 0; */
     }
 
     #content,
@@ -98,6 +114,7 @@
     .nav {
       /* visible content below hamburger */
       padding-top: 72px;
+      margin-bottom: 18px;
     }
 
     .todo-header {
@@ -110,6 +127,7 @@
 
     .add-project-btn {
       width: 100vw;
+      background-color: var(--btn-white);
     }
 
     /* DETAIL MODAL */
