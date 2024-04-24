@@ -36,6 +36,8 @@
 
   width: 100%;
   user-select: none;
+
+  transition: var(--trans-to-top);
 }
 
 .todo-container:hover {

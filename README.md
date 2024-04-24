@@ -14,12 +14,13 @@
 1. insert logo (navbar)
 2. animations
 3. todo-container styling
-4. typography
-5. colors
-6. handle dropon on nav item (div ok, its child not ok)
-7. main nav item emoticons
-8. responsive
-9. refactor js
+4. todo checkbox styling
+5. typography
+6. colors
+7. handle dropon on nav item (div ok, its child not ok)
+8. main nav item emoticons
+9. responsive
+10. refactor js
 
 ## Use case scenarios
 

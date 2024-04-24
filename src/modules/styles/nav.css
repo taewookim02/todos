@@ -17,12 +17,41 @@
   overflow-x: hidden;
 }
 
+/* HAMBURGER MENU */
+.hamburger-menu-btn {
+  display: none;
+  font-size: 24px; /* Icon size */
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 8px;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius-sm);
+  box-shadow: none;
+  border: 1px solid var(--border-color-strong);
+}
+
+/* LOGO */
+.nav__logo-div {
+  padding: var(--padding-sm);
+  border-bottom: 1px dashed var(--border-color-light);
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__logo-div > svg {
+  width: 90%;
+}
+
 .nav__project {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px;
-  border-bottom: 1px dashed #b6b6b6;
+  border-bottom: 1px dashed var(--border-color-light);
   background-color: var(--background-color);
 }
 
@@ -49,19 +78,4 @@
 
 .nav__project--btns {
   display: flex;
-}
-
-/* HAMBURGER MENU */
-.hamburger-menu-btn {
-  display: none;
-  font-size: 24px; /* Icon size */
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 4px 8px;
-  background-color: var(--background-color);
-  border-radius: var(--border-radius-sm);
-  box-shadow: none;
-  border: 1px solid var(--border-color-strong);
 }

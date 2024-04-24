@@ -23,6 +23,7 @@
 
   /* BORDER */
   --border-color-strong: #333;
+  --border-color-light: #b6b6b6;
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
 
@@ -38,5 +39,5 @@
   --gap-xl: 24px;
 
   /* ANIMATIONS/TRANSITIONS */
-  --trans-to-bottom: top 0.2s ease-in-out;
+  --trans-to-top: top 0.2s ease-in-out;
 }

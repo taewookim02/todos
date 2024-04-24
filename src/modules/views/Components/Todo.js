@@ -335,9 +335,9 @@ export class TodoComponent extends Component {
       const todoId = e.target.getAttribute("data-id");
       // let checkedStatus = e.target.checked;
 
+      const todoContainerElement = e.target.parentElement;
       if (e.target.checked) {
         // set timeout
-        const todoContainerElement = e.target.parentElement;
 
         setTimeout(() => {
           if (e.target.checked) {
