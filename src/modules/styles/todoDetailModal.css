@@ -69,6 +69,7 @@
 }
 
 /* CLOSE BTN */
+/* TODO: use variables for button colors */
 .close {
   color: #333;
   position: absolute;

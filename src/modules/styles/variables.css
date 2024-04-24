@@ -7,6 +7,9 @@
   --btn-active-color: #000;
   --btn-hover-color: #333;
 
+  --btn-warning-hover: #ff4444;
+  --btn-warning-active: rgb(255, 0, 0);
+
   /* COLOR (FONT) */
   --font-color-white: #fff;
   --font-color-primary: #333;

@@ -11,11 +11,11 @@
 
 ## Todos:
 
-![alt text](image-1.png)
-
 1. styling
-2. responsive
-3. refactor js
+2. handle dropon on nav item (div ok, its child not ok)
+3. main nav item emoticons
+4. responsive
+5. refactor js
 
 ## Use case scenarios
 

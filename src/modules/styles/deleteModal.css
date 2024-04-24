@@ -1,12 +1,12 @@
 /* DELETE CONFIRM MODAL */
 .delete-confirm-modal-content {
   background-color: var(--background-color);
-  border-radius: var(--border-radius--sm);
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  border-radius: var(--border-radius-md);
+  width: 50%;
   position: relative;
 }
 
@@ -15,4 +15,40 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: var(--gap-lg);
+  font-size: 0.9rem;
+}
+
+#deleteConfirmForm button {
+  border: 1px solid var(--border-color-strong);
+  padding: 8px 16px;
+  font-family: inherit;
+}
+
+.confirm__btns {
+  display: flex;
+  gap: var(--gap-xl);
+}
+
+.confirm__btns button {
+  background-color: var(--btn-white);
+}
+
+.confirm__btns button:hover {
+  cursor: pointer;
+  background-color: var(--btn-hover-color);
+  color: var(--font-color-white);
+}
+
+.confirm__btns button:active {
+  background-color: var(--btn-active-color);
+  color: var(--font-color-white);
+}
+
+.confirm__btns .deleteConfirmForm__delete--btn:hover {
+  background-color: var(--btn-warning-hover);
+}
+
+.confirm__btns .deleteConfirmForm__delete--btn:active {
+  background-color: var(--btn-warning-active);
 }
