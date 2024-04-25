@@ -100,7 +100,7 @@
     .header.active {
       /* height: calc(100% - 19px); */
       /* this is because of the new project + btn at the bottom */
-      top: -19px;
+      top: -18px;
       /* top: 0; */
     }
 

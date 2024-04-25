@@ -34,6 +34,7 @@ export class UIController {
     this.initProjectModal();
     this.initTodoModal();
     this.initTodoDetailModal();
+    this.initHamburgerMenu();
     this.initFirstDivClick();
     document.addEventListener("DOMContentLoaded", (e) => {
       this.initContentClickBehavior();
@@ -42,7 +43,6 @@ export class UIController {
       this.initOverlayClickBehavior();
       this.initScrollBehavior();
       this.listenForDocumentSubmit();
-      this.initHamburgerMenu();
       UIController.IS_COMPLETED_OPEN = false;
     });
   }
@@ -61,8 +61,9 @@ export class UIController {
     // LOGO
     const logoDiv = document.createElement("div");
     logoDiv.classList.add("nav__logo-div--absolute");
+    logoDiv.classList.add("logo-active");
     // const logoSvg = require("svg-inline-loader?classPrefix!../../../assets/whatTodo.svg");
-    const logoSvg = require("svg-inline-loader?classPrefix!../../assets/whatTodoQuestion.svg");
+    const logoSvg = require("!svg-inline-loader?classPrefix!../../assets/whatTodoQuestion.svg");
     logoDiv.innerHTML = logoSvg;
     bodyElem.appendChild(logoDiv);
 
@@ -305,7 +306,9 @@ export class UIController {
     // get header
     const headerElem = document.querySelector(".header");
     headerElem.classList.toggle("active");
+    // FIXME: headerLogo Null
     const headerLogo = document.querySelector(".nav__logo-div--absolute");
+    console.log(headerLogo);
     headerLogo.classList.toggle("logo-active");
     // const addPrjBtn = document.querySelector(".add-project-btn");
     // addPrjBtn.classList.toggle("hidden");

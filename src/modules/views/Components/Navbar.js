@@ -91,7 +91,7 @@ export class Navbar extends Component {
     const logoDiv = document.createElement("div");
     logoDiv.classList.add("nav__logo-div");
     // const logoSvg = require("svg-inline-loader?classPrefix!../../../assets/whatTodo.svg");
-    const logoSvg = require("svg-inline-loader?classPrefix!../../../assets/whatTodoQuestion.svg");
+    let logoSvg = require("!svg-inline-loader?classPrefix!../../../assets/whatTodoQuestion.svg");
     logoDiv.innerHTML = logoSvg;
     navEl.appendChild(logoDiv);
 
