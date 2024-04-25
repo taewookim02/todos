@@ -265,7 +265,17 @@ export class Navbar extends Component {
     todoHeader.textContent = projectName;
 
     // toggle hamburger menu
+
     UIController.handleHamburgerMenuClick();
+
+    // if is desktop prj add btn stays.
+    if (window.innerWidth > UIController.MEDIAQUERY_BREAKPOINT) {
+      // toggle
+      const prj = document.querySelector(".add-project-btn");
+      const todo = document.querySelector(".add-todo-btn__absolute");
+      prj.classList.remove("hidden");
+      todo.classList.add("hidden");
+    }
   }
 
   handleProjectEditClick(e) {

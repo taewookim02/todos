@@ -8,14 +8,20 @@
 .overlay {
   /* PARENT OF ALL */
   position: fixed;
+  display: flex; /* this makes the modal visible on load, the .hidden doesn't work i Think */
   z-index: 10;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.overlay.modal-hidden {
+  display: none;
+}
+
+/* DIRECT CHILD OF OVERLAY */
 .detail-todo-content {
   background-color: var(--background-color);
   padding: 20px;

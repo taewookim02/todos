@@ -317,6 +317,7 @@ export class UIController {
               break;
           }
         }
+        // FIXME: is this necessary?
         UIController.handleHamburgerMenuClick();
       }
 
