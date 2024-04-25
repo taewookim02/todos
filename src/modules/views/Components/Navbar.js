@@ -182,10 +182,10 @@ export class Navbar extends Component {
       // this.handleProjectAddClick
     ).renderComponent();
     addTodoButtonAbsolute.classList.add("add-todo-btn__absolute");
-    // addTodoButtonAbsolute.classList.add("hidden");
-    // addTodoButtonAbsolute.classList.add("add-project-btn"); // like so
+    // FIXME:
     navEl.appendChild(addTodoButtonAbsolute);
-    addTodoButtonAbsolute;
+
+    // console.log("renderComponent called (Navbar.js)");
   }
 
   // handleTodoAddClick(e) {

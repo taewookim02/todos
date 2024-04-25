@@ -18,6 +18,8 @@ export class UIController {
   static IS_COMPLETED_OPEN = false;
   static CURRENT_DELETE_PROJECT_ID = "";
   static IS_MOBILE_AND_TODO_OPEN = false; // .header, .container grid-tem-col = 1fr;
+  static MEDIAQUERY_BREAKPOINT = 667;
+  static IS_TODO_OPEN;
 
   constructor() {
     this.Navbar = new Navbar();
@@ -53,7 +55,7 @@ export class UIController {
 
   listenForViewportResize = () => {
     window.addEventListener("resize", () => {
-      if (window.innerWidth <= 667) {
+      if (window.innerWidth <= UIController.MEDIAQUERY_BREAKPOINT) {
         // mobile view
         this.displayResponsiveButtons("mobile");
       } else {
@@ -132,10 +134,35 @@ export class UIController {
     const bodyElement = document.querySelector("body");
 
     bodyElement.addEventListener("submit", (e) => {
+      // e.preventDefault();
+      // console.log("listenForDocumentSubmit called! (UIController)");
       // rerender navbar on document submit
       let projectsArr = this.ProjectController.getProjects();
       this.Navbar.renderComponent(projectsArr);
+      if (this.checkMobileAndProjectView()) {
+        this.toggleAbsButton();
+      } else if (this.checkIfWidthIsDesktop()) {
+        this.toggleAbsButton();
+      }
     });
+  };
+
+  checkIfWidthIsDesktop = () => {
+    return window.innerWidth > UIController.MEDIAQUERY_BREAKPOINT;
+  };
+
+  checkMobileAndProjectView = () => {
+    return (
+      window.innerWidth <= UIController.MEDIAQUERY_BREAKPOINT &&
+      document.querySelector(".active") !== null
+    );
+  };
+
+  toggleAbsButton = () => {
+    const prj = document.querySelector(".add-project-btn");
+    const todo = document.querySelector(".add-todo-btn__absolute");
+    prj.classList.toggle("hidden");
+    todo.classList.toggle("hidden");
   };
 
   initScrollBehavior() {
@@ -372,6 +399,7 @@ export class UIController {
     const addPrjBtn = document.querySelector(".add-project-btn");
     const addTodoBtn = document.querySelector(".add-todo-btn__absolute");
 
+    // if (window.innerWidth <=)
     addPrjBtn.classList.toggle("hidden");
     addTodoBtn.classList.toggle("hidden");
   };

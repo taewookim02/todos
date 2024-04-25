@@ -74,6 +74,8 @@ export class Modal extends Component {
     } else {
       this.defaultProjectHandler(projectId, projectName);
     }
+
+    // console.log("handleSubmit called (Modal.js)");
   }
 
   handleCloseButtonClick(e) {
