@@ -22,6 +22,7 @@
 
   padding: 0.5rem;
   border-bottom: 1px dashed var(--border-color-light);
+  background-color: var(--background-color);
 }
 
 .project__input-div {

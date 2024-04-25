@@ -171,7 +171,20 @@ export class Navbar extends Component {
       this.handleProjectAddClick
     ).renderComponent();
     addProjectButton.classList.add("add-project-btn");
+    addProjectButton.classList.add("hidden");
     navEl.appendChild(addProjectButton);
+
+    const addTodoButtonAbsolute = new Button(
+      "New Todo +",
+      // TODO: add different handler
+      // TODO: add styling that matches with add-prj-btn
+      this.handleProjectAddClick
+    ).renderComponent();
+    addTodoButtonAbsolute.classList.add("add-todo-btn__absolute");
+    // addTodoButtonAbsolute.classList.add("hidden");
+    // addTodoButtonAbsolute.classList.add("add-project-btn"); // like so
+    navEl.appendChild(addTodoButtonAbsolute);
+    addTodoButtonAbsolute;
   }
 
   handleDragLeave = (e) => {
@@ -269,6 +282,7 @@ export class Navbar extends Component {
 
     // Hamburger menu toggle
     if (!document.querySelector(".active")) {
+      // FIXME:
       UIController.handleHamburgerMenuClick();
     }
   }

@@ -11,15 +11,16 @@
 
 ## Todos:
 
-1. Main nav item styling
-2. todo-container styling
-3. todo checkbox styling
-4. typography
-5. colors
-6. handle dropon on nav item (div ok, its child not ok)
-7. main nav item emoticons
-8. responsive
-9. refactor js
+1. change bottom btn to New Todo + on mobile when todo screen is open
+2. Main nav item styling
+3. todo-container styling
+4. todo checkbox styling
+5. typography
+6. colors
+7. handle dropon on nav item (div ok, its child not ok)
+8. main nav item emoticons
+9. responsive
+10. refactor js
 
 ## Use case scenarios
 

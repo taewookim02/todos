@@ -17,6 +17,7 @@ export class UIController {
   static GENERAL_LIST = ["today", "scheduled", "all", "priority"];
   static IS_COMPLETED_OPEN = false;
   static CURRENT_DELETE_PROJECT_ID = "";
+  static IS_MOBILE_AND_TODO_OPEN = false; // .header, .container grid-tem-col = 1fr;
 
   constructor() {
     this.Navbar = new Navbar();
@@ -68,12 +69,23 @@ export class UIController {
     bodyElem.appendChild(logoDiv);
 
     const hamburgerElem = document.querySelector(".hamburger-menu-btn");
-
     // add event listender
     hamburgerElem.addEventListener("click", (e) =>
       UIController.handleHamburgerMenuClick(e)
     );
+
+    // TODO NEW TODO BTN
   };
+
+  /* Todo.handleTodoAddClick(e)
+  handleTodoAddClick(e) {
+    this.TodoModal.showModal();
+    const todoNameElement = document.querySelector("#todoName");
+    todoNameElement.scrollIntoView();
+    todoNameElement.focus();
+    this.ProjectModal.closeModal();
+  }
+  */
 
   listenForDocumentSubmit = (e) => {
     const bodyElement = document.querySelector("body");
@@ -308,10 +320,24 @@ export class UIController {
     headerElem.classList.toggle("active");
     // FIXME: headerLogo Null
     const headerLogo = document.querySelector(".nav__logo-div--absolute");
-    console.log(headerLogo);
     headerLogo.classList.toggle("logo-active");
-    // const addPrjBtn = document.querySelector(".add-project-btn");
-    // addPrjBtn.classList.toggle("hidden");
+
+    UIController.IS_MOBILE_AND_TODO_OPEN =
+      !headerElem.classList.contains("active");
+
+    // manipulate bottom button
+
+    // FIXME: not working consistently
+    const addPrjBtn = document.querySelector(".add-project-btn");
+    const addTodoBtn = document.querySelector(".add-todo-btn__absolute");
+
+    // if (UIController.IS_MOBILE_AND_TODO_OPEN) {
+    //   addPrjBtn.classList.toggle("hidden");
+    //   addTodoBtn.classList.toggle("hidden");
+    // } else {
+    // }
+    addPrjBtn.classList.toggle("hidden");
+    addTodoBtn.classList.toggle("hidden");
   };
 
   closeTodoModal() {
