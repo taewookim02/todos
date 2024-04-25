@@ -12,15 +12,16 @@
 ## Todos:
 
 1. change bottom btn to New Todo + on mobile when todo screen is open
-2. Main nav item styling
-3. todo-container styling
-4. todo checkbox styling
-5. typography
-6. colors
-7. handle dropon on nav item (div ok, its child not ok)
-8. main nav item emoticons
-9. responsive
-10. refactor js
+2. on window resize, the new Todo + is still there
+3. Main nav item styling
+4. todo-container styling
+5. todo checkbox styling
+6. typography
+7. colors
+8. handle dropon on nav item (div ok, its child not ok)
+9. main nav item emoticons
+10. responsive
+11. refactor js
 
 ## Use case scenarios
 

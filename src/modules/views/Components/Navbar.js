@@ -178,7 +178,8 @@ export class Navbar extends Component {
       "New Todo +",
       // TODO: add different handler
       // TODO: add styling that matches with add-prj-btn
-      this.handleProjectAddClick
+      this.handleTodoAbsoluteClick
+      // this.handleProjectAddClick
     ).renderComponent();
     addTodoButtonAbsolute.classList.add("add-todo-btn__absolute");
     // addTodoButtonAbsolute.classList.add("hidden");
@@ -186,6 +187,22 @@ export class Navbar extends Component {
     navEl.appendChild(addTodoButtonAbsolute);
     addTodoButtonAbsolute;
   }
+
+  // handleTodoAddClick(e) {
+  //   this.TodoModal.showModal();
+  //   const todoNameElement = document.querySelector("#todoName");
+  //   todoNameElement.scrollIntoView();
+  //   todoNameElement.focus();
+  //   this.ProjectModal.closeModal();
+  // }
+
+  handleTodoAbsoluteClick = (e) => {
+    console.log(e);
+    this.TodoModal.showModal();
+    const todoNameElement = document.querySelector("#todoName");
+    todoNameElement.focus();
+    this.Modal.closeModal();
+  };
 
   handleDragLeave = (e) => {
     const targetProject = e.target.closest(".nav__project");

@@ -45,12 +45,53 @@ export class UIController {
       this.initScrollBehavior();
       this.listenForDocumentSubmit();
       UIController.IS_COMPLETED_OPEN = false;
+      this.listenForViewportResize();
     });
   }
 
   // TODO: add logo for mobile like initHamburgerMenu
 
-  initHamburgerMenu = (e) => {
+  listenForViewportResize = () => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth <= 667) {
+        // mobile view
+        this.displayResponsiveButtons("mobile");
+      } else {
+        // desktop view
+        this.displayResponsiveButtons("desktop");
+      }
+    });
+  };
+
+  displayResponsiveButtons = (device) => {
+    const prjBtn = document.querySelector(".add-project-btn");
+    const todoBtnAbsolute = document.querySelector(".add-todo-btn__absolute");
+    const headerEl = document.querySelector(".header");
+    const isProjectWindow = headerEl.classList.contains("active");
+    switch (device) {
+      case "mobile":
+        // header has active == project window
+        headerEl.classList.add("active");
+        if (isProjectWindow) {
+          // current window == project
+          // show project btn
+          // hide todo btn
+          prjBtn.classList.remove("hidden");
+          todoBtnAbsolute.classList.add("hidden");
+        } else {
+          // current window == todo
+          prjBtn.classList.add("hidden");
+          todoBtnAbsolute.classList.remove("hidden");
+        }
+        break;
+      case "desktop":
+        todoBtnAbsolute.classList.add("hidden");
+        prjBtn.classList.remove("hidden");
+        break;
+    }
+  };
+
+  initHamburgerMenu = () => {
     // Hamburger button in body
     const bodyElem = document.querySelector("body");
 
@@ -331,11 +372,6 @@ export class UIController {
     const addPrjBtn = document.querySelector(".add-project-btn");
     const addTodoBtn = document.querySelector(".add-todo-btn__absolute");
 
-    // if (UIController.IS_MOBILE_AND_TODO_OPEN) {
-    //   addPrjBtn.classList.toggle("hidden");
-    //   addTodoBtn.classList.toggle("hidden");
-    // } else {
-    // }
     addPrjBtn.classList.toggle("hidden");
     addTodoBtn.classList.toggle("hidden");
   };
