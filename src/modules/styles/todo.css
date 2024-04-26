@@ -15,7 +15,7 @@
 }
 
 .todos-wrapper {
-  /* padding-top: 1rem; */
+  /* TODO: add border or not? */
   border: 1px solid var(--hover-color);
   border-radius: var(--border-radius-sm);
   margin-top: var(--margin-sm);
@@ -29,15 +29,14 @@
   pointer-events: auto;
   background-color: #fff;
   color: #333;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15); */
+  /* border-radius: 4px; */
+  /* transition: var(--trans-to-top); */
 
   padding: 12px;
-  border-radius: 4px;
 
   width: 100%;
   user-select: none;
-
-  transition: var(--trans-to-top);
 }
 
 .todo-container:hover {

@@ -20,6 +20,8 @@
   }
   .item__number {
     order: 3;
+    padding-right: 3px;
+    font-size: 1rem;
   }
 }
 @media (max-width: 745px) {
@@ -30,6 +32,9 @@
   .item__icon > svg {
     width: 22px;
     height: auto;
+  }
+  .item__number {
+    font-size: 0.9rem;
   }
 
   .nav__project--text {
@@ -78,7 +83,7 @@
 
     .delete-confirm-modal-content {
       width: 80%;
-      margin-top: 15%;
+      margin-top: 40%;
     }
     #deleteConfirmForm h3 {
       font-size: 0.8rem;

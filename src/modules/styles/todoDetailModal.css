@@ -28,6 +28,7 @@
   border: 1px solid var(--border-color-strong);
   border-radius: var(--border-radius-md);
   width: 80%;
+  height: min-content;
   margin: 15% auto;
   position: relative;
 }

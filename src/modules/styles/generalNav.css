@@ -105,8 +105,8 @@
 /* menu name */
 .item__lower-div {
   /* color: #555; */
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 0.8rem;
   grid-column: span 2;
 }
 
@@ -128,5 +128,6 @@
 /* number */
 .item__number {
   justify-self: end;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
 }

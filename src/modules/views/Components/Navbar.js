@@ -49,11 +49,6 @@ export class Navbar extends Component {
         break;
     }
 
-    // upperDiv (icon, number)
-    // const upperDiv = document.createElement("div");
-    // upperDiv.classList.add("item__upper-div");
-    // upperDiv.innerHTML = icon;
-
     // ICON
     const itemIconDiv = document.createElement("div");
     itemIconDiv.classList.add("item__icon");
@@ -74,9 +69,6 @@ export class Navbar extends Component {
     labelSpan.textContent = label;
     lowerDiv.appendChild(labelSpan);
 
-    // append upperDiv, lowerDiv to mainNavDivitem
-
-    // mainNavDivItem.appendChild()
     mainNavDivItem.appendChild(itemIconDiv);
     mainNavDivItem.appendChild(itemNumberDiv);
     mainNavDivItem.appendChild(lowerDiv);
