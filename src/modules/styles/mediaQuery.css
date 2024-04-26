@@ -33,11 +33,11 @@
   }
 
   .nav__project--text {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 
   .nav__project .btn svg {
-    width: 20px;
+    width: 18px;
     height: auto;
   }
 

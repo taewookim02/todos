@@ -30,6 +30,7 @@
   border: 1px solid var(--border-color-strong);
   font-size: 0.8rem;
   border-radius: var(--border-radius-sm);
+  cursor: pointer;
 }
 
 .todo__add--btn:hover {

@@ -25,18 +25,18 @@
   border-top: 1px solid #333;
   bottom: 0;
   border-radius: 0;
+  left: 0;
 }
 .add-project-btn.btn-hidden {
   visibility: hidden;
 }
 
 .add-project-btn:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--btn-hover-color);
 }
 
 .add-project-btn:active {
-  background-color: #000;
+  background-color: var(--btn-active-color);
 }
 
 #add-todo-btn {
@@ -47,10 +47,26 @@
 }
 
 #add-todo-btn:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--btn-hover-color);
+  /* color: ; */
 }
 
 #add-todo-btn:active {
-  background-color: #000;
+  background-color: var(--btn-active-color);
+}
+
+/* EDIT BTN */
+.edit-btn:hover svg {
+  fill: var(--color-all);
+}
+
+.edit-btn:active svg {
+  fill: var(--color-all-shade);
+}
+
+.delete-btn:hover svg {
+  fill: var(--btn-warning-hover);
+}
+.delete-btn:active svg {
+  fill: var(--btn-warning-active);
 }

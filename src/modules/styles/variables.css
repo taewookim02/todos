@@ -1,14 +1,14 @@
 :root {
   /* COLOR (EVENT) */
-  --hover-color: #333;
-  --active-color: #000;
+  --hover-color: #e7e7e7;
+  --active-color: #c9c9c9;
 
   /* COLOR (BTN EVENT) */
-  --btn-active-color: #000;
-  --btn-hover-color: #333;
+  --btn-active-color: #c9c9c9;
+  --btn-hover-color: #e7e7e7;
 
   --btn-warning-hover: #ff4444;
-  --btn-warning-active: rgb(255, 0, 0);
+  --btn-warning-active: #b33030;
 
   /* COLOR (FONT) */
   --color-white: #fff;
@@ -48,6 +48,7 @@
   --margin-sm: 16px;
   --padding-sm: 4px;
   --padding-md: 8px;
+  --padding-lg: 16px;
 
   /* GAP */
   --gap-sm: 4px;

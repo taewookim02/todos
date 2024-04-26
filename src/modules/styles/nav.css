@@ -16,6 +16,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   background-color: var(--background-color);
+  /* padding: var(--padding-sm); */
 }
 
 /* HAMBURGER MENU */
@@ -46,7 +47,7 @@
 /* LOGO */
 .nav__logo-div {
   padding: var(--padding-sm);
-  border-bottom: 1px solid var(--border-color-strong);
+  /* border-bottom: 1px solid var(--border-color-strong); */
   background-color: var(--background-color);
   display: flex;
   justify-content: center;
@@ -62,7 +63,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px;
-  border-bottom: 1px dashed var(--border-color-light);
+  /* border-bottom: 1px dashed var(--border-color-light); */
   background-color: var(--background-color);
 }
 
@@ -76,13 +77,10 @@
 
 .nav__project:hover {
   background-color: var(--hover-color);
-  color: var(--font-color-white);
+  /* color: var(--color-white); */
   cursor: pointer;
 }
 
-.nav__project:hover svg {
-  fill: var(--font-color-white);
-}
 /* TODO: svg color on hover */
 .nav__project:active {
   background-color: var(--active-color);

@@ -22,6 +22,7 @@
 9. main nav item emoticons
 10. responsive
 11. refactor js
+12. todoDetailIsFinishedDiv btn styling
 
 ## Use case scenarios
 
