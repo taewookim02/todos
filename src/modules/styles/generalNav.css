@@ -21,13 +21,90 @@
 }
 
 .nav__main--item:hover {
-  background-color: #ff5454;
   cursor: pointer;
+  background-color: var(--background-color);
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
 }
 
+.nav__main--item:hover svg {
+  fill: var(--color-white);
+}
+
+/* TODAY */
+.item-today svg {
+  fill: var(--color-today);
+}
+
+.item-today:hover {
+  background-color: var(--color-today);
+}
+
+.item-today:active {
+  background-color: var(--color-today-shade);
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+}
+.item-today:active svg {
+  fill: var(--color-white);
+}
+
+/* SCHDULED */
+.item-scheduled svg {
+  fill: var(--color-scheduled);
+}
+
+.item-scheduled:hover {
+  background-color: var(--color-scheduled);
+}
+
+.item-scheduled:active {
+  background-color: var(--color-scheduled-shade);
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+}
+.item-scheduled:active svg {
+  fill: var(--color-white);
+}
+
+/* ALL */
+.item-all svg {
+  fill: var(--color-all);
+}
+
+.item-all:hover {
+  background-color: var(--color-all);
+}
+
+.item-all:active {
+  background-color: var(--color-all-shade);
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+}
+.item-all:active svg {
+  fill: var(--color-white);
+}
+
+/* PRIORITY */
+.item-priority svg {
+  fill: var(--color-priority);
+}
+
+.item-priority:hover {
+  background-color: var(--color-priority);
+}
+
+.item-priority:active {
+  background-color: var(--color-priority-shade);
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+}
+.item-priority:active svg {
+  fill: var(--color-white);
+}
 /* menu name */
 .item__lower-div {
-  color: #555;
+  /* color: #555; */
   font-weight: 700;
   font-size: 0.9rem;
   grid-column: span 2;

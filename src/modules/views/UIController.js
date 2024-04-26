@@ -390,6 +390,7 @@ export class UIController {
     // FIXME: headerLogo Null
     const headerLogo = document.querySelector(".nav__logo-div--absolute");
     headerLogo.classList.toggle("logo-active");
+    // headerLogo.classList.toggle("logo-active");
 
     UIController.IS_MOBILE_AND_TODO_OPEN =
       !headerElem.classList.contains("active");

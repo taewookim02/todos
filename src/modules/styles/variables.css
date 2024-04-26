@@ -11,12 +11,28 @@
   --btn-warning-active: rgb(255, 0, 0);
 
   /* COLOR (FONT) */
-  --font-color-white: #fff;
+  --color-white: #fff;
   --font-color-primary: #333;
 
   /* COLOR (SCHEME) */
   --color-primary: #333;
   --background-color: #fff;
+
+  --color-today-tint: #c6808d;
+  --color-today: #8c001a;
+  --color-today-shade: #620012;
+
+  --color-scheduled-tint: #ff9000;
+  --color-scheduled: #b36500;
+  --color-scheduled-shade: #804800;
+
+  --color-all-tint: #46acc2;
+  --color-all: #317888;
+  --color-all-shade: #235661;
+
+  --color-priority-tint: #edc9ff;
+  --color-priority: #776580;
+  --color-priority-shade: #53475a;
 
   /* COLOR (BUTTON) */
   --btn-white: #fff;
