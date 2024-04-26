@@ -114,6 +114,7 @@ export class TodoComponent extends Component {
       ).renderComponent();
 
       const todoButtonsDiv = document.createElement("div");
+      todoButtonsDiv.classList.add("todo__project--btn-div");
       // todoButtonsDiv.appendChild(todoEditButton);
       todoButtonsDiv.appendChild(todoCloseButton);
 
@@ -203,6 +204,8 @@ export class TodoComponent extends Component {
     const content = document.querySelector("#content");
     // content.innerHTML = "";
 
+    // console.log(UIController.CURRENT_PROJECT_ID);
+
     let todosContainer = document.querySelector("#todos-container");
 
     if (!todosContainer) {
@@ -239,6 +242,14 @@ export class TodoComponent extends Component {
       // console.log(todo);
       const todoContainer = document.createElement("div");
       todoContainer.classList.add("todo-container");
+      if (todo.priority === "urgent") {
+        // } else if (todo.priority === "")
+        todoContainer.classList.add("todo-container__urgent");
+      } else if (todo.priority === "medium") {
+        todoContainer.classList.add("todo-container__medium");
+      } else if (todo.priority === "chill") {
+        todoContainer.classList.add("todo-container__chill");
+      }
       todoContainer.setAttribute("data-id", todo.id);
       todoContainer.setAttribute("data-projectId", todo.projectId);
 
@@ -260,31 +271,23 @@ export class TodoComponent extends Component {
       textDiv.appendChild(todoName);
       textDiv.appendChild(projectName);
 
-      // const todoEditButton = new Button(
-      //   "edit",
-      //   (e) => this.handleGeneralTodoEditClick(e), // FIXME: adapt to getWhere
-      //   todo.id
-      // ).renderComponent();
-
       // button close
       const todoCloseButton = new Button(
         "x",
-        () => this.handleGeneralTodoCloseClick(todo.id), // FIXME: adapt to getWhere
+        () => this.handleGeneralTodoCloseClick(todo.id),
         todo.id
       ).renderComponent();
 
       const todoButtonsDiv = document.createElement("div");
-      // todoButtonsDiv.appendChild(todoEditButton);
+      todoButtonsDiv.classList.add("todo__project--btn-div");
       todoButtonsDiv.appendChild(todoCloseButton);
 
       todoContainer.appendChild(isFinishedCheckbox);
       todoContainer.appendChild(textDiv);
-      //todoContainer.appendChild(projectName);
       todoContainer.appendChild(todoButtonsDiv);
       todosContainer.appendChild(todoContainer);
 
       todoContainer.addEventListener("click", (e) => {
-        // this.handleGeneralTodoContainerClick(e); // FIXME: adapt to getWhere
         this.handleTodoElementClick(e);
       });
     });
