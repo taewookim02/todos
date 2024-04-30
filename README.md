@@ -35,58 +35,66 @@ Welcome to our JS Todo App. Manage tasks and projects
 Here's a look at the top-level structure of this project:
 
 ```plaintext
-tree -L 4 -I 'node_modules'
+tree -L 5 -I 'node_modules'
 .
 ├── README.md
 ├── dist
-│ ├── index.html
-│ └── index_bundle.js
+│   ├── index.html
+│   └── index_bundle.js
 ├── package-lock.json
 ├── package.json
 ├── src
-│ ├── assets
-│ │ ├── flag-fill.svg
-│ │ ├── whatTodo.svg
-│ │ └── whatTodoQuestion.svg
-│ ├── index.html
-│ ├── index.js
-│ ├── modules
-│ │ ├── controllers
-│ │ │ ├── AppController.js
-│ │ │ ├── ProjectController.js
-│ │ │ ├── StorageController.js
-│ │ │ └── TodoController.js
-│ │ ├── models
-│ │ │ ├── Project.js
-│ │ │ └── Todo.js
-│ │ ├── styles
-│ │ │ ├── base.css
-│ │ │ ├── btn.css
-│ │ │ ├── completedTodo.css
-│ │ │ ├── deleteModal.css
-│ │ │ ├── drag.css
-│ │ │ ├── generalNav.css
-│ │ │ ├── input.css
-│ │ │ ├── layout.css
-│ │ │ ├── mediaQuery.css
-│ │ │ ├── nav.css
-│ │ │ ├── projectModal.css
-│ │ │ ├── svg.css
-│ │ │ ├── todo.css
-│ │ │ ├── todoDetailModal.css
-│ │ │ ├── todoModal.css
-│ │ │ └── variables.css
-│ │ ├── utils
-│ │ │ └── Helper.js
-│ │ └── views
-│ │ ├── Components
-│ │ └── UIController.js
-│ └── styles.css
+│   ├── assets
+│   │   ├── flag-fill.svg
+│   │   ├── whatTodo.svg
+│   │   └── whatTodoQuestion.svg
+│   ├── index.html
+│   ├── index.js
+│   ├── modules
+│   │   ├── controllers
+│   │   │   ├── AppController.js
+│   │   │   ├── ProjectController.js
+│   │   │   ├── StorageController.js
+│   │   │   └── TodoController.js
+│   │   ├── models
+│   │   │   ├── Project.js
+│   │   │   └── Todo.js
+│   │   ├── styles
+│   │   │   ├── base.css
+│   │   │   ├── btn.css
+│   │   │   ├── completedTodo.css
+│   │   │   ├── deleteModal.css
+│   │   │   ├── drag.css
+│   │   │   ├── generalNav.css
+│   │   │   ├── input.css
+│   │   │   ├── layout.css
+│   │   │   ├── mediaQuery.css
+│   │   │   ├── nav.css
+│   │   │   ├── projectModal.css
+│   │   │   ├── svg.css
+│   │   │   ├── todo.css
+│   │   │   ├── todoDetailModal.css
+│   │   │   ├── todoModal.css
+│   │   │   └── variables.css
+│   │   ├── utils
+│   │   │   └── Helper.js
+│   │   └── views
+│   │       ├── Components
+│   │       │   ├── Button.js
+│   │       │   ├── Component.js
+│   │       │   ├── DeleteConfirmModal.js
+│   │       │   ├── Modal.js
+│   │       │   ├── Navbar.js
+│   │       │   ├── Todo.js
+│   │       │   ├── TodoDetailModal.js
+│   │       │   └── TodoModal.js
+│   │       └── UIController.js
+│   └── styles.css
 ├── webpack.common.js
 ├── webpack.dev.js
 └── webpack.prod.js
 
-11 directories, 38 files
+11 directories, 46 files
 ```
 
 ## Use case scenarios
@@ -110,3 +118,11 @@ tree -L 4 -I 'node_modules'
 - **svg-inline-loader** (^0.8.2): Imports SVG files as modules in webpack context.
 - **webpack-cli** (^5.1.4),
 - **webpack-merge** (^5.10.0): Tools for bundling JavaScript applications and managing configurations.
+
+## Improvements
+
+- Modularization
+- DRY principle
+- Clean code
+- Following a pattern
+- Spaghetti code
