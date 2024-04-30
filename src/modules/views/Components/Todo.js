@@ -7,7 +7,7 @@ import { TodoDetailModal } from "./TodoDetailModal";
 import { ProjectController } from "../../controllers/ProjectController";
 import { UIController } from "../UIController";
 //
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import { Helper } from "../../utils/Helper";
 import { Navbar } from "./Navbar";
 
@@ -211,9 +211,6 @@ export class TodoComponent extends Component {
 
   renderAfterWhere(todosArr) {
     const content = document.querySelector("#content");
-    // content.innerHTML = "";
-
-    // console.log(UIController.CURRENT_PROJECT_ID);
 
     let todosContainer = document.querySelector("#todos-container");
 
@@ -247,6 +244,9 @@ export class TodoComponent extends Component {
     // todosContainer.appendChild(todoHeaderH1);
 
     //
+    const todosWrapper = document.createElement("div");
+    todosWrapper.classList.add("todos-wrapper");
+
     todosArr.forEach((todo) => {
       // console.log(todo);
       const todoContainer = document.createElement("div");
@@ -279,6 +279,15 @@ export class TodoComponent extends Component {
       projectName.textContent = this.ProjectController.getName(todo.projectId);
       textDiv.appendChild(todoName);
       textDiv.appendChild(projectName);
+      if (todo.dueDate) {
+        console.log(todo.dueDate);
+        const dueDate = parseISO(todo.dueDate);
+        const formattedDueDate = format(dueDate, "MMM dd, yyyy");
+        console.log(dueDate);
+        projectName.textContent = `${projectName.textContent} (${formattedDueDate})`;
+      }
+
+      // TODO: add date
 
       // button close
       const todoCloseButton = new Button(
@@ -294,12 +303,14 @@ export class TodoComponent extends Component {
       todoContainer.appendChild(isFinishedCheckbox);
       todoContainer.appendChild(textDiv);
       todoContainer.appendChild(todoButtonsDiv);
-      todosContainer.appendChild(todoContainer);
+      // todosContainer.appendChild(todoContainer);
+      todosWrapper.appendChild(todoContainer);
 
       todoContainer.addEventListener("click", (e) => {
         this.handleTodoElementClick(e);
       });
     });
+    todosContainer.appendChild(todosWrapper);
   }
 
   handleCompletedHeaderClick(e) {
