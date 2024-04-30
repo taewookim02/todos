@@ -11,15 +11,7 @@
 
 ## Todos:
 
-1. handle dropon on nav item (div ok, its child not ok)
-2. general nav items styling to match
-3. main nav item emoticons
-4. responsive
-5. refactor js
-6. FIXME: whatTodo? abs logo is appearing
-7. todoDetailIsFinishedDiv btn styling
-8. colors (https://maketintsandshades.com/, https://colorable.jxnblk.com/dc143c/ffffff, )
-9. typography (https://typescale.com/)
+1. Docs
 
 ## Use case scenarios
 

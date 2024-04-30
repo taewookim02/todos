@@ -24,7 +24,10 @@
     font-size: 1rem;
   }
   .detail-todo-content {
-    margin: 12% auto;
+    /* FIXME:
+        Add translate -50%
+    */
+    /* margin: 12% auto; */
   }
 }
 @media (max-width: 745px) {
@@ -88,8 +91,11 @@
     }
 
     .delete-confirm-modal-content {
+      /* FIXME:
+          MARGIN
+      */
       width: 80%;
-      margin-top: 62%;
+      /* margin-top: 62%; */
     }
     #deleteConfirmForm h3 {
       font-size: 0.8rem;
