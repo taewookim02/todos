@@ -12,16 +12,17 @@
 ## Todos:
 
 1. color for priority (indicate urgency);
-2. date text for scheduled
-3. todo checkbox styling
-4. handle dropon on nav item (div ok, its child not ok)
-5. general nav items styling to match
-6. main nav item emoticons
-7. responsive
-8. refactor js
-9. todoDetailIsFinishedDiv btn styling
-10. colors (https://maketintsandshades.com/, https://colorable.jxnblk.com/dc143c/ffffff, )
-11. typography (https://typescale.com/)
+2. FIXME: todo-detail modal placing is off
+3. date text for scheduled
+4. todo checkbox styling
+5. handle dropon on nav item (div ok, its child not ok)
+6. general nav items styling to match
+7. main nav item emoticons
+8. responsive
+9. refactor js
+10. todoDetailIsFinishedDiv btn styling
+11. colors (https://maketintsandshades.com/, https://colorable.jxnblk.com/dc143c/ffffff, )
+12. typography (https://typescale.com/)
 
 ## Use case scenarios
 

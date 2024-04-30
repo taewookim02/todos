@@ -24,6 +24,7 @@
 .todo-container {
   display: grid;
   grid-template-columns: min-content 1fr min-content;
+  /* position: relative; */
   gap: 1rem;
 
   pointer-events: auto;
@@ -37,6 +38,7 @@
 
   width: 100%;
   user-select: none;
+  position: relative;
 }
 
 .todo-container > div:last-child {
@@ -77,13 +79,33 @@
   color: var(--font-color-primary);
 }
 
-/* Highlight */
-.todo-container__urgent {
-  border: 1px solid var(--color-today-tint);
+/* Add a pseudo-element for medium tasks */
+
+.todo__project--btn-div::before {
+  padding: 4px;
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+
+  display: inline-block;
+  color: var(--color-white);
+  font-weight: bold;
+
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
 }
-.todo-container__medium {
-  border: 1px solid var(--color-scheduled-tint);
+
+.todo-container__medium .todo__project--btn-div::before {
+  content: "MEDIUM";
+  background-color: var(--color-scheduled-tint);
 }
-.todo-container__chill {
-  border: 1px solid var(--color-all-tint);
+
+.todo-container__urgent .todo__project--btn-div::before {
+  content: "URGENT";
+  background-color: var(--color-today);
+}
+.todo-container__chill .todo__project--btn-div::before {
+  content: "CHILL";
+  background-color: var(--color-all-tint);
 }
