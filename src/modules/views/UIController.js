@@ -67,6 +67,7 @@ export class UIController {
 
   displayResponsiveButtons = (device) => {
     const prjBtn = document.querySelector(".add-project-btn");
+    const logo = document.querySelector(".nav__logo-div--absolute");
     const todoBtnAbsolute = document.querySelector(".add-todo-btn__absolute");
     const headerEl = document.querySelector(".header");
     const isProjectWindow = headerEl.classList.contains("active");
@@ -78,10 +79,12 @@ export class UIController {
           // current window == project
           // show project btn
           // hide todo btn
+          logo.classList.remove("logo-active");
           prjBtn.classList.remove("hidden");
           todoBtnAbsolute.classList.add("hidden");
         } else {
           // current window == todo
+          logo.classList.add("logo-active");
           prjBtn.classList.add("hidden");
           todoBtnAbsolute.classList.remove("hidden");
         }
@@ -384,6 +387,7 @@ export class UIController {
   }
 
   static handleHamburgerMenuClick = (e) => {
+    console.log("handleHamburgerMenuClick");
     // get header
     const headerElem = document.querySelector(".header");
     headerElem.classList.toggle("active");
