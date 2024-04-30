@@ -283,7 +283,7 @@ export class TodoComponent extends Component {
         console.log(todo.dueDate);
         const dueDate = parseISO(todo.dueDate);
         const formattedDueDate = format(dueDate, "MMM dd, yyyy");
-        console.log(dueDate);
+
         projectName.textContent = `${projectName.textContent} (${formattedDueDate})`;
       }
 

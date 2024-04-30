@@ -1,8 +1,7 @@
 /* DRAG */
 
 .nav__project.highlight {
-  border: 2px dashed #007bff;
-  background-color: #e3f2fd;
+  border: 1px dashed var(--color-all);
 }
 
 .todo-container.is-dragging {

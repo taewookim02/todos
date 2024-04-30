@@ -168,25 +168,12 @@ export class Navbar extends Component {
 
     const addTodoButtonAbsolute = new Button(
       "New Todo +",
-      // TODO: add different handler
-      // TODO: add styling that matches with add-prj-btn
       this.handleTodoAbsoluteClick
-      // this.handleProjectAddClick
     ).renderComponent();
     addTodoButtonAbsolute.classList.add("add-todo-btn__absolute");
     // FIXME:
     navEl.appendChild(addTodoButtonAbsolute);
-
-    // console.log("renderComponent called (Navbar.js)");
   }
-
-  // handleTodoAddClick(e) {
-  //   this.TodoModal.showModal();
-  //   const todoNameElement = document.querySelector("#todoName");
-  //   todoNameElement.scrollIntoView();
-  //   todoNameElement.focus();
-  //   this.ProjectModal.closeModal();
-  // }
 
   handleTodoAbsoluteClick = (e) => {
     console.log(e);
@@ -198,19 +185,17 @@ export class Navbar extends Component {
 
   handleDragLeave = (e) => {
     const targetProject = e.target.closest(".nav__project");
-    targetProject.classList.remove("highlight");
+    if (targetProject && targetProject.classList.contains("highlight")) {
+      targetProject.classList.remove("highlight");
+    }
   };
 
   handleProjectDrop = (e, project) => {
     e.preventDefault();
 
-    // FIXME: div -> ok, elements inside div -> jump jump
-    // console.log("dropped on project:", e.target);
-    // console.log(project.name);
-    // console.log(project.id);
+    // console.log("handleProejctDrop, etarget:", e.target);
     const draggedId = e.dataTransfer.getData("text/plain");
     const draggedElement = document.querySelector(`[data-id="${draggedId}"]`);
-
     // edit todo
     this.TodoController.editTodoProjectId(draggedId, project.id);
     // get todo arr
@@ -223,14 +208,19 @@ export class Navbar extends Component {
 
     // remove highlight class
     const targetProject = e.target.closest(".nav__project");
-    targetProject.classList.remove("highlight");
+    if (targetProject && targetProject.classList.contains("highlight")) {
+      targetProject.classList.remove("highlight");
+    }
   };
 
   // TODO: add throttling
   handleDragover = (e) => {
     e.preventDefault();
-    const targetProject = e.target.closest(".nav__project");
-    targetProject.classList.add("highlight");
+    let targetProject = e.target.closest(".nav__project");
+    if (targetProject && !targetProject.classList.contains("highlight")) {
+      // console.log("handleDragover, tgtPrj:", targetProject);
+      targetProject.classList.add("highlight");
+    }
   };
 
   handleProjectDivClick(e) {
