@@ -27,23 +27,38 @@ export class AppController {
   }
 
   generateDummyData = () => {
-    const mySampleProj = new Project("Hello");
-    const mySampleProj1 = new Project("Hello1");
+    const mySampleProj = new Project("Welcome Aboard!");
+    const mySampleProj1 = new Project("Cooking");
 
     this.ProjectController.addProject(mySampleProj); // projectObj
     this.ProjectController.addProject(mySampleProj1);
 
     ///////////////////////////////////////////
     // init new todo item
-    const mySampleTodo = new Todo("Hey", mySampleProj.getId());
-    const mySampleTodo2 = new Todo("todo1", mySampleProj.getId());
-    const mySampleTodo3 = new Todo("to123do213", mySampleProj1.getId());
-    const mySampleTodo4 = new Todo("to8949do213", mySampleProj1.getId());
+    const dummyTodo1 = new Todo("Drink some coffee", mySampleProj.getId());
+    const dummyTodo2 = new Todo("Take a nap", mySampleProj.getId());
+    const dummyTodo3 = new Todo("Listen to some pop", mySampleProj.getId());
+    const dummyTodo4 = new Todo(
+      "Take the pup out for a walk",
+      mySampleProj.getId()
+    );
+    const dummyTodo5 = new Todo("Buy groceries", mySampleProj1.getId());
+    const dummyTodo6 = new Todo("Buy frying pan", mySampleProj1.getId());
 
-    this.TodoController.addTodo(mySampleTodo);
-    this.TodoController.addTodo(mySampleTodo2);
-    this.TodoController.addTodo(mySampleTodo3);
-    this.TodoController.addTodo(mySampleTodo4);
+    // set dummy prio and duedate
+    dummyTodo1.setPriority("medium");
+    dummyTodo1.setDueDate(new Date());
+    dummyTodo2.setPriority("chill");
+    dummyTodo3.setPriority("chill");
+    dummyTodo4.setPriority("urgent");
+    dummyTodo5.setPriority("medium");
+
+    this.TodoController.addTodo(dummyTodo1);
+    this.TodoController.addTodo(dummyTodo2);
+    this.TodoController.addTodo(dummyTodo3);
+    this.TodoController.addTodo(dummyTodo4);
+    this.TodoController.addTodo(dummyTodo5);
+    this.TodoController.addTodo(dummyTodo6);
 
     return this.ProjectController.getProjects();
   };
