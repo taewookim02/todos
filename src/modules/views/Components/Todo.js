@@ -133,6 +133,14 @@ export class TodoComponent extends Component {
     todosWrapper.classList.add("todos-wrapper");
     todosArr.forEach((todo) => {
       const todoContainer = document.createElement("div");
+      if (todo.priority === "urgent") {
+        // } else if (todo.priority === "")
+        todoContainer.classList.add("todo-container__urgent");
+      } else if (todo.priority === "medium") {
+        todoContainer.classList.add("todo-container__medium");
+      } else if (todo.priority === "chill") {
+        todoContainer.classList.add("todo-container__chill");
+      }
       todoContainer.classList.add("todo-container");
       todoContainer.setAttribute("data-id", todo.id);
       todoContainer.setAttribute("data-projectId", todo.projectId);
@@ -155,6 +163,7 @@ export class TodoComponent extends Component {
       ).renderComponent();
 
       const todoButtonsDiv = document.createElement("div");
+      todoButtonsDiv.classList.add("todo__project--btn-div");
       // todoButtonsDiv.appendChild(todoEditButton);
       todoButtonsDiv.appendChild(todoCloseButton);
 
