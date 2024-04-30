@@ -51,9 +51,9 @@ export class UIController {
     });
   }
 
-  initNavBarAndTodo = (projectsArr) => {
-    this.Navbar.renderComponent(projectsArr);
-  };
+  // initNavBarAndTodo = (projectsArr) => {
+  //   this.Navbar.renderComponent(projectsArr);
+  // };
 
   // TODO: add logo for mobile like initHamburgerMenu
 
