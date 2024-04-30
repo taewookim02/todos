@@ -11,7 +11,8 @@
 
 ## Todos:
 
-1. Docs
+1. app init
+2. Docs
 
 ## Use case scenarios
 

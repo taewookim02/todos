@@ -17,32 +17,34 @@ export class AppController {
   init() {
     console.log("AppController init() called");
 
-    // init new sample project
-    let mySampleProj = new Project("Hello");
-    let mySampleProj1 = new Project("Hello1");
-
     let currentExistingProjects = this.ProjectController.getProjects();
 
-    if (currentExistingProjects.length > 0) {
-      // do nothing
-    } else {
-      ///////////////////////////////////////////
-      // add sample project
-      this.ProjectController.addProject(mySampleProj); // projectObj
-      this.ProjectController.addProject(mySampleProj1);
+    if (currentExistingProjects.length == 0) {
+      // DUMMY DATA
+      currentExistingProjects = this.generateDummyData();
     }
+    this.UIController.init(currentExistingProjects);
+  }
 
-    ///////////////////////////////////////////
-    // edit sample project (ltshu1yz, "Hello")
-    this.ProjectController.editProject("ltshu1yz", "HAHAsHA"); // projectId, newName
+  generateDummyData = () => {
+    const mySampleProj = new Project("Hello");
+    const mySampleProj1 = new Project("Hello1");
+
+    this.ProjectController.addProject(mySampleProj); // projectObj
+    this.ProjectController.addProject(mySampleProj1);
 
     ///////////////////////////////////////////
     // init new todo item
-    const mySampleTodo = new Todo("Hey", "ltw6p5j1");
-    const mySampleTodo2 = new Todo("todo1", "ltw6p5j1");
-    const mySampleTodo3 = new Todo("to123do213", "ltw9kuc8");
-    const mySampleTodo4 = new Todo("to8949do213", "ltw6p5j0");
+    const mySampleTodo = new Todo("Hey", mySampleProj.getId());
+    const mySampleTodo2 = new Todo("todo1", mySampleProj.getId());
+    const mySampleTodo3 = new Todo("to123do213", mySampleProj1.getId());
+    const mySampleTodo4 = new Todo("to8949do213", mySampleProj1.getId());
 
-    this.UIController.init(currentExistingProjects);
-  }
+    this.TodoController.addTodo(mySampleTodo);
+    this.TodoController.addTodo(mySampleTodo2);
+    this.TodoController.addTodo(mySampleTodo3);
+    this.TodoController.addTodo(mySampleTodo4);
+
+    return this.ProjectController.getProjects();
+  };
 }
