@@ -1,8 +1,12 @@
 # JavaScript Todo App
 
-![App logo](./src/assets/preview/logo.png)
+<img src="./src/assets/preview/logo.png" alt="App logo" style="width: 100%;"/>
+
+<br>
 
 Welcome to our JS Todo App (**whatTodo?**), a tool for managing tasks and projects with ease through a web interface.
+
+Live Preview: https://taewookim02.github.io/todos/
 
 ## Key Features
 
