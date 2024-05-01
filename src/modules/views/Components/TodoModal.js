@@ -67,7 +67,6 @@ export class TodoModal extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // console.log("todoCallback is: ", this.todoCallback);
     const formData = new FormData(e.target);
     const todoName = formData.get("todoName");
     const todoId = formData.get("todoId");

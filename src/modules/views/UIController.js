@@ -142,7 +142,6 @@ export class UIController {
 
     bodyElement.addEventListener("submit", (e) => {
       // e.preventDefault();
-      // console.log("listenForDocumentSubmit called! (UIController)");
       // rerender navbar on document submit
       let projectsArr = this.ProjectController.getProjects();
       this.Navbar.renderComponent(projectsArr);
@@ -186,7 +185,6 @@ export class UIController {
         throttleTimeout = null; // reset timeout
         if (window.scrollY === 0) {
           isAtTop = true;
-          console.log("At the top of the page");
         } else {
           isAtTop = false;
         }
@@ -219,14 +217,12 @@ export class UIController {
     const todoDetailModal = new TodoDetailModal(
       this.todoDetailCallback.bind(this)
     );
-    //console.log(todoDetailModal);
     todoDetailModal.renderComponent();
   }
 
   initProjectModal() {
     // render modal
     const modalComponent = new Modal(this.projectModalCallback.bind(this));
-    // console.log(modalComponent);
     modalComponent.renderComponent();
   }
 
@@ -287,7 +283,6 @@ export class UIController {
       // filter for 4 main menu items
       if (navMainItem) {
         isClickInsideNavItem = !isClickInsideNavItem;
-        // console.log();
         targetMenuClassName = navMainItem.classList[1];
         // render corresponding todos for general menu
         let matchingArr = [];
@@ -365,16 +360,6 @@ export class UIController {
     const todoFormContainer = document.querySelector(".todo-form-container");
     const generalProjectId = ["scheduled", "today", "all", "priority"];
     contentElement.addEventListener("click", (e) => {
-      // TODO: general todos.. what to do?
-      // if current project id is in general
-      // if (generalProjectId.includes(UIController.CURRENT_PROJECT_ID)) {
-      //   console.log("HEY");
-      // do something
-      // what should I do here?
-
-      //   return;
-      // }
-
       if (
         !todosContainer.contains(e.target) &&
         !todoFormContainer.contains(e.target)
@@ -391,25 +376,20 @@ export class UIController {
   }
 
   static handleHamburgerMenuClick = (e) => {
-    console.log("handleHamburgerMenuClick");
     // get header
     const headerElem = document.querySelector(".header");
     headerElem.classList.toggle("active");
-    // FIXME: headerLogo Null
     const headerLogo = document.querySelector(".nav__logo-div--absolute");
     headerLogo.classList.toggle("logo-active");
-    // headerLogo.classList.toggle("logo-active");
 
     UIController.IS_MOBILE_AND_TODO_OPEN =
       !headerElem.classList.contains("active");
 
     // manipulate bottom button
 
-    // FIXME: not working consistently
     const addPrjBtn = document.querySelector(".add-project-btn");
     const addTodoBtn = document.querySelector(".add-todo-btn__absolute");
 
-    // if (window.innerWidth <=)
     addPrjBtn.classList.toggle("hidden");
     addTodoBtn.classList.toggle("hidden");
   };
@@ -535,7 +515,6 @@ export class UIController {
   todoModalCallback(todoId, todoName) {
     if (UIController.GENERAL_LIST.includes(UIController.CURRENT_PROJECT_ID)) {
       const projectId = document.querySelector("#todo-select-projectId").value;
-      console.log(projectId);
       const newTodo = new Todo(todoName, projectId);
 
       let generalTodosArr;
@@ -589,10 +568,6 @@ export class UIController {
         this.TodoController.getUncompletedTodosWithProjectId(projectId);
       // TODO: here?
 
-      // const completedTodoArr =
-      //   this.TodoController.getCompletedTodosWithProjectId(projectIdif
-      // console.log(completedTodoArr);
-
       this.TodoComponent.renderComponent(newTodoArr);
     } else {
       // FIXME: this is legacy code, todoname edit is a removed feature
@@ -604,19 +579,7 @@ export class UIController {
         this.TodoController.getUncompletedTodosWithProjectId(projectId);
       // TODO: here?
 
-      // const completedTodoArr =
-      //   this.TodoController.getCompletedTodosWithProjectId(projectId);
-      // console.log(completedTodoArr);
       this.TodoComponent.renderComponent(newTodoArr);
     }
   }
-
-  // setCurrentHeader = (name) => {
-  //   console.log("in setCurrentHeader");
-  //   const todoHeaderElement = document.querySelector(".todo-header");
-  //   console.log("in setCurrentHeader:", todoHeaderElement, name);
-
-  //   todoHeaderElement.textContent = name;
-  //   console.log("in setCurrentHeader:", todoHeaderElement, name);
-  // };
 }

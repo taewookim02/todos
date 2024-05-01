@@ -74,8 +74,6 @@ export class Modal extends Component {
     } else {
       this.defaultProjectHandler(projectId, projectName);
     }
-
-    // console.log("handleSubmit called (Modal.js)");
   }
 
   handleCloseButtonClick(e) {
@@ -115,9 +113,5 @@ export class Modal extends Component {
     // focus input
     const inputEl = document.querySelector("#projectName");
     inputEl.focus;
-    // console.log(inputEl);
-
-    // const navElement = document.querySelector(".nav");
-    // navElement.appendChild(projectModal);
   }
 }

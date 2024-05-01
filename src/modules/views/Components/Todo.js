@@ -134,7 +134,6 @@ export class TodoComponent extends Component {
     todosArr.forEach((todo) => {
       const todoContainer = document.createElement("div");
       if (todo.priority === "urgent") {
-        // } else if (todo.priority === "")
         todoContainer.classList.add("todo-container__urgent");
       } else if (todo.priority === "medium") {
         todoContainer.classList.add("todo-container__medium");
@@ -178,10 +177,8 @@ export class TodoComponent extends Component {
       todoContainer.addEventListener("dragend", this.handleDragEnd);
       todoContainer.addEventListener("dragover", this.handleDragover);
       todoContainer.addEventListener("drop", this.handleDrop);
-      // todoContainer.addEventListener("drop", this.handleDrop);
 
       // append 1 todo to its container
-      // todosContainer.appendChild(todoContainer);
       todosWrapper.appendChild(todoContainer);
 
       todoContainer.addEventListener("click", (e) => {
@@ -197,7 +194,6 @@ export class TodoComponent extends Component {
 
   handleDragover = (e) => {
     e.preventDefault();
-    // console.log(e.target);
   };
 
   handleDragEnd = (e) => {
@@ -248,7 +244,6 @@ export class TodoComponent extends Component {
     todosWrapper.classList.add("todos-wrapper");
 
     todosArr.forEach((todo) => {
-      // console.log(todo);
       const todoContainer = document.createElement("div");
       todoContainer.classList.add("todo-container");
       if (todo.priority === "urgent") {
@@ -280,14 +275,11 @@ export class TodoComponent extends Component {
       textDiv.appendChild(todoName);
       textDiv.appendChild(projectName);
       if (todo.dueDate) {
-        console.log(todo.dueDate);
         const dueDate = parseISO(todo.dueDate);
         const formattedDueDate = format(dueDate, "MMM dd, yyyy");
 
         projectName.textContent = `${projectName.textContent} (${formattedDueDate})`;
       }
-
-      // TODO: add date
 
       // button close
       const todoCloseButton = new Button(
@@ -322,7 +314,6 @@ export class TodoComponent extends Component {
   }
   handleGeneralTodoCloseClick(todoId) {
     this.TodoController.removeTodoById(todoId);
-    console.log(UIController.CURRENT_PROJECT_ID);
 
     let todosArr;
     switch (UIController.CURRENT_PROJECT_ID) {
@@ -349,9 +340,7 @@ export class TodoComponent extends Component {
     navbarObj.renderComponent(projectsArr);
   }
 
-  handleGeneralTodoContainerClick(e) {
-    console.log(e);
-  }
+  handleGeneralTodoContainerClick(e) {}
 
   handleTodoElementClick(e) {
     if (e.target.type === "checkbox") {

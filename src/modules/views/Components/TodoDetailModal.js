@@ -89,7 +89,6 @@ export class TodoDetailModal extends Component {
       prio,
       isFinished
     );
-    // console.log(todoName, todoId, dueDate, description, prio);
     this.closeModal();
   }
 

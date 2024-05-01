@@ -35,8 +35,8 @@ export class AppController {
 
     ///////////////////////////////////////////
     // init new todo item
-    const dummyTodo1 = new Todo("Drink some coffee", mySampleProj.getId());
-    const dummyTodo2 = new Todo("Take a nap", mySampleProj.getId());
+    const dummyTodo1 = new Todo("Watch The Hobbit", mySampleProj.getId());
+    const dummyTodo2 = new Todo("Take a power nap", mySampleProj.getId());
     const dummyTodo3 = new Todo("Listen to some pop", mySampleProj.getId());
     const dummyTodo4 = new Todo(
       "Take the pup out for a walk",
