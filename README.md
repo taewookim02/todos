@@ -6,7 +6,7 @@
 
 Welcome to our JS Todo App (**whatTodo?**), a tool for managing tasks and projects with ease through a web interface.
 
-Live Preview: https://taewookim02.github.io/todos/
+Live Preview: https://taewookim02.github.io/whatTodo/
 
 ## Key Features
 
